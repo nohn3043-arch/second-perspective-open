@@ -17,6 +17,18 @@
 
 ```
 second-perspective-open/
+├── PRODUCTS/                   # 🏷️ 全部产品介绍文档门户（README/GLOSSARY/合规/规范）
+│   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
+│   ├── Anthropomorphic-Agent-Engine/   # 拟人心理引擎
+│   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
+│   ├── DMU/                            # 机器人运动平台
+│   ├── HuM/                            # 人形系统
+│   ├── nomos/                          # 二阶因果决策框架（95/100）
+│   ├── PAGES/                          # 官网门户
+│   ├── second-perspective/             # GCAE 全局认知审计引擎
+│   ├── second-reality/                 # 虚拟世界基座
+│   ├── SPL-G1/                         # 硬件因果审计 TCU
+│   └── Story-engine/                   # 长篇小说一致性引擎
 ├── SPEC/                       # 决策结构语言规范（公开标准）
 │   └── language-standard/
 │       ├── grammar.md / grammar-zh.md    # 语法规范（中英）
@@ -57,6 +69,10 @@ python VERIFY/verify.py           # 完整校验：预期 PASS 9 · FAIL 0 · WA
 - **政府 / 企业 / 机构**：必须事先取得书面付费授权
 
 商业授权联系：国际区 <ai@nohnlins.com> ｜ 中国区 <lin@secondai.top>
+
+## 产品介绍 / Product documentation
+
+各产品的 **介绍文档**（README、术语表 GLOSSARY、合规与一致性文档、协议规范）统一收录于 `PRODUCTS/` 目录，按产品分目录组织，便于检索与引用。每个产品目录仅含介绍性文档，不含实现源码。
 
 ## 相关仓库 / Related
 
