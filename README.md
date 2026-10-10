@@ -17,7 +17,7 @@
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ 全部产品介绍文档门户（README/GLOSSARY/合规/规范）
+├── PRODUCTS/                   # 🏷️ 全部产品文档门户（README/GLOSSARY/合规/公开规范 SPECIFICATION）
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
 │   ├── Anthropomorphic-Agent-Engine/   # 拟人心理引擎
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
@@ -72,7 +72,7 @@ python VERIFY/verify.py           # 完整校验：预期 PASS 9 · FAIL 0 · WA
 
 ## 产品介绍 / Product documentation
 
-各产品的 **介绍文档**（README、术语表 GLOSSARY、合规与一致性文档、协议规范）统一收录于 `PRODUCTS/` 目录，按产品分目录组织，便于检索与引用。每个产品目录仅含介绍性文档，不含实现源码。
+各产品的 **介绍文档**（README）、**术语表**（GLOSSARY）、**合规与一致性文档**、**协议规范**（如 Antares 的 GFSIP 协议规范）与 **公开规范**（每产品一份 `SPECIFICATION-zh.md`，含定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明）统一收录于 `PRODUCTS/` 目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)），按产品分目录组织，便于检索与引用。每个产品目录仅含介绍性与规范性文档，不含实现源码。
 
 ## 相关仓库 / Related
 
