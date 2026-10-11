@@ -209,7 +209,7 @@ They measure; they never adjudicate:
 
 | Meta-base | Realised as | Criterion |
 |---|---|---|
-| Hundun (混沌) | gap ledger `chaos_gaps` | "Chance" is not in chaos, **only in the observer's knowledge gap**. Calling an unresolved antecedent "luck" raises high risk |
+| Hundun (混沌) | gap ledger `trace_gap` | "Chance" is not in chaos, **only in the observer's knowledge gap**. Calling an unresolved antecedent "luck" raises high risk |
 | Wuji (无极) | parallel chains | Parallel (many roots) is legal; a fork (one pair, many edges) is not. The limit converges uniquely: S∞ = S* |
 | Xuhuan (虚幻) | **A6 narrative entropy** | masked chars / total chars — a rational, never a probability. The reality face (⇄GRF) is recorded alongside it |
 | Tiandao (天道) | **A10 audit entropy** | provenance entries per layer (discrete d(version)/dt). A **bounded** A10 is what lets evolution converge to S* |

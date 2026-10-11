@@ -132,7 +132,7 @@ STRATEGY_CTX = {
 #      SPE 1.2.1（2026-10）：证书 note 改为引用模块常量 SPE_VERSION（不再硬编码 "SPE 1.1"），
 #      证书 note 进入报告 → AUDIT 事件 report_hash → 链根随版本代际更替而变，
 #      S3 期望链根据此重算。金标更新须与 SPE_VERSION 升级同步，二者不得分开进行。
-STRATEGY_ROOT_EXPECTED = "b16ba1bed7bf385b52fd91e30e8b74d1792c2d802aab1fd919d2efba769d3b7f"
+STRATEGY_ROOT_EXPECTED = "cb1185c02a99bdf5c0b733238c43bc3f10056bd4298fdb5d46610f5fbb06f54d"
 
 
 def main():
