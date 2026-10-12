@@ -1,84 +1,110 @@
-# Second-Perspective Open — 可信计算公开层
+# Second-Perspective Open — Public Trust Layer for Trusted Computing
 
-> 规范、校验器与独立认证资产的公开仓库。
-> 本仓库是 NOHN AI「第二视角」可信计算体系的 **公开信任层**：任何人无需授权即可核验我们的工作产物 —— 但无法据此获得核心引擎实现。
+> Specifications, verifiers, and independent certification assets — in the open.
+> This repository is the **public trust layer** of the NOHN AI "Second-Perspective" trusted-computing stack: anyone may verify our deliverables without prior authorization — and cannot obtain the core engine implementation from it.
 
-## 本仓库是什么 / Why this repository exists
+<p align="center">
+  <a href="README-zh.md">简体中文</a> | English
+</p>
 
-可信计算的信任来自「**可被第三方离线验证**」，而不是「代码全公开」。
-本仓库遵循 TPM / Intel SGX / ARM TrustZone 的成熟路径：**规范公开 · 实现保密 · 认证兜底**。
+## What this repository is
 
-| 层级 | 内容 | 可见性 |
-|------|------|--------|
-| 公开层（本仓库） | 语言规范、校验器、论文、独立认证报告 | 🔓 公开 |
-| 实现层（其他仓库） | 引擎内核、LLM 适配器、硬件 RTL、产品实现 | 🔒 私有 / 授权交付 |
+Trust in trusted computing comes from **third-party offline verification**, not from publishing all source code.
+This repository follows the mature path already taken by TPM / Intel SGX / ARM TrustZone: **specs public · implementation private · certification as backstop**.
 
-## 目录结构
+| Layer | Content | Visibility |
+|-------|---------|-----------|
+| Public layer (this repository) | Language standard, verifiers, papers, independent certification reports | 🔓 Open |
+| Implementation layer (other repositories) | Engine core, LLM adapters, hardware RTL, product implementations | 🔒 Private / licensed delivery |
+
+## Directory structure
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ 全部产品文档门户（README/GLOSSARY/合规/公开规范 SPECIFICATION）
-│   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
-│   ├── Anthropomorphic-Agent-Engine/   # 拟人心理引擎
-│   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
-│   ├── DMU/                            # 机器人运动平台
-│   ├── HuM/                            # 人形系统
-│   ├── nomos/                          # 二阶因果决策框架（95/100）
-│   ├── PAGES/                          # 官网门户
-│   ├── second-perspective/             # GCAE 全局认知审计引擎
-│   ├── second-reality/                 # 虚拟世界基座
-│   ├── SPL-G1/                         # 硬件因果审计 TCU
-│   └── Story-engine/                   # 长篇小说一致性引擎
-├── SPEC/                       # 决策结构语言规范（公开标准）
+├── PRODUCTS/                   # 🏷️ Portal for all product docs (README/GLOSSARY/compliance/public SPECIFICATION)
+│   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
+│   ├── Anthropomorphic-Agent-Engine/   # Anthropomorphic psychology engine
+│   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
+│   ├── DMU/                            # Robot motion platform
+│   ├── HuM/                            # Humanoid system
+│   ├── nomos/                          # Second-order causal decision framework (95/100)
+│   ├── PAGES/                          # Official web portal
+│   ├── second-perspective/             # GCAE global cognitive audit engine (the engine)
+│   ├── second-reality/                 # Virtual-world substrate
+│   ├── SPL-G1/                         # Hardware causal-audit TCU
+│   └── Story-engine/                   # Long-form narrative consistency engine
+├── SPEC/                       # Decision-structure language standard (public)
 │   └── language-standard/
-│       ├── grammar.md / grammar-zh.md    # 语法规范（中英）
-│       ├── decision.ebnf                 # 决策结构文法（EBNF）
-│       ├── topology.ebnf                 # 拓扑结构文法（EBNF）
-│       ├── dsl.py                        # 参考解释器（规范的可执行定义）
-│       └── examples/                     # 合法/非法示例（19 条诊断码演示）
-├── VERIFY/                     # 独立校验器与证据链
-│   ├── verify.py                        # 零依赖离线校验器（python3，纯标准库）
-│   ├── verify_convergence_fix.py        # 收敛验证辅助
-│   ├── verify-output.log                # Zenodo 快照时的完整验证输出
-│   └── VERIFICATION_GUIDE.md            # 第三方验证指南
-├── PAPERS/                     # 论文与白皮书（可复现引用）
+│       ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
+│       ├── decision.ebnf                 # Decision-structure grammar (EBNF)
+│       ├── topology.ebnf                 # Topology-structure grammar (EBNF)
+│       ├── dsl.py                        # Reference interpreter (executable definition of the standard)
+│       └── examples/                     # Valid / invalid samples (19 diagnostic-code demos)
+├── VERIFY/                     # Verifiers and the evidence chain — TWO products, see §How to verify
+│   ├── verify.py                        # ✅ Second-Perspective Engine verifier — zero-dependency, offline (python3, stdlib only)
+│   ├── verify_convergence_fix.py        # ✅ Second-Perspective Engine — convergence-logic regression (S1–S6)
+│   ├── verify-output.log                # ✅ Second-Perspective Engine — full output of the v1.0 snapshot (Zenodo)
+│   └── VERIFICATION_GUIDE.md            # ❌ NOMOS third-party verification guide — a different product, NOT the engine's verifier
+├── PAPERS/                     # Papers and white papers (reproducible citation)
 │   └── paper.pdf / paper.md
-└── CERTIFICATIONS/             # 独立认证与合规
-    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # 新加坡 IMDA AI Verify：95/100
-    └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / 上海合规
+└── CERTIFICATIONS/             # Independent certification and compliance
+    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # Singapore IMDA AI Verify: 95/100
+    └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance
 ```
 
-## 如何核验 / How to verify (third-party, offline)
+## How to verify (third-party, offline)
+
+`VERIFY/` holds **two unrelated verification assets belonging to two different products.** Always confirm which one you are working from.
+
+### A. Second-Perspective Engine (GCAE) — ✅ this is the engine's own verifier
+
+`VERIFY/verify.py` **is the independent verification suite of the Second-Perspective Engine** (shipped publicly as GCAE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
+
+| File | Role |
+|------|------|
+| `VERIFY/verify.py` | Zero-dependency, offline, pure-stdlib verifier. **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b |
+| `VERIFY/verify_convergence_fix.py` | Convergence-logic regression (S1–S6) against the same engine |
+| `VERIFY/verify-output.log` | Full output of the v1.0 snapshot, archived for the Zenodo deposit |
 
 ```bash
-# 0 依赖，仅需 Python 3 标准库（在已获授权的引擎部署环境中运行）
-python VERIFY/verify.py --root    # 打印链根，与下方固定值比对
-python VERIFY/verify.py           # 完整校验：预期 PASS 9 · FAIL 0 · WARN 2
+# 0 dependencies, Python 3 standard library only (run inside an authorized engine deployment)
+python VERIFY/verify.py --root    # print the chain root, compare with the fixed value below
+python VERIFY/verify.py           # full suite: the script prints its own PASS / FAIL / WARN totals
 ```
 
-**运行边界 / Runtime note**：`VERIFY/verify.py` 是**公开可审计的校验器**，其校验逻辑完全可见、零依赖、可离线运行；完整运行需加载引擎内核（私有实现，纳入授权交付物）。本仓库附带的 `verify-output.log` 为 v1.0 快照时刻的完整输出，可独立核对链根与 PASS/FAIL 计数。
+**On the counts — read this before quoting a number.** The suite prints its own totals at the end of every run, and **those totals, not any frozen figure, are authoritative**. The **v1.0 snapshot baseline is `PASS 9 · FAIL 0 · WARN 2` over 11 checks**; the two WARNs are pre-registered disclosures (V3b, V9), not failures. The suite has since been extended to 19 checks, so any count taken from the baseline must be labelled a **v1.0 snapshot value**. The shipped `verify-output.log` records that snapshot and lets you cross-check the chain root and the PASS / FAIL counts independently.
 
-固定链根（v1.0 快照）：
+**Runtime note.** `VERIFY/verify.py` is a **publicly auditable verifier**: its logic is fully visible, zero-dependency and offline-runnable. A complete run loads the engine core — a private implementation, included in the licensed delivery.
+
+Fixed chain root (v1.0 snapshot):
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
 
-## 许可证 / License
+### B. NOMOS Intelligent Decision Hub — ❌ a separate product, NOT the engine's verifier
 
-本仓库作品按《软件授权协议》（LICENSE）分级授权：
+`VERIFY/VERIFICATION_GUIDE.md` is the third-party verification guide for **NOMOS** (the `Intelligent-Decision-Hub--Nomos` branch, v0.5.0, 2026-10-08). NOMOS is a **different product** from the Second-Perspective Engine, and this guide does **not** verify the engine.
 
-- **个人非商业研究**：免费（可下载、复制、运行、修改、学术引用，需注明出处）
-- **政府 / 企业 / 机构**：必须事先取得书面付费授权
+- Method: `pytest` release evidence (baseline: 507 tests, 91% coverage) plus one replayable evaluation run.
+- Its own chain root: `adacff1bd647b7691cf153b5800185b1afbb449de779bebc2847ac1988090a68`.
+- Use it only when you are evaluating NOMOS. To evaluate the Second-Perspective Engine, use §A.
 
-商业授权联系：国际区 <ai@nohnlins.com> ｜ 中国区 <lin@secondai.top>
+## License
 
-## 产品介绍 / Product documentation
+Works in this repository are licensed in tiers under the Software License Agreement (`LICENSE`):
 
-各产品的 **介绍文档**（README）、**术语表**（GLOSSARY）、**合规与一致性文档**、**协议规范**（如 Antares 的 GFSIP 协议规范）与 **公开规范**（每产品一份 `SPECIFICATION-zh.md`，含定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明）统一收录于 `PRODUCTS/` 目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)），按产品分目录组织，便于检索与引用。每个产品目录仅含介绍性与规范性文档，不含实现源码。
+- **Individual non-commercial research**: free (download, copy, run, modify, academic citation — with attribution)
+- **Government / enterprise / institution**: prior written paid license required
 
-## 相关仓库 / Related
+Commercial licensing — International: <ai@nohnlins.com> ｜ China: <lin@secondai.top>
 
-- 论文与元数据：Zenodo（DOI 见论文）
-- 核心实现：私有仓库 / 线下授权交付
-- 官网门户：https://www.nohnlins.com
+## Product documentation
+
+Each product's **introduction** (README), **glossary** (GLOSSARY), **compliance and conformance** documents, **protocol specifications** (such as the Antares GFSIP protocol spec) and **public specification** (one `SPECIFICATION-zh.md` per product, covering positioning and boundaries, interfaces / protocols / formats, audit and compliance, and conformance statements) are collected under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)), organised by product for easy retrieval and citation. Each product directory holds introductory and normative documents only — no implementation source.
+
+## Related
+
+- Papers and metadata: Zenodo (see the DOI in the paper)
+- Core implementation: private repositories / offline licensed delivery
+- Web portal: https://www.nohnlins.com
 
 ---
-© 2026 上海霖铭均华科技有限公司 与 NOHN AI TECHNOLOGY PTE. LTD. 保留一切权利。
+© 2026 Shanghai Linming Junhua Technology Co., Ltd. and NOHN AI TECHNOLOGY PTE. LTD. All rights reserved.
