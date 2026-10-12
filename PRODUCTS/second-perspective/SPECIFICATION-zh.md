@@ -4,6 +4,7 @@
 > **编制依据**：README-zh / ARCHITECTURE / TESTING-zh / GLOSSARY / 语言标准 2026.1–2026.3
 >
 > 本规范描述 **GCAE 全局认知审计引擎** 的公开规范面：十算子流水线、决策结构语言、状态与信号、不变式与收敛语义。引擎内核为单文件实现（6496 行，无 `plugins/` 包），核心逻辑属保密交付物。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 

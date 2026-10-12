@@ -4,6 +4,7 @@
 > **编制依据**：README.md
 >
 > 本规范描述 **NOHN AI 技术生态官方落地页** 的公开规范面：站点架构、视觉语言、部署与导航约定。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 

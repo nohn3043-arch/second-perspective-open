@@ -4,6 +4,7 @@
 > **编制依据**：README-zh / GLOSSARY / `system/protocol.py`（JSON-Schema）/ 真实基线标准 V3.0 / 身份标准 V2.2 / 原始框架规范
 >
 > 本规范描述 **虚拟世界与元宇宙基础设施基座** 的公开规范面："宪法—法律—桥"三级栈、真实性基准、账户分层、共识与审计语义。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 

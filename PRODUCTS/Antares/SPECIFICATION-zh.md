@@ -4,6 +4,7 @@
 > **编制依据**：`GFSIP_v1.0_protocol_spec.md`（33 节，全文权威）、CONFORMANCE-zh、README-zh / GLOSSARY
 >
 > 本文件是 **GFSIP（Global Federated Stable Interoperability Protocol，全局联邦稳定互操作协议）v1.0** 的规范索引与一致性声明入口。**规范正文以 `GFSIP_v1.0_protocol_spec.md` 为准**；机器可读工件（JSON Schema/注册表/检查表）与规范正文冲突时，以规范正文为准。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 

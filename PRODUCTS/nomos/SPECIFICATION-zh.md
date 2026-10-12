@@ -4,6 +4,7 @@
 > **编制依据**：README-zh / GLOSSARY / CHANGELOG / IMDA_AI_Verify_Causal_Audit_Report
 >
 > 本规范描述 **NOMOS 二阶因果决策框架** —— 带 LLM 护栏的可审计确定性决策内核的公开规范面：REST 接口、二阶因果语义、不变量、人工闸门与哈希链报告。引擎从不输出最终结论——结论由人签署。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 

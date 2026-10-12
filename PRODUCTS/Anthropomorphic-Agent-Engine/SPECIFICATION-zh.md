@@ -4,6 +4,7 @@
 > **编制依据**：README-zh / GLOSSARY / `docs/agent-standard.md`（内感受向量契约 §4.1、§4.5）
 >
 > 本规范描述 **确定性拟人心理引擎** 的公开规范面：内感受向量契约、八维情绪流体、时钟与可复现性、未成年人保护变体。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 

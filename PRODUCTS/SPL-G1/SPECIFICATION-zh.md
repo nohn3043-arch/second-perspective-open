@@ -4,6 +4,7 @@
 > **编制依据**：`SPL-Core.json`（ISA v1.0.0-Commercial：SPL-TCU-G1）、`State_Anchor.pdl`、`Materica-specification`、README-zh、IMPROVEMENT_PLAN v5.1
 >
 > 本规范描述 SPL-G1 **硬件因果审计可信计算单元（TCU）** 的公开规范面：指令集、数据结构、仲裁协议、审计语义与熔断行为。核心引擎 RTL 与工艺库实现属保密交付物，不在本规范范围内公开。
+> 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
 
 ## 1. 范围与定位
 
