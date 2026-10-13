@@ -87,7 +87,7 @@ Fixed chain root (v1.0 snapshot):
 python second-perspective-verify/evidence/recompute.py --tamper
 ```
 
-This is the one place in this repository where "verify without trusting the vendor" is executable by an outside reader today. It confirms the frozen chain is intact and reproducible; it does not bind the chain to the original input — see the disclosed limitation V3b in that folder's README.
+This is the one place in this repository where "verify without trusting the vendor" is executable by an outside reader today. It runs six checks that bind the published input, the published report view and the frozen chain to each other and to the published root — input digest → report hash → chain root — and demonstrates that an edit to any of the three is detected.
 
 ### B. NOMOS Intelligent Decision Hub — ❌ a separate product, in `nomos-verify/`, NOT the engine's verifier
 

@@ -42,7 +42,7 @@ python verify.py --json     # machine-readable (CI-friendly)
 python verify.py --root     # print only the chain root (single line), for cross-machine comparison
 ```
 
-Expected result: **PASS 18 · FAIL 0 · WARN 1**, exit code 0 ("all hard checks passed").
+Expected result: **PASS 19 · FAIL 0 · WARN 0**, exit code 0 ("all hard checks passed").
 
 ```bash
 python verify.py --root

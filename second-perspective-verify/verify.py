@@ -187,27 +187,41 @@ def check_v3_sensitivity():
 def check_v3b_input_coverage():
     """V3b 证书覆盖范围: 链根是否绑定「原始输入」而非仅「审计报告」。
 
-    当前实现只哈希派生报告，未哈希 decision_context 原文。
-    这既可解读为隐私设计（敏感决策数据不落库），也意味着
-    「这份证书对应的是这一份输入」无法被独立验证。属需明示的范围限制。
+    判据：把 decision_context 中**不被任何算子观测**的两个字段（conclusions /
+    alternatives）整体替换后，链根是否随之改变。
+      变化   -> 证书同时覆盖输入与输出（input_digest 进报告 -> 进 report_hash -> 进链根）
+      不变化 -> 只覆盖派生报告，须对外明示为范围限制
+    链上只存输入摘要、不存原文，隐私设计不变。
     """
     try:
+        # 探针必须落在「不被任何算子观测」的字段上。若改用 conclusions / alternatives
+        # 之类被观测的字段，链根会因为算子结果变化而变，测到的是观测敏感度，不是输入绑定。
         ctx = dict(BASE_CTX)
-        ctx["conclusions"] = "Recommend S2 (完全不同的一句话)"
-        ctx["alternatives"] = {"S1": {"metrics": {"roi": 0.99}}}
-        same = root_of(ctx) == root_of(BASE_CTX)
-        detail = [
-            "输入大幅改动（conclusions 与 alternatives 全部替换，但两者均不被任何算子观测）后：",
-            f"  链根是否仍相同 = {same}",
-            "",
-            "解读 A（隐私设计）: 报告只存派生结论，敏感决策数据不落库 —— 合规友好。",
-            "解读 B（验证缺口）: 证书无法独立证明「审计的正是这一份输入」。",
-            "",
-            "修法（若需可验证）: 在 audit() 中把 decision_context 的规范化摘要",
-            "并入报告并参与 report_hash，使证书同时覆盖输入与输出。",
-            "对外表述建议: 主动声明证书覆盖范围，不要让对方默认它覆盖输入。",
-        ]
-        record("V3b", "证书是否绑定原始输入", False, "\n".join(detail), "WARN")
+        ctx["an_unobserved_note"] = "x"
+        changed = root_of(ctx) != root_of(BASE_CTX)
+        if changed:
+            detail = [
+                "探针：向输入加入一个不被任何算子观测的字段（an_unobserved_note）后：",
+                "  链根是否仍相同 = False  -> 证书覆盖输入",
+                "",
+                "绑定路径: decision_context 摘要 -> analysis.ACC.certificate.input_digest",
+                "          -> 报告 -> _credential_view -> report_hash -> 链事件 payload -> 链根。",
+                "链上只存摘要、不存原文：隐私设计不变，敏感决策数据依然不落库。",
+            ]
+            record("V3b", "证书是否绑定原始输入", True, "\n".join(detail), "PASS")
+        else:
+            detail = [
+                "探针：向输入加入一个不被任何算子观测的字段（an_unobserved_note）后：",
+                "  链根是否仍相同 = True",
+                "",
+                "解读 A（隐私设计）: 报告只存派生结论，敏感决策数据不落库 —— 合规友好。",
+                "解读 B（验证缺口）: 证书无法独立证明「审计的正是这一份输入」。",
+                "",
+                "修法: 在 audit() 中把 decision_context 的规范化摘要并入报告并参与",
+                "report_hash，使证书同时覆盖输入与输出。",
+                "对外表述建议: 主动声明证书覆盖范围，不要让对方默认它覆盖输入。",
+            ]
+            record("V3b", "证书是否绑定原始输入", False, "\n".join(detail), "WARN")
     except Exception as e:
         record("V3b", "证书是否绑定原始输入", False, f"异常: {e}", "WARN")
 

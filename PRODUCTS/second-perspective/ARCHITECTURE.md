@@ -211,11 +211,11 @@ python verify.py --root     # 只打印链根，供跨机比对
 
 退出码 0 = 无 FAIL；1 = 存在 FAIL。脚本如实报告 PASS/FAIL/WARN，**不为好看而放宽断言**。
 
-### 已知 WARN（不是缺陷，是范围声明）
+### 先前的范围声明（已解决）
 
 | 项 | 内容 |
 |---|---|
-| **V3b** | 证书不绑定原始输入。链根哈希的是「审计报告」而非「decision_context 原文」。既可解读为隐私设计（敏感决策数据不落库），也意味着「这份证书对应的是这一份输入」无法被独立验证。**对外表述时须主动声明覆盖范围，不要让对方默认它覆盖输入。** |
+| **V3b**（已解决） | 曾记为「证书不绑定原始输入」。实际上 SPE 1.1.0 起引擎已在 `_generate_certificate()` 计算 `input_digest`（`decision_context` 的 canonical JSON 摘要，剔除 `_` 前缀键），写入 `analysis.ACC.certificate`，经 `report_hash` 进链根；`verify.py` 的 V3b 检查此前是硬编码 WARN，现改为按实测判定，已 PASS。可验证性见 `second-perspective-verify/evidence/`。 |
 
 ### 待补验证（尚未实施）
 

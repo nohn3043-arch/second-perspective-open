@@ -42,7 +42,7 @@ python verify.py --json     # 机器可读（可接 CI）
 python verify.py --root     # 只打印链根（单行），供跨机比对
 ```
 
-预期结果：**PASS 18 · FAIL 0 · WARN 1**，退出码 0（"全部硬性检查通过"）。
+预期结果：**PASS 19 · FAIL 0 · WARN 0**，退出码 0（"全部硬性检查通过"）。
 
 ```bash
 python verify.py --root

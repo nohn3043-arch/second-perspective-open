@@ -87,7 +87,7 @@ python second-perspective-verify/verify.py           # 完整校验：脚本自�
 python second-perspective-verify/evidence/recompute.py --tamper
 ```
 
-这是本仓库中唯一一处，外部读者今天就能执行「不必信任供应商」这句话的地方。它确认冻结的链未被改动且可复现；它不把链绑定到原始输入 —— 见该目录 README 中的已披露限制 V3b。
+这是本仓库中唯一一处，外部读者今天就能执行「不必信任供应商」这句话的地方。它跑六项检查，把公开的输入、公开的报告视图与冻结的链相互绑定、并绑定到公开的链根 —— 输入摘要 → 报告哈希 → 链根 —— 并演示三者任一被改动都会被检出。
 
 ### B. NOMOS 智能决策中枢 —— ❌ 另一个产品，位于 `nomos-verify/`，不是本引擎的 verify
 

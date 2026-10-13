@@ -1,16 +1,24 @@
 {
   "chain_root_hash": "5b0ad8d15c6dfc326758335cd8d58d01ec223abe2f045c5cd93c4a90a21d8ffd",
-  "chain_start_sentinel": "ROOT",
-  "documented_expectation": "TESTING.md documents `python verify.py --root` as printing exactly this value (SPE_VERSION 1.2.2 generation), byte-for-byte, for cross-machine comparison.",
-  "engine": "Second Perspective Engine",
+  "definitions": {
+    "binding_path": "decision_input.json -> input_digest (inside the report view) -> report_hash -> chain event payload -> chain root",
+    "chain_start_sentinel": "ROOT",
+    "credential_view": "the report with llm_calls, narrative_hash and analysis.llm_narrative removed",
+    "event_hash_recipe": "sha256(json.dumps({event_type, payload, prev_hash, timestamp, nonce}, sort_keys=True, ensure_ascii=False, default=str).encode('utf-8')).hexdigest()",
+    "input_canonical_form": "keys sorted, compact separators (',' ':'), '_'-prefixed internal keys removed",
+    "input_digest_recipe": "sha256(canonical_input.encode('utf-8')).hexdigest()  — computed by the engine's _generate_certificate and carried at analysis.ACC.certificate.input_digest",
+    "report_hash_recipe": "sha256(json.dumps(credential_view, sort_keys=True, ensure_ascii=False, default=str).encode('utf-8')).hexdigest()[:16]",
+    "root_definition": "sealed_hash of the last event; an empty chain yields the sentinel ROOT"
+  },
   "event_count": 1,
+  "files": {
+    "audit_chain.jsonl": "the frozen chain, one event per line",
+    "decision_input.json": "canonical input; sha256 of these bytes == input_digest. No trailing newline.",
+    "report_credential_view.json": "canonical credential view; sha256 of these bytes, first 16 hex == report_hash"
+  },
   "frozen_account_nonce": "deadbeef",
   "frozen_clock": 1700000000.0,
-  "hash_recipe": "sha256(json.dumps({event_type, payload, prev_hash, timestamp, nonce}, sort_keys=True, ensure_ascii=False, default=str).encode('utf-8')).hexdigest()",
-  "root_definition": "sealed_hash of the last event; an empty chain yields the sentinel ROOT",
-  "verify_chain": {
-    "last_valid_idx": 0,
-    "total": 1,
-    "valid": true
-  }
+  "input_digest": "239557acd02723e4a43c6d7e33d195ea5d829bd466666b62bce245e7bf82ac92",
+  "input_digest_location": "report_credential_view.json → analysis.ACC.certificate.input_digest",
+  "report_hash": "b3adf8f636646370"
 }
