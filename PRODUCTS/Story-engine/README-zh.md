@@ -120,6 +120,8 @@ STORY-ENGINE 由两款独立产品组成，各自面向不同用户群体：
 
 ```bash
 # 主仓库：GitHub
+# 实现仓库属授权交付物，clone 权限在授权协议下授予。
+# 公开规范：https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Story-engine
 git clone https://github.com/nohn3043-arch/story-engine.git
 # 镜像：Gitee
 # git clone https://gitee.com/sjiun/Story-engine.git
@@ -235,14 +237,14 @@ STORY-ENGINE 是 NOHN AI 生态的一员 —— 一个围绕第二视角因果�
 
 | 项目 | 仓库 | 定位 |
 |---|---|---|
-| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective](https://github.com/nohn3043-arch/second-perspective) | 全局认知审计引擎 —— 五算子因果审计内核（IMDA 95/100） |
-| **NOMOS** | [nohn3043-arch/second-perspective](https://github.com/nohn3043-arch/second-perspective)（`Intelligent-Decision-Hub--Nomos` 分支） | 可审计的确定性决策中枢（IMDA 95/100） |
-| **SPL-G1** | [nohn3043-arch/SPL-G1](https://github.com/nohn3043-arch/SPL-G1) | 硬件因果审计可信计算单元（TCU） |
+| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | 全局认知审计引擎 —— 五算子因果审计内核（IMDA 95/100） |
+| **NOMOS** | [nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS) | 可审计的确定性决策中枢（IMDA 95/100） |
+| **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/SPL-G1) | 硬件因果审计可信计算单元（TCU） |
 | **SPL-Virtual-World-Base** | [nohn3043-arch/Second-Reality](https://github.com/nohn3043-arch/Second-Reality) | 虚拟世界与元宇宙基础设施（宪法 / 法律 / 桥） |
-| **Story-Engine** | [nohn3043-arch/story-engine](https://github.com/nohn3043-arch/story-engine) | Story Engine（创作者/大众）+ Document Review Engine（企业） |
+| **Story-Engine** | [SPEC/Story-engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Story-engine) | Story Engine（创作者/大众）+ Document Review Engine（企业） |
 | **Antares** | [nohn3043-arch/Antares](https://github.com/nohn3043-arch/Antares) | GFSIP v1.0 —— 带因果审计的联邦稳定互操作协议 |
-| **Anthropomorphic-Agent-Engine** | [nohn3043-arch/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/Anthropomorphic-Agent-Engine) | 确定性拟人心理引擎（SPL Pure Core V8.0） |
-| **PAGES** | [nohn3043-arch/pages](https://github.com/nohn3043-arch/pages) | NOHN AI 生态官方落地页 |
+| **Anthropomorphic-Agent-Engine** | [SPEC/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Anthropomorphic-Agent-Engine) | 确定性拟人心理引擎（SPL Pure Core V8.0） |
+| **PAGES** | [SPEC/PAGES](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/PAGES) | NOHN AI 生态官方落地页 |
 
 <p align="center">— ✦ —</p>
 

@@ -21,7 +21,7 @@ This repository follows the mature path already taken by TPM / Intel SGX / ARM T
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ Portal for all product docs (README/GLOSSARY/compliance/public SPECIFICATION)
+├── PRODUCTS/                   # 🏷️ Portal for all product docs (README / GLOSSARY / compliance / changelog)
 │   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
 │   ├── Anthropomorphic-Agent-Engine/   # Anthropomorphic psychology engine
 │   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
@@ -33,7 +33,7 @@ second-perspective-open/
 │   ├── second-reality/                 # Virtual-world substrate
 │   ├── SPL-G1/                         # Hardware causal-audit TCU
 │   └── Story-engine/                   # Long-form narrative consistency engine
-├── SPEC/                       # Decision-structure language standard (public)
+├── SPEC/                       # 📐 Public specification surface — one folder per product (index: SPEC/README.md)
 │   └── language-standard/
 │       ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
 │       ├── decision.ebnf                 # Decision-structure grammar (EBNF)
@@ -108,7 +108,7 @@ Commercial licensing — International: <ai@nohnlins.com> ｜ China: <lin@second
 
 ## Product documentation
 
-Each product's **introduction** (README), **glossary** (GLOSSARY), **compliance and conformance** documents, **protocol specifications** (such as the Antares GFSIP protocol spec) and **public specification** (one `SPECIFICATION-zh.md` per product, covering positioning and boundaries, interfaces / protocols / formats, audit and compliance, and conformance statements) are collected under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)), organised by product for easy retrieval and citation. Each product directory holds introductory and normative documents only — no implementation source.
+Product **introductions** (README), **glossaries** (GLOSSARY), **changelogs** and **architecture / test notes** are collected under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)). Each product's **public specification surface** — positioning and boundaries, interfaces / protocols / formats, audit and compliance, conformance statements — lives under `SPEC/`, one folder per product, so a reader can tell at a glance which specification belongs to which project (index: [SPEC/README.md](./SPEC/README.md)). The decision-structure language standard is the one specification whose reference interpreter ships in the open (`SPEC/language-standard/dsl.py`). No directory in this repository contains implementation source.
 
 ## Related
 

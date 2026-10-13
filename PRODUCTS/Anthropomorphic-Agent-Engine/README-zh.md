@@ -18,7 +18,9 @@
 
 <div style="max-width:880px;margin:0 auto;padding:0 16px">
 
-## ✦ 关于
+## ✦ 关于
+
+> **链接说明。** 下文中的相对链接指向实现仓库内的路径，该仓库属授权交付物、不在本仓库中，故在此不可达。本产品的公开规范见 [`SPEC/`](../../SPEC/)。
 
 <p style="font-size:15px;line-height:1.8;color:#2C2C2C">ANTHROPOMORPHIC-AGENT-ENGINE 是一个构建于 SPL Pure Core V8.0 之上的拟人心理引擎。它将情绪、心境、记忆、创伤、信任、自尊、睡眠与预期建模为单一内核（<code>SPL-anthropic-engine.py</code>）内的确定性连续状态子系统，赋予 AI 智能体类人的内部状态，并使其在长期交互中保持自洽、可逐比特回放。<code>feature-guide/</code> 下的扩展模块仅为参考指导，<strong>未接入内核</strong> —— 详见下文 <strong>扩展模块</strong>。</p>
 
@@ -98,6 +100,8 @@ flowchart TB
 
 ```bash
 # 主仓库：GitHub
+# 实现仓库属授权交付物，clone 权限在授权协议下授予。
+# 公开规范：https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Anthropomorphic-Agent-Engine
 git clone https://github.com/nohn3043-arch/Anthropomorphic-Agent-Engine.git
 # 镜像：Gitee（组织 nohn-ecosystem）
 # git clone https://gitee.com/nohn-ecosystem/Anthropomorphic-Agent-Engine.git
@@ -331,16 +335,16 @@ python "SPL-anthropic-minor-server.py"     # 默认 http://localhost:8788
 
 ANTHROPOMORPHIC-AGENT-ENGINE 是 NOHN AI 生态的一员 —— 一个围绕第二视角因果审计与确定性执行构建的项目家族：
 
-| 项目 | 仓库 | 角色 |
+| 项目 | 去哪看 | 角色 |
 |---|---|---|
-| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective](https://github.com/nohn3043-arch/second-perspective) | 全局认知审计引擎 —— 五算子因果审计内核 |
-| **NOMOS** | [nohn3043-arch/second-perspective](https://github.com/nohn3043-arch/second-perspective)（`Intelligent-Decision-Hub--Nomos` 分支） | 可审计的确定性决策中枢 |
-| **SPL-G1** | [nohn3043-arch/SPL-G1](https://github.com/nohn3043-arch/SPL-G1) | 硬件因果审计可信计算单元（TCU） |
+| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | 全局认知审计引擎 —— 五算子因果审计内核 |
+| **NOMOS** | [nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS) | 可审计的确定性决策中枢 |
+| **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/SPL-G1) | 硬件因果审计可信计算单元（TCU） |
 | **SPL-Virtual-World-Base** | [nohn3043-arch/Second-Reality](https://github.com/nohn3043-arch/Second-Reality) | 虚拟世界与元宇宙基础设施（宪法 / 法律 / 桥） |
-| **Story-Engine** | [nohn3043-arch/story-engine](https://github.com/nohn3043-arch/story-engine) | 长篇叙事一致性引擎 |
+| **Story-Engine** | [SPEC/Story-engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Story-engine) | 长篇叙事一致性引擎 |
 | **Antares** | [nohn3043-arch/Antares](https://github.com/nohn3043-arch/Antares) | GFSIP v1.0 —— 带因果审计的联邦稳定互操作协议 |
-| **Anthropomorphic-Agent-Engine** | [nohn3043-arch/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/Anthropomorphic-Agent-Engine) | 确定性拟人心理引擎（SPL Pure Core V8.0） |
-| **PAGES** | [nohn3043-arch/pages](https://github.com/nohn3043-arch/pages) | NOHN AI 生态官方落地页 |
+| **Anthropomorphic-Agent-Engine** | [SPEC/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Anthropomorphic-Agent-Engine) | 确定性拟人心理引擎（SPL Pure Core V8.0） |
+| **PAGES** | [SPEC/PAGES](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/PAGES) | NOHN AI 生态官方落地页 |
 
 <p align="center">— ✦ —</p>
 

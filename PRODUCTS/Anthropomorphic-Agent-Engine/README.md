@@ -18,7 +18,9 @@
 
 <div style="max-width:880px;margin:0 auto;padding:0 16px">
 
-## ✦ About
+## ✦ About
+
+> **Note on links.** Relative links below point into the implementation repository, which is a licensed deliverable and is not part of this repository. They do not resolve here. This product's public specification is under [`SPEC/`](../../SPEC/).
 
 <p style="font-size:15px;line-height:1.8;color:#2C2C2C">ANTHROPOMORPHIC-AGENT-ENGINE is an anthropomorphic psychology engine built on SPL Pure Core V8.0. It models emotion, mood, memory, trauma, trust, self-esteem, sleep and expectation as deterministic, continuous-state subsystems inside a single core (<code>SPL-anthropic-engine.py</code>), giving AI agents human-like internal states that stay self-consistent and bit-exactly replayable over long-term interactions. The extension modules under <code>feature-guide/</code> are reference guidance only and are <strong>not wired into the core</strong> — see <strong>Extension Modules</strong> below.</p>
 
@@ -98,6 +100,8 @@ flowchart TB
 
 ```bash
 # Primary: GitHub
+# Implementation repository — a licensed deliverable; clone access is granted under
+# the licence agreement. Public specification: https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Anthropomorphic-Agent-Engine
 git clone https://github.com/nohn3043-arch/Anthropomorphic-Agent-Engine.git
 # Mirror: Gitee
 # git clone https://gitee.com/nohn-ecosystem/Anthropomorphic-Agent-Engine.git
@@ -331,16 +335,16 @@ Main API endpoints:
 
 ANTHROPOMORPHIC-AGENT-ENGINE is a member of the NOHN AI ecosystem — a family of projects built around second-perspective causal auditing and deterministic execution:
 
-| Project | Repository | Role |
+| Project | Where to look | Role |
 |---|---|---|
-| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective](https://github.com/nohn3043-arch/second-perspective) | Global cognitive audit engine — five-operator causal audit core |
-| **NOMOS** | [nohn3043-arch/second-perspective](https://github.com/nohn3043-arch/second-perspective) (`Intelligent-Decision-Hub--Nomos` branch) | Auditable deterministic decision center |
-| **SPL-G1** | [nohn3043-arch/SPL-G1](https://github.com/nohn3043-arch/SPL-G1) | Hardware causal audit trusted computing unit (TCU) |
+| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | Global cognitive audit engine — five-operator causal audit core |
+| **NOMOS** | [nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS) | Auditable deterministic decision center |
+| **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/SPL-G1) | Hardware causal audit trusted computing unit (TCU) |
 | **SPL-Virtual-World-Base** | [nohn3043-arch/Second-Reality](https://github.com/nohn3043-arch/Second-Reality) | Virtual world and metaverse infrastructure (constitution / laws / bridges) |
-| **Story-Engine** | [nohn3043-arch/story-engine](https://github.com/nohn3043-arch/story-engine) | Long-form narrative consistency engine |
+| **Story-Engine** | [SPEC/Story-engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Story-engine) | Long-form narrative consistency engine |
 | **Antares** | [nohn3043-arch/Antares](https://github.com/nohn3043-arch/Antares) | GFSIP v1.0 — causally auditable federated stable interop protocol |
-| **Anthropomorphic-Agent-Engine** | [nohn3043-arch/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/Anthropomorphic-Agent-Engine) | Deterministic anthropomorphic psychology engine (SPL Pure Core V8.0) |
-| **PAGES** | [nohn3043-arch/pages](https://github.com/nohn3043-arch/pages) | NOHN AI ecosystem official landing page |
+| **Anthropomorphic-Agent-Engine** | [SPEC/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Anthropomorphic-Agent-Engine) | Deterministic anthropomorphic psychology engine (SPL Pure Core V8.0) |
+| **PAGES** | [SPEC/PAGES](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/PAGES) | NOHN AI ecosystem official landing page |
 
 <p align="center">— ✦ —</p>
 

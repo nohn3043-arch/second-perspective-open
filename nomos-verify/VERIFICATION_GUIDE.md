@@ -6,7 +6,13 @@
 > **Purpose:** independently verify each claim NOMOS makes about itself — locally, with your own data, without trusting the vendor.
 > **This is not** a certification, an audit opinion, or a warranty. See **§6 Scope Guards** for the boundaries.
 
-Baseline of this guide: `Intelligent-Decision-Hub--Nomos`, v0.5.0, 2026-10-08.
+Baseline of this guide: NOMOS (`nohn3043-arch/NOMOS`), v0.5.0, 2026-10-08.
+
+> **Scope note — does this guide run here? No.** This guide verifies **NOMOS**, whose source
+> tree (`tests/`, `pyproject.toml`, `examples/`, `scripts/`) is a licensed deliverable and is
+> **not** in `second-perspective-open`. It is published here for reference and citation only,
+> and its commands will fail from this repository. The engine-free, runnable verification here
+> is [`../second-perspective-verify/evidence/`](../second-perspective-verify/evidence/).
 Numbers below are the expected baseline of that commit; on a later branch the counts may move — the **pass criteria**, not the counts, are authoritative.
 
 ---
@@ -210,7 +216,12 @@ Commercial/government use requires a paid license — see [LICENSE](../LICENSE);
 > **目的：** 让第三方在不信任厂商的前提下，在本地、用你自己的数据，逐条独立验证 NOMOS 对自身的每一项宣称。
 > **这不是** 认证、审计意见或担保 —— 边界见 **§6 范围护栏**。
 
-本指南基线：`Intelligent-Decision-Hub--Nomos` 分支，v0.5.0，2026-10-08。
+本指南基线：NOMOS 仓库（`nohn3043-arch/NOMOS`），v0.5.0，2026-10-08。
+
+> **范围说明 —— 本指南能在这里跑吗？不能。** 本指南验证的是 **NOMOS**，其源码树（`tests/`、
+> `pyproject.toml`、`examples/`、`scripts/`）属授权交付物，**不在** `second-perspective-open` 中。
+> 此处仅作参考与引用，其命令在本仓库会失败。本仓库中可实际运行的免引擎验证见
+> [`../second-perspective-verify/evidence/`](../second-perspective-verify/evidence/)。
 下文数值为该提交的预期基线；分支前进后计数可能变动 —— 以**通过标准**为准，而非计数。
 
 ---
