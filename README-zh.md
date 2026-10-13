@@ -23,23 +23,16 @@
 second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ 一产品一目录：介绍与说明在根，公开规范在 spec/
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
-│   ├── Anthropomorphic-Agent-Engine/   # 拟人心理引擎
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
-│   ├── DMU/                            # 机器人运动平台
-│   ├── HuM/                            # 人形系统
-│   ├── nomos/                          # 二阶因果决策框架（95/100）
-│   ├── PAGES/                          # 官网门户
 │   ├── second-perspective/             # GCAE 全局认知审计引擎（即本引擎）
-│   ├── second-reality/                 # 虚拟世界基座
-│   ├── SPL-G1/                         # 硬件因果审计 TCU
-│   └── Story-engine/                   # 长篇小说一致性引擎
+│   └── second-reality/                 # 虚拟世界基座
 ├── STANDARD/                   # 📐 决策结构语言规范（EBNF 文法 + 参照解释器）
-│   └── language-standard/
-│       ├── grammar.md / grammar-zh.md    # 语法规范（中英）
-│       ├── decision.ebnf                 # 决策结构文法（EBNF）
-│       ├── topology.ebnf                 # 拓扑结构文法（EBNF）
-│       ├── dsl.py                        # 参考解释器（规范的可执行定义）
-│       └── examples/                     # 合法/非法示例（19 条诊断码演示）
+│   ├── grammar.md / grammar-zh.md    # 语法规范（中英）
+│   ├── decision.ebnf                 # 决策结构文法（EBNF）
+│   ├── topology.ebnf                 # 拓扑结构文法（EBNF）
+│   ├── dsl.py                        # 参考解释器（规范的可执行定义）
+│   ├── 2026.md                       # 标准年度版本说明（2026）
+│   └── examples/                     # 合法/非法示例（4 份 .spd 样例）
 ├── second-perspective-verify/  # ✅ 第二视角引擎（GCAE）校验器 —— 见下 §A
 │   ├── verify.py                        # 零依赖离线（python3，纯标准库）
 │   ├── verify_convergence_fix.py        # 收敛逻辑回归（S1–S6）

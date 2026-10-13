@@ -23,23 +23,16 @@ This repository follows the mature path already taken by TPM / Intel SGX / ARM T
 second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ One folder per product: intro & notes at root, public spec in spec/
 │   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
-│   ├── Anthropomorphic-Agent-Engine/   # Anthropomorphic psychology engine
 │   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
-│   ├── DMU/                            # Robot motion platform
-│   ├── HuM/                            # Humanoid system
-│   ├── nomos/                          # Second-order causal decision framework (95/100)
-│   ├── PAGES/                          # Official web portal
 │   ├── second-perspective/             # GCAE global cognitive audit engine (the engine)
-│   ├── second-reality/                 # Virtual-world substrate
-│   ├── SPL-G1/                         # Hardware causal-audit TCU
-│   └── Story-engine/                   # Long-form narrative consistency engine
+│   └── second-reality/                 # Virtual-world substrate
 ├── STANDARD/                   # 📐 Decision-structure language standard (EBNF grammar + reference interpreter)
-│   └── language-standard/
-│       ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
-│       ├── decision.ebnf                 # Decision-structure grammar (EBNF)
-│       ├── topology.ebnf                 # Topology-structure grammar (EBNF)
-│       ├── dsl.py                        # Reference interpreter (executable definition of the standard)
-│       └── examples/                     # Valid / invalid samples (19 diagnostic-code demos)
+│   ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
+│   ├── decision.ebnf                 # Decision-structure grammar (EBNF)
+│   ├── topology.ebnf                 # Topology-structure grammar (EBNF)
+│   ├── dsl.py                        # Reference interpreter (executable definition of the standard)
+│   ├── 2026.md                       # Dated standard snapshot (version 2026)
+│   └── examples/                     # Valid / invalid samples (4 .spd files)
 ├── second-perspective-verify/  # ✅ Second-Perspective Engine (GCAE) verifiers — see §A below
 │   ├── verify.py                        # zero-dependency, offline (python3, stdlib only)
 │   ├── verify_convergence_fix.py        # convergence-logic regression (S1–S6)
