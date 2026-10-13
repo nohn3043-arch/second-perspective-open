@@ -1,0 +1,16 @@
+{
+  "chain_root_hash": "5b0ad8d15c6dfc326758335cd8d58d01ec223abe2f045c5cd93c4a90a21d8ffd",
+  "chain_start_sentinel": "ROOT",
+  "documented_expectation": "TESTING.md documents `python verify.py --root` as printing exactly this value (SPE_VERSION 1.2.2 generation), byte-for-byte, for cross-machine comparison.",
+  "engine": "Second Perspective Engine",
+  "event_count": 1,
+  "frozen_account_nonce": "deadbeef",
+  "frozen_clock": 1700000000.0,
+  "hash_recipe": "sha256(json.dumps({event_type, payload, prev_hash, timestamp, nonce}, sort_keys=True, ensure_ascii=False, default=str).encode('utf-8')).hexdigest()",
+  "root_definition": "sealed_hash of the last event; an empty chain yields the sentinel ROOT",
+  "verify_chain": {
+    "last_valid_idx": 0,
+    "total": 1,
+    "valid": true
+  }
+}

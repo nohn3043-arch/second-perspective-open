@@ -43,7 +43,8 @@ second-perspective-open/
 ├── second-perspective-verify/  # ✅ 第二视角引擎（GCAE）校验器 —— 见下 §A
 │   ├── verify.py                        # 零依赖离线（python3，纯标准库）
 │   ├── verify_convergence_fix.py        # 收敛逻辑回归（S1–S6）
-│   └── verify-output.log                # v1.0 快照完整验证输出（Zenodo）
+│   ├── verify-output.log                # v1.0 快照完整验证输出（Zenodo）
+│   └── evidence/                        # ✅ 冻结审计链 + 免引擎重算 —— 无需引擎、无需许可
 ├── nomos-verify/               # ❌ NOMOS 第三方验证指南 —— 另一个产品，见下 §B
 │   └── VERIFICATION_GUIDE.md            # 验证 NOMOS，不验证本引擎
 ├── PAPERS/                     # 论文与白皮书（可复现引用）
@@ -79,6 +80,14 @@ python second-perspective-verify/verify.py           # 完整校验：脚本自�
 
 固定链根（v1.0 快照）：
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
+
+**免引擎证据包 —— 建议从这里开始。** `second-perspective-verify/evidence/` 内含冻结的审计链、期望链根，以及一个零依赖的重算脚本。它**不需要引擎、不需要许可**即可运行：
+
+```bash
+python second-perspective-verify/evidence/recompute.py --tamper
+```
+
+这是本仓库中唯一一处，外部读者今天就能执行「不必信任供应商」这句话的地方。它确认冻结的链未被改动且可复现；它不把链绑定到原始输入 —— 见该目录 README 中的已披露限制 V3b。
 
 ### B. NOMOS 智能决策中枢 —— ❌ 另一个产品，位于 `nomos-verify/`，不是本引擎的 verify
 

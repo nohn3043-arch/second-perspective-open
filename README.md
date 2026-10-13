@@ -43,7 +43,8 @@ second-perspective-open/
 ├── second-perspective-verify/  # ✅ Second-Perspective Engine (GCAE) verifiers — see §A below
 │   ├── verify.py                        # zero-dependency, offline (python3, stdlib only)
 │   ├── verify_convergence_fix.py        # convergence-logic regression (S1–S6)
-│   └── verify-output.log                # full output of the v1.0 snapshot (Zenodo)
+│   ├── verify-output.log                # full output of the v1.0 snapshot (Zenodo)
+│   └── evidence/                        # ✅ frozen audit chain + engine-free recomputation — no engine, no licence needed
 ├── nomos-verify/               # ❌ NOMOS third-party verification guide — a different product, see §B below
 │   └── VERIFICATION_GUIDE.md            # verifies NOMOS, NOT this engine
 ├── PAPERS/                     # Papers and white papers (reproducible citation)
@@ -79,6 +80,14 @@ python second-perspective-verify/verify.py           # full suite: the script pr
 
 Fixed chain root (v1.0 snapshot):
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
+
+**Engine-free evidence package — start here.** `second-perspective-verify/evidence/` holds a frozen audit chain, its expected root, and a zero-dependency recomputation script. It runs **without the engine and without a licence**:
+
+```bash
+python second-perspective-verify/evidence/recompute.py --tamper
+```
+
+This is the one place in this repository where "verify without trusting the vendor" is executable by an outside reader today. It confirms the frozen chain is intact and reproducible; it does not bind the chain to the original input — see the disclosed limitation V3b in that folder's README.
 
 ### B. NOMOS Intelligent Decision Hub — ❌ a separate product, in `nomos-verify/`, NOT the engine's verifier
 
