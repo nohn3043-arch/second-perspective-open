@@ -40,11 +40,12 @@ second-perspective-open/
 │       ├── topology.ebnf                 # 拓扑结构文法（EBNF）
 │       ├── dsl.py                        # 参考解释器（规范的可执行定义）
 │       └── examples/                     # 合法/非法示例（19 条诊断码演示）
-├── VERIFY/                     # 独立校验器与证据链 —— 此处混放两个产品，务必看清归属（见下「如何核验」）
-│   ├── verify.py                        # ✅ 第二视角引擎（GCAE）本引擎校验器 —— 零依赖离线（python3，纯标准库）
-│   ├── verify_convergence_fix.py        # ✅ 第二视角引擎 —— 收敛逻辑回归（S1–S6）
-│   ├── verify-output.log                # ✅ 第二视角引擎 —— v1.0 快照完整验证输出（Zenodo）
-│   └── VERIFICATION_GUIDE.md            # ❌ NOMOS 第三方验证指南 —— 另一个产品，不是本引擎的 verify
+├── second-perspective-verify/  # ✅ 第二视角引擎（GCAE）校验器 —— 见下 §A
+│   ├── verify.py                        # 零依赖离线（python3，纯标准库）
+│   ├── verify_convergence_fix.py        # 收敛逻辑回归（S1–S6）
+│   └── verify-output.log                # v1.0 快照完整验证输出（Zenodo）
+├── nomos-verify/               # ❌ NOMOS 第三方验证指南 —— 另一个产品，见下 §B
+│   └── VERIFICATION_GUIDE.md            # 验证 NOMOS，不验证本引擎
 ├── PAPERS/                     # 论文与白皮书（可复现引用）
 │   └── paper.pdf / paper.md
 └── CERTIFICATIONS/             # 独立认证与合规
@@ -54,34 +55,34 @@ second-perspective-open/
 
 ## 如何核验 / How to verify (third-party, offline)
 
-`VERIFY/` 目录中放着**分属两个不同产品的两套验证资产**，请务必先确认你在看哪一套。
+验证资产按产品分开放置，一个产品一个目录：`second-perspective-verify/` 与 `nomos-verify/`。动手前请先确认你在看哪一套。
 
-### A. 第二视角引擎（GCAE）—— ✅ 这才是本引擎的 verify
+### A. 第二视角引擎（GCAE）—— ✅ 本引擎的 verify，位于 `second-perspective-verify/`
 
-`VERIFY/verify.py` **就是第二视角引擎（对外以 GCAE 发布）的独立验证套件**。它加载引擎内核（`Second Perspective Engine.py`，属授权交付物），如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。
+`second-perspective-verify/verify.py` **就是第二视角引擎（对外以 GCAE 发布）的独立验证套件**。它加载引擎内核（`Second Perspective Engine.py`，属授权交付物），如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。
 
 | 文件 | 作用 |
 |------|------|
-| `VERIFY/verify.py` | 零依赖、离线、纯标准库校验器。**共 19 项检查：** V1–V9 覆盖引擎内核，V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，V15 覆盖唯一插件缝，V16 覆盖 ∞ 极限收敛器，V17 覆盖元因果账本 + 自主进化层，另含 V3b、V7b |
-| `VERIFY/verify_convergence_fix.py` | 同一引擎的收敛逻辑回归（S1–S6） |
-| `VERIFY/verify-output.log` | v1.0 快照的完整输出，随 Zenodo 存档 |
+| `second-perspective-verify/verify.py` | 零依赖、离线、纯标准库校验器。**共 19 项检查：** V1–V9 覆盖引擎内核，V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，V15 覆盖唯一插件缝，V16 覆盖 ∞ 极限收敛器，V17 覆盖元因果账本 + 自主进化层，另含 V3b、V7b |
+| `second-perspective-verify/verify_convergence_fix.py` | 同一引擎的收敛逻辑回归（S1–S6） |
+| `second-perspective-verify/verify-output.log` | v1.0 快照的完整输出，随 Zenodo 存档 |
 
 ```bash
 # 0 依赖，仅需 Python 3 标准库（在已获授权的引擎部署环境中运行）
-python VERIFY/verify.py --root    # 打印链根，与下方固定值比对
-python VERIFY/verify.py           # 完整校验：脚本自身在结尾打印 PASS / FAIL / WARN 合计
+python second-perspective-verify/verify.py --root    # 打印链根，与下方固定值比对
+python second-perspective-verify/verify.py           # 完整校验：脚本自身在结尾打印 PASS / FAIL / WARN 合计
 ```
 
 **关于计数（引用数字前请先读这段）。** 脚本每次运行都会在结尾打印本次合计，**以该次运行的合计为准，任何冻结数字都不能替代它**。**v1.0 快照的基线是 11 项检查、`PASS 9 · FAIL 0 · WARN 2`**，其中两条 WARN 是预先登记的披露项（V3b、V9），不是失败。此后套件已扩至 19 项检查，因此**任何出自该基线的计数都必须标注为「v1.0 快照值」**。随库的 `verify-output.log` 记录了该快照，可独立核对链根与 PASS / FAIL 计数。
 
-**运行边界 / Runtime note**：`VERIFY/verify.py` 是**公开可审计的校验器**，其校验逻辑完全可见、零依赖、可离线运行；完整运行需加载引擎内核（私有实现，纳入授权交付物）。
+**运行边界 / Runtime note**：`second-perspective-verify/verify.py` 是**公开可审计的校验器**，其校验逻辑完全可见、零依赖、可离线运行；完整运行需加载引擎内核（私有实现，纳入授权交付物）。
 
 固定链根（v1.0 快照）：
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
 
-### B. NOMOS 智能决策中枢 —— ❌ 另一个产品，不是本引擎的 verify
+### B. NOMOS 智能决策中枢 —— ❌ 另一个产品，位于 `nomos-verify/`，不是本引擎的 verify
 
-`VERIFY/VERIFICATION_GUIDE.md` 是 **NOMOS**（`Intelligent-Decision-Hub--Nomos` 分支，v0.5.0，2026-10-08）的第三方验证指南。NOMOS 是**另一个产品**，该指南**不验证本引擎**。
+`nomos-verify/VERIFICATION_GUIDE.md` 是 **NOMOS**（[nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS)，v0.5.0，2026-10-08）的第三方验证指南。NOMOS 是**另一个产品**，该指南**不验证本引擎**。
 
 - 方法：`pytest` 发布证据（基线 507 个测试、91% 覆盖率）+ 一次可重放的评估运行。
 - 其自身链根：`adacff1bd647b7691cf153b5800185b1afbb449de779bebc2847ac1988090a68`。
