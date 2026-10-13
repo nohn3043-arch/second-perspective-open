@@ -376,12 +376,12 @@ SPL-VIRTUAL-WORLD-BASE 是 NOHN AI 生态的一员 —— 一个围绕第二视�
 |---|---|---|
 | **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | 全局认知审计引擎 —— 五算子因果审计内核（IMDA 95/100） |
 | **NOMOS** | [nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS) | 可审计的确定性决策中枢（IMDA 95/100） |
-| **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/SPL-G1) | 硬件因果审计可信计算单元（TCU） |
+| **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/PRODUCTS/SPL-G1/spec) | 硬件因果审计可信计算单元（TCU） |
 | **SPL-Virtual-World-Base** | [nohn3043-arch/Second-Reality](https://github.com/nohn3043-arch/Second-Reality) | 虚拟世界与元宇宙基础设施（宪法 / 法律 / 桥） |
-| **Story-Engine** | [SPEC/Story-engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Story-engine) | 长篇叙事一致性引擎 |
+| **Story-Engine** | [SPEC/Story-engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/PRODUCTS/Story-engine/spec) | 长篇叙事一致性引擎 |
 | **Antares** | [nohn3043-arch/Antares](https://github.com/nohn3043-arch/Antares) | GFSIP v1.0 —— 带因果审计的联邦稳定互操作协议 |
-| **Anthropomorphic-Agent-Engine** | [SPEC/Anthropomorphic-Agent-Engine](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/Anthropomorphic-Agent-Engine) | 确定性拟人心理引擎（SPL Pure Core V8.0） |
-| **PAGES** | [SPEC/PAGES](https://github.com/nohn3043-arch/second-perspective-open/tree/main/SPEC/PAGES) | NOHN AI 生态官方落地页 |
+| **Anthropomorphic-Agent-Engine** | not in the public layer | 确定性拟人心理引擎（SPL Pure Core V8.0） |
+| **PAGES** | [SPEC/PAGES](https://github.com/nohn3043-arch/second-perspective-open/tree/main/PRODUCTS/PAGES/spec) | NOHN AI 生态官方落地页 |
 
 <p align="center">— ✦ —</p>
 

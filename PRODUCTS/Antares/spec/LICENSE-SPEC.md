@@ -1,10 +1,10 @@
 # 规范与文档许可 — CC BY 4.0
 
-> **Note on links.** Relative links below point into the implementation repository, which is a licensed deliverable and is not part of this repository. They do not resolve here. This product's public specification is under [`SPEC/`](../../SPEC/).
+> **Note on links.** Relative links below point into the implementation repository, which is a licensed deliverable and is not part of this repository. They do not resolve here. This product's public specification is in this folder ([`spec/`](./)).
 
 **适用范围**：协议规范与文档——`GFSIP_v1.0_protocol_spec.md`、`gfsip-*.json`、`gfsip-*.csv`，以及仓库中的图示与说明性文档。
 
-**不适用**：代码实现（`reference-impl/` 下的 Python 包 `gfsip`）另见根目录 [`LICENSE`](./LICENSE)，采用 Apache License 2.0。
+**不适用**：代码实现（`reference-impl/` 下的 Python 包 `gfsip`）另见根目录 [`LICENSE`](../LICENSE)，采用 Apache License 2.0。
 
 **不可撤销声明**：v1.0 及此前发布的版本曾以 CC BY 4.0 整体发布（含代码）。该授权依 CC BY 4.0 条款不可撤销，相关版本将永久可依 CC BY 4.0 使用。本文件记录的是自下一版本起的双轨安排。
 

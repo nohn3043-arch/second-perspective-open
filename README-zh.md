@@ -21,7 +21,7 @@
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ 全部产品文档门户（README / GLOSSARY / 合规 / 变更）
+├── PRODUCTS/                   # 🏷️ 一产品一目录：介绍与说明在根，公开规范在 spec/
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
 │   ├── Anthropomorphic-Agent-Engine/   # 拟人心理引擎
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
@@ -33,7 +33,7 @@ second-perspective-open/
 │   ├── second-reality/                 # 虚拟世界基座
 │   ├── SPL-G1/                         # 硬件因果审计 TCU
 │   └── Story-engine/                   # 长篇小说一致性引擎
-├── SPEC/                       # 📐 公开规范面 —— 一产品一个目录（索引见 SPEC/README.md）
+├── STANDARD/                   # 📐 决策结构语言规范（EBNF 文法 + 参照解释器）
 │   └── language-standard/
 │       ├── grammar.md / grammar-zh.md    # 语法规范（中英）
 │       ├── decision.ebnf                 # 决策结构文法（EBNF）
@@ -108,7 +108,7 @@ python second-perspective-verify/evidence/recompute.py --tamper
 
 ## 产品介绍 / Product documentation
 
-各产品的 **介绍文档**（README）、**术语表**（GLOSSARY）、**变更记录**与**架构 / 测试说明**统一收录于 `PRODUCTS/` 目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）。各产品的 **公开规范面**——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明——独立收纳于 `SPEC/`，一产品一个目录，便于外部读者一眼看出「这份规范属于哪个项目」（索引见 [SPEC/README.md](./SPEC/README.md)）。决策结构语言是唯一把参照解释器一并公开的规范（`SPEC/language-standard/dsl.py`）。本仓库任何目录均不含实现源码。
+每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）：根下放介绍文档、术语表、变更记录与架构 / 测试说明，**公开规范**放在该目录的 `spec/` 子目录——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。本仓库任何目录均不含实现源码。
 
 ## 相关仓库 / Related
 
