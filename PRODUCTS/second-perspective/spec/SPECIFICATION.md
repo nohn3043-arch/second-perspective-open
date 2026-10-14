@@ -1,10 +1,10 @@
 # Second-Perspective (GCAE) Specification
 
-> **Document info**: Version 1.x (evolves with `SPE_VERSION`) | Status: passed IMDA AI Verify evaluation (total score 95) | Author: NOHN AI
+> **Document info**: Version 1.x | Status: passed IMDA AI Verify evaluation (total score 95) | Author: NOHN AI
 > **Basis**: TESTING-zh / GLOSSARY / STANDARD 2026.1–2026.3
 > 中文版本：[`SPECIFICATION-zh.md`](./SPECIFICATION-zh.md)
 >
-> This specification describes the public specification surface of the **GCAE Global Cognitive Audit Engine**: the ten-operator pipeline, the decision-structure language, states and signals, invariants and convergence semantics. The engine kernel is a single-file implementation (6496 lines, no `plugins/` package); core logic is a confidential deliverable.
+> This specification describes the public specification surface of the **GCAE Global Cognitive Audit Engine**: the ten-operator pipeline, the decision-structure language, states and signals, invariants and convergence semantics. The engine kernel — its internal structure, module layout and source-level identifiers — is a confidential deliverable and is deliberately not described here.
 
 ## 1. Scope and Positioning
 
@@ -23,7 +23,7 @@ A neutral, core-offline, decision-independent cognitive-bias audit engine: provi
 | Term | Definition |
 |---|---|
 | GCAE | Global Cognitive Audit Engine |
-| Ten operators | ⊙GA→⊗NS→⊕IAP→⊿LCH→⊞LFT→BFC→⚙CCS→⇄GRF→META→⊚ACC, order uniquely defined by `PIPELINE_ORDER` |
+| Ten operators | ⊙GA→⊗NS→⊕IAP→⊿LCH→⊞LFT→BFC→⚙CCS→⇄GRF→META→⊚ACC — this order is normative and fixed |
 | BFC | Binary Fact Check, binary fact verification, **no third truth value** |
 | META | Meta-causal ledger: five meta-bases 混沌 / 无极 / 虚幻 / 天道 / 轮回 (chaos / wuji / illusion / heaven-tao / samsara) |
 | `.spd` | Decision-structure language (`decision.ebnf`, ISO/IEC 14977) |
@@ -35,7 +35,7 @@ A neutral, core-offline, decision-independent cognitive-bias audit engine: provi
 
 ### 3.1 Operator Pipeline
 
-- Ten operators execute in `PIPELINE_ORDER` order; the semantic-topology base runs four classes of parallel validation (□ / → / ⦿ / △ / ◇).
+- Ten operators execute in the fixed order given in §2; the semantic-topology base runs four classes of parallel validation (□ / → / ⦿ / △ / ◇).
 - Orchestration semantics:
   - `reconstruct()`: linear coverage;
   - `spiral()`: superimposed spiral, freezes converged sub-graphs;
@@ -89,16 +89,16 @@ A neutral, core-offline, decision-independent cognitive-bias audit engine: provi
 
 An implementation conforming to this specification should satisfy:
 
-1. Pipeline order consistent with `PIPELINE_ORDER`, ten-operator semantics consistent with §3.1;
+1. Ten operators execute in the order stated in §2, with semantics consistent with §3.1;
 2. `.spd` / `.tpg` parsing consistent with `dsl.py` validator output (20 diagnostic codes);
 3. All I-1..I-6 and L-1..L-3 invariants hold;
 4. Audit certificate recomputable across machines (same input → same chain root).
 
 ## 7. Version and Changes
 
-- `SPE_VERSION` 1.2.1; chain root `ca07e5e4…` (effective after the 1.2.1 generational change, replacing 1.2.0's `aece60f5…`).
+- Engine generation 1.2.1. The chain root is generation-dependent and is printed by the verification suite itself on every run; no frozen value is published in this layer, because the public layer cannot re-run the suite without the licensed engine (see the TESTING guide, §5).
 - Language standard: 2026.1 (five operators) / 2026.2 (topology) / 2026.3 (meta-causal).
-- `CognitiveAuditEngine` retained as an alias (v1 compatible).
+- v1 compatibility is preserved; no compatibility surface is described in this layer.
 
 ## 8. License and References
 

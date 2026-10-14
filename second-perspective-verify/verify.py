@@ -5,13 +5,17 @@ SPE 独立验证脚本 / Second Perspective Engine Independent Verification Suit
 ================================================================
 零依赖、纯标准库、离线运行。无需 pip install，无需配置环境变量。
 
+本套件需装载引擎内核（`Second Perspective Engine.py`，授权交付物）。
+公开层不含该文件；未找到时脚本给出指引并以退出码 3 结束，不抛异常。
+无需引擎即可运行的核验入口见本仓库 second-perspective-verify/evidence/recompute.py。
+
     python verify.py            # 跑全部检查
     python verify.py --json     # 机器可读输出（可接 CI）
     python verify.py --root     # 只打印当前环境链根，供跨机比对
 
 设计原则：脚本如实报告 PASS / FAIL / WARN，不为了好看而放宽断言。
 FAIL 即为产品当前缺陷，请在对外承诺前修复。
-退出码：0 = 无 FAIL；1 = 存在 FAIL。
+退出码：0 = 无 FAIL；1 = 存在 FAIL；3 = 环境不满足（未找到引擎内核）。
 
 检查项：V1–V9 覆盖引擎内核（迁移到 SPE 1.0 后按现状重新判定），
 V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，
@@ -60,12 +64,40 @@ def record(cid, name, ok, detail, level=None):
 
 # ------------------------------------------------------------------ 引擎装载
 
+MISSING_ENGINE_EXIT = 3
+
+
+def _abort_missing_engine():
+    """引擎内核缺失时的唯一失败路径：给出指引，不抛异常。"""
+    print("=" * 68)
+    print("未找到引擎内核，本验证套件无法运行 / engine core not found")
+    print("=" * 68)
+    print(f"  期望位置 expected : {ENGINE}")
+    print(f"  退出码 exit code  : {MISSING_ENGINE_EXIT}")
+    print()
+    print("  `Second Perspective Engine.py` 属授权交付物，不随公开层分发。")
+    print("  The engine core is a licensed-delivery artifact and is not")
+    print("  distributed with the public layer of this repository.")
+    print()
+    print("  要运行本套件：把本文件与引擎内核放在同一目录（授权部署内）。")
+    print("  To run this suite, place this file next to the engine core")
+    print("  inside an authorised deployment.")
+    print()
+    print("  免引擎、免许可即可运行的核验入口 / engine-free entry point:")
+    print("    python evidence/recompute.py --tamper")
+    print()
+    print("  许可与联系 / licence and contact : see LICENSE · ai@nohnlins.com")
+    sys.exit(MISSING_ENGINE_EXIT)
+
+
 def load_engine():
     """以绝对路径装载带空格文件名的引擎。
 
     注意：必须先写入 sys.modules，否则 dataclasses 反查 cls.__module__
     时拿到 None，抛 AttributeError。
     """
+    if not os.path.isfile(ENGINE):
+        _abort_missing_engine()
     spec = importlib.util.spec_from_file_location("spe", ENGINE)
     mod = importlib.util.module_from_spec(spec)
     sys.modules["spe"] = mod

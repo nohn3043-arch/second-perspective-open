@@ -55,6 +55,8 @@ Verification assets are split by product, one folder each: `second-perspective-v
 
 `second-perspective-verify/verify.py` **is the independent verification suite of the Second-Perspective Engine** (shipped publicly as GCAE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
 
+The engine's **public specification** is [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md); the verification-and-evaluation methodology is the [TESTING guide](./PRODUCTS/second-perspective/TESTING.md). Note the split: `verify.py` cannot run from a clone of *this* repository — it loads the engine core — so the licence-free, clone-and-run entry point is the engine-free **evidence package** described below.
+
 | File | Role |
 |------|------|
 | `second-perspective-verify/verify.py` | Zero-dependency, offline, pure-stdlib verifier. **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b |
@@ -101,7 +103,7 @@ Commercial licensing — International: <ai@nohnlins.com> ｜ China: <lin@second
 
 ## Product documentation
 
-Each product has one folder under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)). Its **public specification** lives in a `spec/` subfolder — positioning and boundaries, interfaces / protocols / formats, audit and compliance, conformance statements. Beyond the specification, a product folder keeps only what can be published without disclosing implementation: its glossary, and — where the engine's own verifier can only run against a licensed engine — the verification guide. **Architecture and implementation notes are deliberately not published**: this repository carries specifications and verification assets, never implementation internals. The one standard that is not a product document, the decision-structure language (together with its reference interpreter `dsl.py`), lives under [`STANDARD/`](./STANDARD/).
+Each product has one folder under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)). Its **public specification** lives in a `spec/` subfolder — positioning and boundaries, interfaces / protocols / formats, audit and compliance, conformance statements. Beyond the specification, a product folder keeps only what can be published without disclosing implementation: its glossary, and — where the engine's own verifier can only run against a licensed engine — the verification guide. **Architecture and source-level notes are published only where the implementation itself is public**; where the implementation is a confidential deliverable, this layer carries none. The one standard that is not a product document, the decision-structure language (together with its reference interpreter `dsl.py`), lives under [`STANDARD/`](./STANDARD/).
 
 ## Related
 

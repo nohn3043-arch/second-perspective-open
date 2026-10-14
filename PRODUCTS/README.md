@@ -1,6 +1,6 @@
 # PRODUCTS — 产品目录
 
-> 一产品一个目录。根下放**介绍与说明**，`spec/` 子目录放该产品的**公开规范**。
+> 一产品一个目录。`spec/` 子目录放该产品的**公开规范**；根下只保留无需披露实现即可公开的介绍与术语表 —— **架构与实现说明仅在该实现本身已公开时才收录**。
 >
 > **实现源码不在本仓库。** 各产品的引擎内核属授权交付物。
 
@@ -9,14 +9,8 @@
 | 产品 | 定位 | 根下文档 | 公开规范 |
 |---|---|---|---|
 | [Antares](Antares/) | GFSIP v1.0 — 带因果审计的联邦稳定互操作协议（开放标准） | README / README-zh / GLOSSARY / NOTICE / CHANGELOG | [spec/](Antares/spec/) |
-| [DMU](DMU/) | 直驱运动统一驱动系统（动力学仿真原型） | README / README-zh | [spec/](DMU/spec/) |
-| [HuM](HuM/) | 人形驱动系统（含空气动力学，动力学仿真原型） | README / README-zh | [spec/](HuM/spec/) |
-| [nomos](nomos/) | 二阶因果决策支持框架（IMDA AI Verify 自评 95/100） | README / README-zh / GLOSSARY / CHANGELOG / LICENSE | [spec/](nomos/spec/) |
-| [PAGES](PAGES/) | NOHN AI 生态官方落地页（白奢视觉语言） | README | [spec/](PAGES/spec/) |
 | [second-perspective](second-perspective/) | GCAE 全局认知审计引擎（IMDA 自评 95/100） | GLOSSARY / TESTING / TESTING-zh / LICENSE | [spec/](second-perspective/spec/) |
 | [second-reality](second-reality/) | 虚拟世界基础设施基座（宪法—法律—桥） | README / README-zh / GLOSSARY / LICENSE | [spec/](second-reality/spec/) |
-| [SPL-G1](SPL-G1/) | 硬件因果审计可信计算单元 TCU（Phase A 完成） | README / README-zh / GLOSSARY / IMPROVEMENT_PLAN / LICENSE | [spec/](SPL-G1/spec/) |
-| [Story-engine](Story-engine/) | 长篇叙事一致性引擎 + 离线文档合规复核引擎 | README / README-zh / GLOSSARY / LICENSE | [spec/](Story-engine/spec/) |
 | [ai-draw-cue-word-project](ai-draw-cue-word-project/) | AI 绘画构图细节模板 v2.8（21 张 CSV 数据表） | README / README-zh / GLOSSARY / LICENSE | [spec/](ai-draw-cue-word-project/spec/) |
 
 另有一项不属任何产品：决策结构语言规范在其专属目录 [`../STANDARD/`](../STANDARD/)，
@@ -33,6 +27,7 @@
 | 产品 | 原因 |
 |---|---|
 | Anthropomorphic-Agent-Engine | 核心设计与实现参数不予公开，故本仓库不提供其规范面；评估需求请按 LICENSE 联系授权。 |
+| DMU / HuM / nomos / PAGES / SPL-G1 / Story-engine | 本公开层未收录其目录（仓库内无对应文件夹）；评估需求请按 LICENSE 联系授权。 |
 
 ## 许可
 

@@ -55,6 +55,8 @@ second-perspective-open/
 
 `second-perspective-verify/verify.py` **就是第二视角引擎（对外以 GCAE 发布）的独立验证套件**。它加载引擎内核（`Second Perspective Engine.py`，属授权交付物），如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。
 
+本引擎的**公开规范**在 [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md)；核验与评测方法学见 [TESTING 指导](./PRODUCTS/second-perspective/TESTING.md)。请注意这层分工：`verify.py` **无法**在克隆本仓库后直接运行 —— 它要装载引擎内核 —— 因此免许可、克隆即可跑的入口，是下面介绍的**免引擎证据包**。
+
 | 文件 | 作用 |
 |------|------|
 | `second-perspective-verify/verify.py` | 零依赖、离线、纯标准库校验器。**共 19 项检查：** V1–V9 覆盖引擎内核，V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，V15 覆盖唯一插件缝，V16 覆盖 ∞ 极限收敛器，V17 覆盖元因果账本 + 自主进化层，另含 V3b、V7b |
@@ -101,7 +103,7 @@ python second-perspective-verify/evidence/recompute.py --tamper
 
 ## 产品介绍 / Product documentation
 
-每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）。该目录的 `spec/` 子目录放**公开规范**——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明。规范之外，产品目录只保留无需披露实现即可公开的内容：术语表，以及（当该引擎的校验器只能对授权引擎运行时）核验指南。**架构与实现说明不予公开**：本仓库承载的是规范与核验资产，不含实现内部结构。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。
+每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）。该目录的 `spec/` 子目录放**公开规范**——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明。规范之外，产品目录只保留无需披露实现即可公开的内容：术语表，以及（当该引擎的校验器只能对授权引擎运行时）核验指南。**架构与源码级说明仅在该实现本身已公开时才发布**；实现属保密交付物的，本层不收录。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。
 
 ## 相关仓库 / Related
 
