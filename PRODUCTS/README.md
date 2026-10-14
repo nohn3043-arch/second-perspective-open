@@ -13,7 +13,7 @@
 | [HuM](HuM/) | 人形驱动系统（含空气动力学，动力学仿真原型） | README / README-zh | [spec/](HuM/spec/) |
 | [nomos](nomos/) | 二阶因果决策支持框架（IMDA AI Verify 自评 95/100） | README / README-zh / GLOSSARY / CHANGELOG / LICENSE | [spec/](nomos/spec/) |
 | [PAGES](PAGES/) | NOHN AI 生态官方落地页（白奢视觉语言） | README | [spec/](PAGES/spec/) |
-| [second-perspective](second-perspective/) | GCAE 全局认知审计引擎（IMDA 自评 95/100） | README / README-zh / GLOSSARY / ARCHITECTURE / TESTING / TESTING-zh / LICENSE | [spec/](second-perspective/spec/) |
+| [second-perspective](second-perspective/) | GCAE 全局认知审计引擎（IMDA 自评 95/100） | GLOSSARY / TESTING / TESTING-zh / LICENSE | [spec/](second-perspective/spec/) |
 | [second-reality](second-reality/) | 虚拟世界基础设施基座（宪法—法律—桥） | README / README-zh / GLOSSARY / LICENSE | [spec/](second-reality/spec/) |
 | [SPL-G1](SPL-G1/) | 硬件因果审计可信计算单元 TCU（Phase A 完成） | README / README-zh / GLOSSARY / IMPROVEMENT_PLAN / LICENSE | [spec/](SPL-G1/spec/) |
 | [Story-engine](Story-engine/) | 长篇叙事一致性引擎 + 离线文档合规复核引擎 | README / README-zh / GLOSSARY / LICENSE | [spec/](Story-engine/spec/) |

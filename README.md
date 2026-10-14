@@ -21,7 +21,7 @@ This repository follows the mature path already taken by TPM / Intel SGX / ARM T
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ One folder per product: intro & notes at root, public spec in spec/
+├── PRODUCTS/                   # 🏷️ One folder per product: public spec in spec/ — no implementation internals
 │   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
 │   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
 │   ├── second-perspective/             # GCAE global cognitive audit engine (the engine)
@@ -101,7 +101,7 @@ Commercial licensing — International: <ai@nohnlins.com> ｜ China: <lin@second
 
 ## Product documentation
 
-Each product has one folder under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)): its introduction, glossary, changelog and architecture / test notes at the root, and its **public specification** in a `spec/` subfolder — positioning and boundaries, interfaces / protocols / formats, audit and compliance, conformance statements. The one standard that is not a product document, the decision-structure language (together with its reference interpreter `dsl.py`), lives under [`STANDARD/`](./STANDARD/). No directory in this repository contains implementation source.
+Each product has one folder under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)). Its **public specification** lives in a `spec/` subfolder — positioning and boundaries, interfaces / protocols / formats, audit and compliance, conformance statements. Beyond the specification, a product folder keeps only what can be published without disclosing implementation: its glossary, and — where the engine's own verifier can only run against a licensed engine — the verification guide. **Architecture and implementation notes are deliberately not published**: this repository carries specifications and verification assets, never implementation internals. The one standard that is not a product document, the decision-structure language (together with its reference interpreter `dsl.py`), lives under [`STANDARD/`](./STANDARD/).
 
 ## Related
 

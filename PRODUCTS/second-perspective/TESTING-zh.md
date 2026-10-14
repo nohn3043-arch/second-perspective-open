@@ -4,19 +4,22 @@
 [English](TESTING.md) | 简体中文
 </p>
 
-> 本文件是仓库的**唯一测试入口**，分两步：
-> **① 核验引擎** —— `verify.py` 一键核验（约五分钟，克隆即可做）；
-> **② 设计你自己的评测** —— 方法学与口径见 §4，题库、标注、对比臂由你自建。
+> 本文件是本仓库的核验与评测设计指导，分三步 —— 第一步不需要许可：
+> **① 核验本仓库公开的东西** —— 免引擎、免许可，克隆即可做（§4）；
+> **② 核验引擎** —— 引擎自带的套件，需要授权交付物（§5）；
+> **③ 设计你自己的评测** —— 方法学与口径见 §6。
 > 全程零第三方依赖、零联网。
 
-## 0. 本包测什么、不测什么
+## 0. 本指南覆盖什么 —— 以及克隆下来到底什么能跑
 
-| | 内容 |
-|---|---|
-| 内置 · 你来跑 | 引擎的机制性承诺：零依赖离线装载、确定性、防篡改、可复现 —— `verify.py` 一键核验 |
-| 内置 · 你来跑 | 五算子端到端演示 `demo_audit.py`；语言标准工具链 `language Standard/dsl.py` |
-| 你来做 | 面向**你自己的被测对象**的评测设计：语料、标注、对比臂、统计 —— 方法学见 §4 |
-| 不随包发放 | 预置题库。合成语料对真实对象没有判别力；正式对照必须使用你自己的真实对象与语料 |
+| | 内容 | 克隆本仓库后能跑吗 |
+|---|---|---|
+| 内置 · 你来跑 | 免引擎证据包 `second-perspective-verify/evidence/recompute.py` —— 六项检查，把公开的输入、报告视图、链与发布的链根相互绑定 | **能** —— 无需引擎、无需许可 |
+| 内置 · 你来跑 | 语言标准工具链 `STANDARD/dsl.py`，样本在 `STANDARD/examples/` | **能** —— 仅需标准库 |
+| 授权交付物 | 引擎验证套件 `second-perspective-verify/verify.py` —— 对引擎内核的 19 项检查 | **不能** —— 它要装载引擎内核，那是授权交付物，不在本仓库 |
+| 授权交付物 | 端到端引擎演示 `demo_audit.py` | **不能** —— 随授权交付，不在本仓库 |
+| 你来做 | 面向**你自己的被测对象**的评测设计：语料、标注、对比臂、统计 —— 方法学见 §6 | 由你自建 |
+| 不随包发放 | 预置题库。合成语料对真实对象没有判别力；正式对照必须使用你自己的真实对象与语料 | — |
 
 ## 1. 授权前提
 
@@ -30,57 +33,79 @@
 | 第三方依赖 | **无** — 全部脚本仅用标准库（stdlib），全程不需要联网 |
 | 操作系统 | Windows / macOS / Linux（Windows 建议 Git Bash；控制台先设 `PYTHONIOENCODING=utf-8` 防中文乱码） |
 
-以下命令均假设**在仓库根目录**执行。
+## 3. 本仓库的路径
 
-## 3. 第一步 · 核验引擎（约五分钟）
+以下命令均以**仓库根目录**为基准，并使用**本仓库**的实际布局 —— 不再沿用实现仓库的目录树：
 
-### 3.1 独立验证套件 — `verify.py`
+| 资产 | 路径 |
+|---|---|
+| 引擎的公开规范 | `PRODUCTS/second-perspective/spec/SPECIFICATION.md` |
+| 免引擎证据包 | `second-perspective-verify/evidence/` |
+| 引擎验证套件 | `second-perspective-verify/verify.py` |
+| 收敛逻辑回归 | `second-perspective-verify/verify_convergence_fix.py` |
+| 语言标准 + 参照解释器 | `STANDARD/` |
 
-```bash
-python verify.py            # 人类可读报告
-python verify.py --json     # 机器可读（可接 CI）
-python verify.py --root     # 只打印链根（单行），供跨机比对
-```
+## 4. 第一步 · 免引擎核验（数秒）
 
-预期结果：**PASS 19 · FAIL 0 · WARN 0**，退出码 0（"全部硬性检查通过"）。
+### 4.1 冻结证据包 —— `evidence/recompute.py`
 
-```bash
-python verify.py --root
-# 预期输出（单行，逐字符一致；SPE 1.2 · 术语 v2，此链根自 1.2.1 版本代际变更后生效，
-# 接替 SPE 1.2.0 的 aece60f5…）：
-# ca07e5e415204eeea911cf4a325ba94310eb60529ac0d5c6fcc56945624cfa82
-```
-
-一项 WARN 是**如实披露的设计取舍，不是缺陷**：
-
-- **V3b — 证书不绑定原始输入**：报告只存派生结论（隐私设计：敏感决策数据不落库），
-  代价是证书无法独立证明"审计的正是这一份输入"。对外表述时应主动声明证书覆盖范围，
-  不要让对方默认它覆盖输入。
-- （历史注：早期版本还有 V9 — 默认路径 nonce 不确定 的 WARN；该问题已通过
-  确定性推导修复，V9 现为 PASS，不再列入 WARN。）
-
-### 3.2 十算子端到端演示 — `demo_audit.py`
+这是本仓库中唯一一处，外部读者今天就能执行「不必信任供应商」这句话的地方。它**不需要引擎、不需要许可**。
 
 ```bash
-python demo_audit.py
+python second-perspective-verify/evidence/recompute.py            # 跑全部六项检查
+python second-perspective-verify/evidence/recompute.py --tamper   # 另演示改动会被检出
+python second-perspective-verify/evidence/recompute.py --json     # 机器可读结果
 ```
 
-预期：无报错，输出十算子流水线（含 NS / IAP / LCH / CCS / ACC 五算子内核）对示例决策的结构审计报告文本。
+预期：六项检查全部通过，退出码 `0`。已发布取值（见 `evidence/expected.json`）：
 
-### 3.3 DSL 工具链（可选）
+- 链根 `5b0ad8d15c6dfc326758335cd8d58d01ec223abe2f045c5cd93c4a90a21d8ffd`
+- 输入摘要 `239557ac…`
+- 报告哈希 `b3adf8f636646370`
+
+`--tamper` 另会演示：改动输入文件（由 C3 检出）、报告视图（C5）、链本身（C1）都会被捕获。
+
+**它不证明什么。** 它验证的是**记录**，不是**推理** —— 引擎算子在这里不会被重新执行。它不是认证、不是审计意见、也不是担保，并且不对 LLM 行为作任何断言。
+
+### 4.2 语言标准工具链
 
 ```bash
-python "language Standard/dsl.py" check "language Standard/examples/valid_decision.spd"    # PASS, exit 0
-python "language Standard/dsl.py" check "language Standard/examples/invalid_decision.spd"  # FAIL, exit 1
-python "language Standard/dsl.py" gen --seed 2026 --count 5 --out samples/ --self-check
+python STANDARD/dsl.py check STANDARD/examples/valid_decision.spd     # PASS, exit 0
+python STANDARD/dsl.py check STANDARD/examples/invalid_decision.spd   # FAIL, exit 1
+python STANDARD/dsl.py gen --seed 2026 --count 5 --out samples/ --self-check
 ```
 
-## 4. 第二步 · 设计你自己的评测（方法学）
+零外部依赖，仅标准库，确定性（带种子）。
+
+## 5. 第二步 · 引擎自带的验证套件（授权交付）
+
+`second-perspective-verify/verify.py` **就是第二视角引擎（对外以 GCAE 发布）的独立验证套件**。它如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。**共 19 项检查：** V1–V9 覆盖引擎内核，V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，V15 覆盖唯一插件缝，V16 覆盖 ∞ 极限收敛器，V17 覆盖元因果账本 + 自主进化层，另含 V3b、V7b。
+
+它会从自身所在目录装载 `Second Perspective Engine.py`。该文件属授权交付物、**不在本仓库**，因此克隆本仓库无法运行该套件：请在已获授权的部署环境中，把 `verify.py` 放到引擎文件旁边再运行。
+
+```bash
+python second-perspective-verify/verify.py            # 人类可读报告
+python second-perspective-verify/verify.py --json     # 机器可读（可接 CI）
+python second-perspective-verify/verify.py --root     # 只打印链根（单行），供跨机比对
+```
+
+**关于计数（引用数字前请先读这段）。** 脚本每次运行都会在结尾打印本次合计，**以该次运行的合计为准，任何冻结数字都不能替代它**。已发布的合计属于特定的引擎代际，引用时必须连同版本标签一起给出，彼此不可互换：
+
+| 记录位置 | 引擎代际 | 合计 | 链根 |
+|---|---|---|---|
+| [`README.md`](../../README.md) §A | v1.0 快照基线 | 11 项 · `PASS 9 · FAIL 0 · WARN 2` | `f5713f49…` |
+| [`PAPERS/paper.md`](../../PAPERS/paper.md) | SPE 1.2.0（2026-10-10 运行） | 19 项 · `PASS 18 · FAIL 0 · WARN 1` | — |
+
+本指南的早期版本曾把第三组合计当作当前值发布。它现在被**刻意不再收录**：本仓库没有引擎就无法重跑该套件，因此一个无法复核的数字不该留在这里。若你需要某一代际的数字，请以已授权部署的实际运行为准。
+
+**有一项设计取舍是主动披露、而非隐藏的 —— V3b：证书不绑定原始输入。** 报告只存派生结论（隐私设计：敏感决策数据不落库），代价是证书无法独立证明「审计的正是这一份输入」。对外表述时应主动声明证书覆盖范围，不要让对方默认它覆盖输入。（v1.0 快照基线另列有 V9 —— 默认路径 nonce 不确定性；该快照自身的披露见 `README.md` §A。）
+
+## 6. 第三步 · 设计你自己的评测（方法学）
 
 > 以下是 GCAE 评测管线采用的通用口径（测试规范 v1.0 §5.3 的简化版）。
 > 按此设计，结果即可与我们的报告口径对齐、可扛第三方重算。
 
-### 4.1 总原则
+### 6.1 总原则
 
 - **先定口径，后跑数据**：门槛、通过定义、样本量在设计阶段书面固定；整套全量运行，
   不允许因结果挑题（挑题=刷分）。
@@ -88,20 +113,20 @@ python "language Standard/dsl.py" gen --seed 2026 --count 5 --out samples/ --sel
   外部人 `sha256sum -c` 即可验证未篡改。
 - **门槛作用于被测响应集**，不作用于各臂的判定率。
 
-### 4.2 语料与标注
+### 6.2 语料与标注
 
 - 每条约 **2 名标注员独立标注**（互不可见），分歧逐条裁决并留档；
 - 报告标注质量：**原始一致率 + Cohen's κ**（≥0.70 参考线）；
 - 题目按形态分流（提示响应 / 协议测量 / 审计工件），逐条记录 expected / forbidden 行为。
 
-### 4.3 对比臂（谁是基线）
+### 6.3 对比臂（谁是基线）
 
 - 基线 = **现状流程**（人 + 现有系统，或既有 LLM 辅助流程）；被测模型臂之外的对照以此为准；
 - 模型臂：逐条独立请求、temperature 0、**重复 ≥2 遍**测稳定性；判定文件冻结并钉入
   证据链（整个文件 SHA-256 进审计链，改一字节链根必变）；
 - 同一批题（共同条目）才能配对比较；子集运行须显式报告覆盖下降。
 
-### 4.4 统计口径（报告五层）
+### 6.4 统计口径（报告五层）
 
 | 层 | 要求 |
 |---|---|
@@ -111,7 +136,7 @@ python "language Standard/dsl.py" gen --seed 2026 --count 5 --out samples/ --sel
 | 样本量/覆盖 | 每臂覆盖数列出；子集降覆盖显式标注 |
 | 逐条 | 逐条判定产物（JSONL）随报告留档 |
 
-### 4.5 结构与判分口径（幻觉维度示例）
+### 6.5 结构与判分口径（幻觉维度示例）
 
 | 状态 | 结构定义 | 计分 |
 |---|---|---|
@@ -123,19 +148,19 @@ python "language Standard/dsl.py" gen --seed 2026 --count 5 --out samples/ --sel
 - "幻觉"在此维度指**未声明假设的断言**（结构性判分，不判内容事实真假）；
 - 门槛示例：Hollow 率 > 20% → 该批次 HALT（阈值可按维度自定义，但须**先定后用**）。
 
-### 4.6 证据链
+### 6.6 证据链
 
-- 确定性时钟 + 固定责任 nonce（见 §3.1 V9 说明），保证字节级可复现；
+- 确定性时钟 + 固定责任 nonce，保证运行字节级可复现；
 - 事件逐条 SHA-256 链 + 链根；产物目录附防篡改清单；
-- 审计证书主动写明覆盖范围（见 §3.1 V3b 说明）。
+- 审计证书主动写明覆盖范围（见 §5 的 V3b 披露）。
 
-### 4.7 写进报告的如实声明
+### 6.7 写进报告的如实声明
 
 - 语料性质（合成/真实）与已知偏差；标签不确定度（κ、分歧条数）；
 - 门槛触发如实报告（如 Hollow >20% → HALT 是机制按定义生效，不是异常）；
 - 上限效应：若被测面过窄导致高通过率，注明"**不代表开放域性能**"。
 
-## 5. 正式评测与联系
+## 7. 正式评测与联系
 
 - 本文件是测试规范 v1.0 方法学在「幻觉与事实一致性」维度上的简化指导；
   委托正式第三方评测或商务合作，请联系：

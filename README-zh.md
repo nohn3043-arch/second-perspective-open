@@ -21,7 +21,7 @@
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ 一产品一目录：介绍与说明在根，公开规范在 spec/
+├── PRODUCTS/                   # 🏷️ 一产品一目录：公开规范在 spec/，不含实现内部结构
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
 │   ├── second-perspective/             # GCAE 全局认知审计引擎（即本引擎）
@@ -101,7 +101,7 @@ python second-perspective-verify/evidence/recompute.py --tamper
 
 ## 产品介绍 / Product documentation
 
-每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）：根下放介绍文档、术语表、变更记录与架构 / 测试说明，**公开规范**放在该目录的 `spec/` 子目录——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。本仓库任何目录均不含实现源码。
+每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）。该目录的 `spec/` 子目录放**公开规范**——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明。规范之外，产品目录只保留无需披露实现即可公开的内容：术语表，以及（当该引擎的校验器只能对授权引擎运行时）核验指南。**架构与实现说明不予公开**：本仓库承载的是规范与核验资产，不含实现内部结构。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。
 
 ## 相关仓库 / Related
 

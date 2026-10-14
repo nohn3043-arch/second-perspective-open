@@ -1,7 +1,7 @@
 # Second-Perspective（GCAE）规范（Specification）
 
 > **文档信息**：版本 1.x（随 `SPE_VERSION` 演化）｜状态：已通过 IMDA AI Verify 评估（总分 95）｜编制：NOHN AI
-> **编制依据**：README-zh / ARCHITECTURE / TESTING-zh / GLOSSARY / 语言标准 2026.1–2026.3
+> **编制依据**：TESTING-zh / GLOSSARY / 语言标准（`STANDARD/`） 2026.1–2026.3
 >
 > 本规范描述 **GCAE 全局认知审计引擎** 的公开规范面：十算子流水线、决策结构语言、状态与信号、不变式与收敛语义。引擎内核为单文件实现（6496 行，无 `plugins/` 包），核心逻辑属保密交付物。
 > 英文版本：[`SPECIFICATION.md`](./SPECIFICATION.md)
@@ -103,4 +103,4 @@
 ## 8. 许可与参考
 
 - 非开源双轨授权：个人非商业研究免费；政府 / 企业书面付费授权。
-- 参考：README-zh / ARCHITECTURE / TESTING-zh / GLOSSARY / `language-standard/`（grammar、decision.ebnf、topology.ebnf、dsl.py、examples）。
+- 参考：TESTING-zh / GLOSSARY / `STANDARD/`（grammar、decision.ebnf、topology.ebnf、dsl.py、examples）。

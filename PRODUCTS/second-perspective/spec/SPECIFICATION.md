@@ -1,7 +1,7 @@
 # Second-Perspective (GCAE) Specification
 
 > **Document info**: Version 1.x (evolves with `SPE_VERSION`) | Status: passed IMDA AI Verify evaluation (total score 95) | Author: NOHN AI
-> **Basis**: README-zh / ARCHITECTURE / TESTING-zh / GLOSSARY / language-standard 2026.1–2026.3
+> **Basis**: TESTING-zh / GLOSSARY / STANDARD 2026.1–2026.3
 > 中文版本：[`SPECIFICATION-zh.md`](./SPECIFICATION-zh.md)
 >
 > This specification describes the public specification surface of the **GCAE Global Cognitive Audit Engine**: the ten-operator pipeline, the decision-structure language, states and signals, invariants and convergence semantics. The engine kernel is a single-file implementation (6496 lines, no `plugins/` package); core logic is a confidential deliverable.
@@ -103,4 +103,4 @@ An implementation conforming to this specification should satisfy:
 ## 8. License and References
 
 - Non-open dual-track license: free for personal non-commercial research; government / enterprise require a written paid license.
-- References: README-zh / ARCHITECTURE / TESTING-zh / GLOSSARY / `language-standard/` (grammar, decision.ebnf, topology.ebnf, dsl.py, examples).
+- References: TESTING-zh / GLOSSARY / `STANDARD/` (grammar, decision.ebnf, topology.ebnf, dsl.py, examples).

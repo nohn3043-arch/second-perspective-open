@@ -10,8 +10,8 @@
 
 ---
 
-> 英文术语保留原样，方便你对照 README、标准文档与代码。
-> The English term is kept as-is so you can match it against the README, the standard and the source code.
+> 英文术语保留原样，方便你对照本产品的公开规范与语言标准。
+> The English term is kept as-is so you can match it against this product's public specification and the language standard.
 
 | 术语 Term | 中文 | 一句话人话 · Plain meaning |
 |---|---|---|
@@ -157,7 +157,7 @@
 
 <div align="center">
 
-[← 返回 README](./README.md) &nbsp;·&nbsp; [中文说明](./README-zh.md)
+[← 公开规范 spec/](./spec/) &nbsp;·&nbsp; [← Public specification](./spec/)
 
 <sub>NOHN AI · SECOND-PERSPECTIVE (GCAE)</sub>
 
