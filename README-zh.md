@@ -2,6 +2,7 @@
 
 > 规范、校验器与独立认证资产的公开仓库。
 > 本仓库是 NOHN AI「第二视角」可信计算体系的 **公开信任层**：任何人无需授权即可核验我们的工作产物 —— 但无法据此获得核心引擎实现。
+> 它所记载的引擎 —— **SPE（第二视角引擎）—— 是 AI 的刹车系统**，面向大模型厂商、政府与监管机构，以及对 AI 有控制权的企业。它不是测评或认证服务。
 
 <p align="center">
   简体中文 | <a href="README.md">English</a>
@@ -24,7 +25,7 @@ second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ 一产品一目录：公开规范在 spec/，不含实现内部结构
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
-│   ├── second-perspective/             # GCAE 全局认知审计引擎（即本引擎）
+│   ├── second-perspective/             # 第二视角引擎（SPE）—— AI 的刹车系统（即本引擎）
 │   └── second-reality/                 # 虚拟世界基座
 ├── STANDARD/                   # 📐 决策结构语言规范（EBNF 文法 + 参照解释器）
 │   ├── grammar.md / grammar-zh.md    # 语法规范（中英）
@@ -33,7 +34,7 @@ second-perspective-open/
 │   ├── dsl.py                        # 参考解释器（规范的可执行定义）
 │   ├── 2026.md                       # 标准年度版本说明（2026）
 │   └── examples/                     # 合法/非法示例（4 份 .spd 样例）
-├── second-perspective-verify/  # ✅ 第二视角引擎（GCAE）校验器 —— 见下 §A
+├── second-perspective-verify/  # ✅ 第二视角引擎（SPE）校验器 —— 见下 §A
 │   ├── verify.py                        # 零依赖离线（python3，纯标准库）
 │   ├── verify_convergence_fix.py        # 收敛逻辑回归（S1–S6）
 │   ├── verify-output.log                # v1.0 快照完整验证输出（Zenodo）
@@ -51,9 +52,9 @@ second-perspective-open/
 
 验证资产按产品分开放置，一个产品一个目录：`second-perspective-verify/` 与 `nomos-verify/`。动手前请先确认你在看哪一套。
 
-### A. 第二视角引擎（GCAE）—— ✅ 本引擎的 verify，位于 `second-perspective-verify/`
+### A. 第二视角引擎（SPE）—— ✅ 本引擎的 verify，位于 `second-perspective-verify/`
 
-`second-perspective-verify/verify.py` **就是第二视角引擎（对外以 GCAE 发布）的独立验证套件**。它加载引擎内核（`Second Perspective Engine.py`，属授权交付物），如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。
+`second-perspective-verify/verify.py` **就是第二视角引擎（SPE）的独立验证套件**。它加载引擎内核（`Second Perspective Engine.py`，属授权交付物），如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。
 
 本引擎的**公开规范**在 [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md)；核验与评测方法学见 [TESTING 指导](./PRODUCTS/second-perspective/TESTING.md)。请注意这层分工：`verify.py` **无法**在克隆本仓库后直接运行 —— 它要装载引擎内核 —— 因此免许可、克隆即可跑的入口，是下面介绍的**免引擎证据包**。
 

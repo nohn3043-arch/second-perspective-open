@@ -1,4 +1,4 @@
-# Frozen Evidence Package — Second-Perspective Engine (GCAE)
+# Frozen Evidence Package — Second Perspective Engine (SPE)
 
 This folder lets an outside reader verify one real audit chain **without the engine,
 without a licence, and without network access**.

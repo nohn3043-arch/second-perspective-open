@@ -2,7 +2,7 @@
 
 # 📖 术语表 · Glossary
 
-**GCAE · Global Cognitive Audit Engine**
+**SPE · Second Perspective Engine — AI 的刹车系统 · The Brake System for AI**
 
 *每个词都用一句人话解释 · Every term explained in one plain sentence*
 
@@ -15,7 +15,8 @@
 
 | 术语 Term | 中文 | 一句话人话 · Plain meaning |
 |---|---|---|
-| **GCAE (Global Cognitive Audit Engine)** | 全球认知审计引擎 | 一台中立的「决策体检机」——不改你的模型代码，只审你决策的结构。 |
+| **SPE (Second Perspective Engine)** | 第二视角引擎 | AI 的刹车系统——在 AI 的输出落到现实世界之前拦下它，不改你的模型代码，只判定这个动作能不能放行。 |
+| **名称沿革** | — | 本引擎早期对外发布名为 **GCAE（Global Cognitive Audit Engine）**。该名称仍印在 IMDA AI Verify 评估报告与 Zenodo 论文存档上，属历史事实，此处保留仅用于外部资产可追溯；现统一以**第二视角引擎（SPE）**对外。 |
 | **Second Perspective Engine (SPE 1.2)** | 第二视角引擎 1.2 | 内核的当前实现：在五算子上补一层无语义拓扑，并加上叠加螺旋式迭代。 |
 | **Neutral audit** | 中立审计 | 不绑定任何大模型厂商，只做结构核验，不出主观结论。 |
 | **Core offline** | 内核离线 | 审计全程本地运行、确定性强；联网增强默认关闭。 |
@@ -88,7 +89,7 @@
 
 | Term | Plain meaning |
 |---|---|
-| **GCAE (Global Cognitive Audit Engine)** | A neutral "decision health check" — it doesn't change your model's code, it audits the structure of your decision. |
+| **SPE (Second Perspective Engine)** | The brake system for AI — it intercepts an AI's output before that output acts on the real world; it doesn't change your model's code, it rules on whether the action may proceed. |
 | **Neutral audit** | Bound to no model vendor; it only verifies structure and issues no subjective conclusion. |
 | **Core offline** | The whole audit runs locally with strong determinism; online enhancement is off by default. |
 | **Decision-agnostic** | The engine won't decide for you or suggest optimizations — only structural diagnosis. |
@@ -159,6 +160,6 @@
 
 [← 公开规范 spec/](./spec/) &nbsp;·&nbsp; [← Public specification](./spec/)
 
-<sub>NOHN AI · SECOND-PERSPECTIVE (GCAE)</sub>
+<sub>NOHN AI · SECOND-PERSPECTIVE (SPE)</sub>
 
 </div>

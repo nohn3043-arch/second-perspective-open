@@ -1,28 +1,49 @@
-# Second-Perspective (GCAE) Specification
+# Second-Perspective (SPE) Specification
 
 > **Document info**: Version 1.x | Status: passed IMDA AI Verify evaluation (total score 95) | Author: NOHN AI
 > **Basis**: TESTING-zh / GLOSSARY / STANDARD 2026.1–2026.3
 > 中文版本：[`SPECIFICATION-zh.md`](./SPECIFICATION-zh.md)
 >
-> This specification describes the public specification surface of the **GCAE Global Cognitive Audit Engine**: the ten-operator pipeline, the decision-structure language, states and signals, invariants and convergence semantics. The engine kernel — its internal structure, module layout and source-level identifiers — is a confidential deliverable and is deliberately not described here.
+> This specification describes the public specification surface of the **Second Perspective Engine (SPE)**: the ten-operator pipeline, the decision-structure language, states and signals, invariants and convergence semantics. The engine kernel — its internal structure, module layout and source-level identifiers — is a confidential deliverable and is deliberately not described here.
 
 ## 1. Scope and Positioning
 
 ### 1.1 Positioning
 
-A neutral, core-offline, decision-independent cognitive-bias audit engine: provides **third-party structural auditing** for AI systems and enterprise decisions, without offering suggestions, rankings or scores.
+**SPE (Second Perspective Engine) is the brake system for AI.**
 
-### 1.2 Non-goals
+It is a neutral, core-offline, decision-agnostic engine that intercepts an AI system's output **before that output acts on the real world**: it strips narrative, surfaces implicit assumptions, localises the fragility of each assumption, and anchors responsibility to a named decision unit — then returns a structural verdict that can **block, hold, or release** the action, together with a recomputable SHA-256 audit chain proving the brake was applied.
+
+Three properties define the brake:
+
+| Property | Statement |
+|---|---|
+| Neutral | Never adjudicates for the operator, never rewrites the model, never ranks alternatives |
+| Offline and reproducible | Verdict and audit chain recomputable across machines, independent of any model vendor |
+| Binding at the decision boundary | Acts on the decision-execution step, upstream of actuation — not on model weights, not on process-level runtime |
+
+### 1.2 Intended buyers
+
+| Buyer | Why a brake is required | What SPE provides |
+|---|---|---|
+| Foundation-model vendors | Regulatory exposure and liability for their own model output | A vendor-independent brake layer with recomputable evidence |
+| Governments / regulators | Enforceable control and attributable responsibility | Deterministic verdicts plus responsibility anchoring, verifiable offline |
+| Enterprises controlling an AI system | Duty of care over automated decisions | Pre-action interception and a sealed audit certificate |
+
+Explicitly **not** a target buyer: organisations whose business is producing audit reports or affixing certification marks. SPE sells control, not paperwork.
+
+### 1.3 Non-goals
 
 - Does not detect "bias": no statistical fairness testing, no group-difference measurement, no training-data audit;
-- Does not make the model error-free; does not make medical / legal / financial / security professional judgements; does not handle runtime safety;
+- Does not make the model error-free; does not make medical / legal / financial / security professional judgements;
+- **Does not manage process-level runtime safety** (kill-switch, sandboxing, resource control) — the brake acts at the decision-execution boundary, upstream of actuation; it stops the *action*, not the *process*;
 - Does not turn unsolvable into solvable; `AWAITING_HUMAN` is the norm, the engine never autonomously generates fixes.
 
 ## 2. Terms and Definitions
 
 | Term | Definition |
 |---|---|
-| GCAE | Global Cognitive Audit Engine |
+| SPE | Second Perspective Engine |
 | Ten operators | ⊙GA→⊗NS→⊕IAP→⊿LCH→⊞LFT→BFC→⚙CCS→⇄GRF→META→⊚ACC — this order is normative and fixed |
 | BFC | Binary Fact Check, binary fact verification, **no third truth value** |
 | META | Meta-causal ledger: five meta-bases 混沌 / 无极 / 虚幻 / 天道 / 轮回 (chaos / wuji / illusion / heaven-tao / samsara) |

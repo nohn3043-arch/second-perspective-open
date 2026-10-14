@@ -208,7 +208,7 @@ ANTARES 是 NOHN AI 生态的一员 —— 一个围绕第二视角因果审计�
 
 | 项目 | 去哪看 | 角色 |
 |---|---|---|
-| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | 全局认知审计引擎 —— 五算子因果审计内核（IMDA 95/100） |
+| **Second-Perspective (SPE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | 第二视角引擎（SPE）—— AI 的刹车系统，五算子因果制动内核（IMDA 95/100） |
 | **NOMOS** | [nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS) | 可审计的确定性决策中枢（IMDA 95/100） |
 | **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/PRODUCTS/SPL-G1/spec) | 硬件因果审计可信计算单元（TCU） |
 | **SPL-Virtual-World-Base** | [nohn3043-arch/Second-Reality](https://github.com/nohn3043-arch/Second-Reality) | 虚拟世界与元宇宙基础设施（宪法 / 法律 / 桥） |

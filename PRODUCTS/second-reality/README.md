@@ -375,7 +375,7 @@ SPL-VIRTUAL-WORLD-BASE is a member of the NOHN AI ecosystem — a family of proj
 
 | Project | Where to look | Role |
 |---|---|---|
-| **Second-Perspective (GCAE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | Global Cognitive Audit Engine — five-operator causal audit core (IMDA 95/100) |
+| **Second-Perspective (SPE)** | [nohn3043-arch/second-perspective-open](https://github.com/nohn3043-arch/second-perspective-open) | Second Perspective Engine (SPE) — the brake system for AI, five-operator causal brake core (IMDA 95/100) |
 | **NOMOS** | [nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS) | Auditable deterministic decision center (IMDA 95/100) |
 | **SPL-G1** | [SPEC/SPL-G1](https://github.com/nohn3043-arch/second-perspective-open/tree/main/PRODUCTS/SPL-G1/spec) | Hardware causal audit trusted computing unit (TCU) |
 | **SPL-Virtual-World-Base** | [nohn3043-arch/Second-Reality](https://github.com/nohn3043-arch/Second-Reality) | Virtual world & metaverse infrastructure (Constitution / Law / Bridge) |

@@ -79,7 +79,7 @@ Zero external dependencies, stdlib only, deterministic (seeded).
 
 ## 5. Step 2 · The engine's own verification suite (licensed delivery)
 
-`second-perspective-verify/verify.py` is the independent verification suite of the Second-Perspective Engine (published as GCAE). It reports **PASS / FAIL / WARN** honestly and never relaxes an assertion to look good — a `FAIL` is a current defect of the product and must be fixed before any external commitment. It has **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b.
+`second-perspective-verify/verify.py` is the independent verification suite of the Second-Perspective Engine (published as SPE). It reports **PASS / FAIL / WARN** honestly and never relaxes an assertion to look good — a `FAIL` is a current defect of the product and must be fixed before any external commitment. It has **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b.
 
 It loads `Second Perspective Engine.py` from its own directory. That file is a licensed-delivery artifact and is **not** part of this repository, so a fresh clone of this repository cannot run the suite: copy `verify.py` next to the engine file inside an authorised deployment.
 
@@ -102,7 +102,7 @@ Earlier revisions of this guide quoted a third set of totals as if it were curre
 
 ## 6. Step 3 · Design your own evaluation (methodology)
 
-> The following are the general criteria used by the GCAE evaluation pipeline (a simplified version of §5.3 of Test Specification v1.0).
+> The following are the general criteria used by the SPE evaluation pipeline (a simplified version of §5.3 of Test Specification v1.0).
 > Design along these lines and your results will align with our reporting criteria and withstand third-party recomputation.
 
 ### 6.1 General principles

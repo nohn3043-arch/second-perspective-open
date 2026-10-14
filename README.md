@@ -2,6 +2,7 @@
 
 > Specifications, verifiers, and independent certification assets — in the open.
 > This repository is the **public trust layer** of the NOHN AI "Second-Perspective" trusted-computing stack: anyone may verify our deliverables without prior authorization — and cannot obtain the core engine implementation from it.
+> The engine it documents — **SPE (Second Perspective Engine) — is the brake system for AI**, built for foundation-model vendors, governments and regulators, and enterprises that control an AI system. It is not a benchmarking or certification service.
 
 <p align="center">
   <a href="README-zh.md">简体中文</a> | English
@@ -24,7 +25,7 @@ second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ One folder per product: public spec in spec/ — no implementation internals
 │   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
 │   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
-│   ├── second-perspective/             # GCAE global cognitive audit engine (the engine)
+│   ├── second-perspective/             # SPE (Second Perspective Engine) — the brake system for AI
 │   └── second-reality/                 # Virtual-world substrate
 ├── STANDARD/                   # 📐 Decision-structure language standard (EBNF grammar + reference interpreter)
 │   ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
@@ -33,7 +34,7 @@ second-perspective-open/
 │   ├── dsl.py                        # Reference interpreter (executable definition of the standard)
 │   ├── 2026.md                       # Dated standard snapshot (version 2026)
 │   └── examples/                     # Valid / invalid samples (4 .spd files)
-├── second-perspective-verify/  # ✅ Second-Perspective Engine (GCAE) verifiers — see §A below
+├── second-perspective-verify/  # ✅ Second Perspective Engine (SPE) verifiers — see §A below
 │   ├── verify.py                        # zero-dependency, offline (python3, stdlib only)
 │   ├── verify_convergence_fix.py        # convergence-logic regression (S1–S6)
 │   ├── verify-output.log                # full output of the v1.0 snapshot (Zenodo)
@@ -44,16 +45,17 @@ second-perspective-open/
 │   └── paper.pdf / paper.md
 └── CERTIFICATIONS/             # Independent certification and compliance
     ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # Singapore IMDA AI Verify: 95/100
-    └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance
+    ├── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance
+    └── aims/                                # 🧭 NOHN AI's own AIMS (ISO/IEC 42001) — self-built, unaudited, evidence recomputable
 ```
 
 ## How to verify (third-party, offline)
 
 Verification assets are split by product, one folder each: `second-perspective-verify/` and `nomos-verify/`. Confirm which one you are working from before running anything.
 
-### A. Second-Perspective Engine (GCAE) — ✅ the engine's own verifier, in `second-perspective-verify/`
+### A. Second Perspective Engine (SPE) — ✅ the engine's own verifier, in `second-perspective-verify/`
 
-`second-perspective-verify/verify.py` **is the independent verification suite of the Second-Perspective Engine** (shipped publicly as GCAE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
+`second-perspective-verify/verify.py` **is the independent verification suite of the Second-Perspective Engine** (SPE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
 
 The engine's **public specification** is [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md); the verification-and-evaluation methodology is the [TESTING guide](./PRODUCTS/second-perspective/TESTING.md). Note the split: `verify.py` cannot run from a clone of *this* repository — it loads the engine core — so the licence-free, clone-and-run entry point is the engine-free **evidence package** described below.
 
@@ -91,6 +93,19 @@ This is the one place in this repository where "verify without trusting the vend
 - Method: `pytest` release evidence (baseline: 507 tests, 91% coverage) plus one replayable evaluation run.
 - Its own chain root: `adacff1bd647b7691cf153b5800185b1afbb449de779bebc2847ac1988090a68`.
 - Use it only when you are evaluating NOMOS. To evaluate the Second-Perspective Engine, use §A.
+
+### C. NOHN AI's own AI Management System — 🧭 in `CERTIFICATIONS/aims/`
+
+Neither §A nor §B certifies anything. `CERTIFICATIONS/aims/` is different in kind: it is the
+**management system NOHN AI runs for itself**, aligned to ISO/IEC 42001:2023, with its evidence
+generated by the engine. It is **self-built, unaudited and carries no certificate** — published so
+that its records are independently recomputable and its gaps are visible rather than implied away.
+
+Note the standing distinction: ISO/IEC 42001 certifies an **organisation's AIMS**, never a product.
+The engine appears in that folder as a control and evidence generator, not as a certified object.
+
+Start at [`CERTIFICATIONS/aims/README.md`](./CERTIFICATIONS/aims/README.md); read
+[`CERTIFICATIONS/aims/OPEN-GAPS.md`](./CERTIFICATIONS/aims/OPEN-GAPS.md) before quoting any claim.
 
 ## License
 

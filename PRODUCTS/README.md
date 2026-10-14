@@ -9,7 +9,7 @@
 | 产品 | 定位 | 根下文档 | 公开规范 |
 |---|---|---|---|
 | [Antares](Antares/) | GFSIP v1.0 — 带因果审计的联邦稳定互操作协议（开放标准） | README / README-zh / GLOSSARY / NOTICE / CHANGELOG | [spec/](Antares/spec/) |
-| [second-perspective](second-perspective/) | GCAE 全局认知审计引擎（IMDA 自评 95/100） | GLOSSARY / TESTING / TESTING-zh / LICENSE | [spec/](second-perspective/spec/) |
+| [second-perspective](second-perspective/) | 第二视角引擎（SPE）—— AI 的刹车系统（面向大模型厂商 / 政府 / 对 AI 有控制权的企业；IMDA 自评 95/100） | GLOSSARY / TESTING / TESTING-zh / LICENSE | [spec/](second-perspective/spec/) |
 | [second-reality](second-reality/) | 虚拟世界基础设施基座（宪法—法律—桥） | README / README-zh / GLOSSARY / LICENSE | [spec/](second-reality/spec/) |
 | [ai-draw-cue-word-project](ai-draw-cue-word-project/) | AI 绘画构图细节模板 v2.8（21 张 CSV 数据表） | README / README-zh / GLOSSARY / LICENSE | [spec/](ai-draw-cue-word-project/spec/) |
 
