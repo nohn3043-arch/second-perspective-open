@@ -2,7 +2,7 @@
 
 > 规范、校验器与独立认证资产的公开仓库。
 > 本仓库是 NOHN AI「第二视角」可信计算体系的 **公开信任层**：任何人无需授权即可核验我们的工作产物 —— 但无法据此获得核心引擎实现。
-> 它所记载的引擎 —— **SPE（第二视角引擎）—— 是 AI 的刹车系统**，面向大模型厂商、政府与监管机构，以及对 AI 有控制权的企业。它不是测评或认证服务。
+> 它所记载的引擎 —— **SPE（第二视角引擎）—— 是 AI 的决策控制基础设施**，面向大模型厂商、政府与监管机构，以及对 AI 有控制权的企业。它不是测评或认证服务。
 
 <p align="center">
   简体中文 | <a href="README.md">English</a>
@@ -25,7 +25,7 @@ second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ 一产品一目录：公开规范在 spec/，不含实现内部结构
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
-│   ├── second-perspective/             # 第二视角引擎（SPE）—— AI 的刹车系统（即本引擎）
+│   ├── second-perspective/             # 第二视角引擎（SPE）—— AI 决策控制基础设施（即本引擎）
 │   └── second-reality/                 # 虚拟世界基座
 ├── STANDARD/                   # 📐 决策结构语言规范（EBNF 文法 + 参照解释器）
 │   ├── grammar.md / grammar-zh.md    # 语法规范（中英）
