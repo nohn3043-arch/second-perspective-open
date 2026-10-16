@@ -16,7 +16,7 @@ NOMOS is a deterministic, auditable decision hub. Its design principles — no g
 | G1.1 | Establish organisational AI policy | `LICENSE` defines tiered authorisation; commercial deployment requires written paid authorisation |
 | G1.2 | Assign accountability and roles | `decision_owner` field in `HubAnalysisRequest`; approval recorded via `governance/approval.py` |
 | G1.3 | Establish AI risk tolerances | `policy.py` configurable guardrails for the deterministic engine |
-| G1.4 | Cultivate an AI risk culture | Shanghai / EU / PDPA compliance docs; IMDA AI Verify 95/100 |
+| G1.4 | Cultivate an AI risk culture | Shanghai / EU / PDPA compliance docs; provider self-assessment against the AI Verify framework (95/100) |
 | G1.5 | Establish AI system lifecycle process | Production boundaries documented in `README` (v0.4 roadmap) |
 | G1.6 | Train workforce | Compliance docs and `docs/INTELLIGENT_DECISION_HUB_V0_3.md` |
 | G1.7 | Implement a process for AI risks and impacts | `CognitiveRiskScanner` + `InformationPriorityBuilder` |

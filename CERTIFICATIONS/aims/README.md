@@ -40,7 +40,7 @@ Two reasons, both load-bearing:
 | [`../compliance/COMPLIANCE_ISO_42001.md`](../compliance/COMPLIANCE_ISO_42001.md) | **Product** (NOMOS) | "How does this product map onto ISO/IEC 42001 clauses?" |
 | **This folder** | **Organisation** (NOHN AI) | "What does NOHN AI actually run, and where is the evidence?" |
 | [`../../second-perspective-verify/`](../../second-perspective-verify/) | **Engine** | "Can the published chain be recomputed without the engine?" |
-| [`../IMDA_AI_Verify_Causal_Audit_Report.pdf`](../IMDA_AI_Verify_Causal_Audit_Report.pdf) | **External assessment** | "What did IMDA AI Verify score?" (95/100) |
+| [`../IMDA_AI_Verify_Causal_Audit_Report.pdf`](../IMDA_AI_Verify_Causal_Audit_Report.pdf) | **Provider self-assessment submission** | "What did the provider's AI Verify self-assessment score?" (95/100; provider-submitted document, not an IMDA-issued certification) |
 
 The mapping document describes capability. This folder describes **operation**. An auditor will ask
 for the second one.

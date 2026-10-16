@@ -16,7 +16,7 @@
 | 术语 Term | 中文 | 一句话人话 · Plain meaning |
 |---|---|---|
 | **SPE (Second Perspective Engine)** | 第二视角引擎 | AI 的刹车系统——在 AI 的输出落到现实世界之前拦下它，不改你的模型代码，只判定这个动作能不能放行。 |
-| **名称沿革** | — | 本引擎早期对外发布名为 **GCAE（Global Cognitive Audit Engine）**。该名称仍印在 IMDA AI Verify 评估报告与 Zenodo 论文存档上，属历史事实，此处保留仅用于外部资产可追溯；现统一以**第二视角引擎（SPE）**对外。 |
+| **名称沿革** | — | 本引擎早期对外发布名为 **GCAE（Global Cognitive Audit Engine）**。该名称仍印在 AI Verify 自评报告与 Zenodo 论文存档上，属历史事实，此处保留仅用于外部资产可追溯；现统一以**第二视角引擎（SPE）**对外。 |
 | **Second Perspective Engine (SPE 1.2)** | 第二视角引擎 1.2 | 内核的当前实现：在五算子上补一层无语义拓扑，并加上叠加螺旋式迭代。 |
 | **Neutral audit** | 中立审计 | 不绑定任何大模型厂商，只做结构核验，不出主观结论。 |
 | **Core offline** | 内核离线 | 审计全程本地运行、确定性强；联网增强默认关闭。 |
@@ -78,8 +78,8 @@
 | **Decision Structure Language (`.spd`)** | 决策结构语言 | 一套只描述「决策在什么边界内成立」的结构 DSL，本身不带执行语义。 |
 | **Validator (`dsl.py check`)** | 校验器 | 检查 `.spd` 记录是否符合语法与约束；不合规直接拒绝。 |
 | **Diagnostic codes** | 诊断码 | 机器可读的诊断编号；拓扑层为 T101–T308（含 2026.3 新增的 T305 分叉 / T307 序倒置 / T308 序不可赋值）。 |
-| **IMDA AI Verify** | 新加坡 AI 合规评估 | 新加坡官方 AI 治理框架；本引擎总分 95。 |
-| **Clean-room declaration** | 洁净室声明 | 若无法提供独立开发的完整证据，则推定构成实质性衍生侵权。 |
+| **IMDA AI Verify** | 新加坡 AI 治理框架 | 新加坡官方 AI 治理框架；本引擎依据该框架自评总分 95（提供方自测，非 IMDA 官方认证或背书）。 |
+| **Independent-development statement** | 独立开发声明 | 本作品为独立开发完成，保留完整、连续、可追溯的开发过程记录以证明来源。我们尊重他人的合法知识产权；如对来源有疑问，欢迎书面联系，双方可基于各自保留的开发证据进行核对。 |
 
 ---
 
@@ -151,8 +151,8 @@
 | **Decision Structure Language (`.spd`)** | A structural DSL that only describes the boundaries within which a decision holds; it carries no execution semantics. |
 | **Validator (`dsl.py check`)** | Checks whether a `.spd` record satisfies the grammar and constraints; non-compliant ones are rejected outright. |
 | **Diagnostic codes** | Machine-readable diagnostic numbers; the topology layer spans T101–T308 (including the 2026.3 additions T305 fork / T307 inverted order / T308 unassignable order). |
-| **IMDA AI Verify** | Singapore's official AI governance framework; this engine scores 95 overall. |
-| **Clean-room declaration** | Without full evidence of independent development, substantial derivative infringement is presumed. |
+| **IMDA AI Verify** | Singapore's official AI governance framework; this engine was self-assessed against it by the provider (95/100) — a provider self-test, not an IMDA-issued certification. |
+| **Independent-development statement** | This work was developed independently; complete, continuous and traceable development records are retained to document provenance. We respect others' legitimate intellectual property; provenance questions may be raised in writing and checked against each party's retained development records. |
 
 ---
 

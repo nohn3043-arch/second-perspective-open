@@ -1,6 +1,6 @@
 # Second-Perspective Open — 可信计算公开层
 
-> 规范、校验器与独立认证资产的公开仓库。
+> 规范、校验器与自声明合规材料的公开仓库。
 > 本仓库是 NOHN AI「第二视角」可信计算体系的 **公开信任层**：任何人无需授权即可核验我们的工作产物 —— 但无法据此获得核心引擎实现。
 > 它所记载的引擎 —— **SPE（第二视角引擎）—— 是 AI 的决策控制基础设施**，面向大模型厂商、政府与监管机构，以及对 AI 有控制权的企业。它不是测评或认证服务。
 
@@ -15,7 +15,7 @@
 
 | 层级 | 内容 | 可见性 |
 |------|------|--------|
-| 公开层（本仓库） | 语言规范、校验器、论文、独立认证报告 | 🔓 公开 |
+| 公开层（本仓库） | 语言规范、校验器、论文、合规映射与自评材料（无第三方认证） | 🔓 公开 |
 | 实现层（其他仓库） | 引擎内核、LLM 适配器、硬件 RTL、产品实现 | 🔒 私有 / 授权交付 |
 
 ## 目录结构
@@ -43,8 +43,8 @@ second-perspective-open/
 │   └── VERIFICATION_GUIDE.md            # 验证 NOMOS，不验证本引擎
 ├── PAPERS/                     # 论文与白皮书（可复现引用）
 │   └── paper.pdf / paper.md
-└── CERTIFICATIONS/             # 独立认证与合规
-    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # 新加坡 IMDA AI Verify：95/100
+└── CERTIFICATIONS/             # 合规映射 · 自声明 AIMS · 提供方提交的 AI Verify 材料
+    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify 自评：95/100（提供方自测，非 IMDA 官方认证）
     └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / 上海合规
 ```
 

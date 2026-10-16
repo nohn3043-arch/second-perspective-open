@@ -1,6 +1,6 @@
 # Second-Perspective Open — Public Trust Layer for Trusted Computing
 
-> Specifications, verifiers, and independent certification assets — in the open.
+> Specifications, verifiers, and self-declared compliance records — in the open.
 > This repository is the **public trust layer** of the NOHN AI "Second-Perspective" trusted-computing stack: anyone may verify our deliverables without prior authorization — and cannot obtain the core engine implementation from it.
 > The engine it documents — **SPE (Second Perspective Engine) — is the decision control infrastructure for AI**, built for foundation-model vendors, governments and regulators, and enterprises that control an AI system. It is not a benchmarking or certification service.
 
@@ -15,7 +15,7 @@ This repository follows the mature path already taken by TPM / Intel SGX / ARM T
 
 | Layer | Content | Visibility |
 |-------|---------|-----------|
-| Public layer (this repository) | Language standard, verifiers, papers, independent certification reports | 🔓 Open |
+| Public layer (this repository) | Language standard, verifiers, papers, compliance mappings and self-assessment records (no third-party certification) | 🔓 Open |
 | Implementation layer (other repositories) | Engine core, LLM adapters, hardware RTL, product implementations | 🔒 Private / licensed delivery |
 
 ## Directory structure
@@ -43,8 +43,8 @@ second-perspective-open/
 │   └── VERIFICATION_GUIDE.md            # verifies NOMOS, NOT this engine
 ├── PAPERS/                     # Papers and white papers (reproducible citation)
 │   └── paper.pdf / paper.md
-└── CERTIFICATIONS/             # Independent certification and compliance
-    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # Singapore IMDA AI Verify: 95/100
+└── CERTIFICATIONS/             # Compliance mappings · self-declared AIMS · provider-submitted AI Verify material
+    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify self-assessment: 95/100 (provider self-test, not an IMDA certification)
     ├── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance
     └── aims/                                # 🧭 NOHN AI's own AIMS (ISO/IEC 42001) — self-built, unaudited, evidence recomputable
 ```

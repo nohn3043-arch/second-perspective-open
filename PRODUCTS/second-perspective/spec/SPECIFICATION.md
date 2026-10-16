@@ -1,6 +1,6 @@
 # Second-Perspective (SPE) Specification
 
-> **Document info**: Version 1.x | Status: passed IMDA AI Verify evaluation (total score 95) | Author: NOHN AI
+> **Document info**: Version 1.x | Status: self-assessed by the provider against the AI Verify framework (total score 95/100; provider self-test, not an IMDA-issued certification) | Author: NOHN AI
 > **Basis**: TESTING-zh / GLOSSARY / STANDARD 2026.1–2026.3
 > 中文版本：[`SPECIFICATION-zh.md`](./SPECIFICATION-zh.md)
 >
@@ -99,11 +99,11 @@ Explicitly **not** a target buyer: organisations whose business is producing aud
 
 ## 5. Audit and Compliance
 
-- IMDA AI Verify evaluation 95 points (causal-audit track).
+- Self-assessed by the provider against the AI Verify framework: 95/100 (causal-audit track; provider-submitted document, not an IMDA-issued certification).
 - Reproducible certificate: same input + same nonce + same clock → same chain root, independent of any model vendor.
 - V3b WARN: the certificate does not bind the original input; the coverage scope must be actively declared.
 - Hash-chain event types, 10 kinds (AUDIT / DELTA_APPLIED, etc.); hash input includes the event index idx; changing event count / order invalidates it.
-- Clean-room statement: presumed substantial-derivative infringement.
+- Independent-development statement: development records retained to document provenance; unauthorized substantial derivation pursued under applicable law.
 - Test methodology v1.0: Wilson 95% CI, exact McNemar, Cohen's κ ≥ 0.70, Hollow rate > 20% → HALT.
 
 ## 6. Conformance Statement

@@ -49,5 +49,6 @@ are recorded in the respective product repositories.
 
 - `nomos-verify/VERIFICATION_GUIDE.md` describes NOMOS verification. It is published here for
   reference; it does not run from this repository (see the scope note at its head).
-- `PAPERS/paper.md` records the results of the v1.0 snapshot run (`PASS 18 · FAIL 0 · WARN 1`).
-  That is a historical record of that snapshot and is left as published.
+- `PAPERS/paper.md` records the results of the SPE 1.2.0 run of 2026-10-10 (`PASS 18 · FAIL 0 · WARN 1`).
+  That is a historical record of that generation and is left as published. The current suite (SPE 1.2.2)
+  reports `PASS 19 · FAIL 0 · WARN 0`, chain root `5b0ad8d1…` — see `PRODUCTS/second-perspective/TESTING.md`.

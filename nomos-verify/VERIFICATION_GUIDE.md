@@ -48,7 +48,7 @@ Every claim below is taken from the README. "Pass" means the stated criterion, n
 | C11 | Published OpenAPI artifact is current | `python scripts/export_openapi.py && git diff --exit-code -- openapi-action.yaml` | No diff |
 | C12 | Evaluation statistics pipeline — Wilson / exact McNemar / Cohen's κ / churn | `pytest tests/test_evaluation_measurement.py tests/test_evaluation_operations.py tests/test_evaluation_panel.py`; L2/L3 runs | Green; L2 produces the statistics in `metrics.json` |
 | C13 | Enterprise control plane — tenant isolation, event store, KMS signing, rate limiting, authz scopes, domain packs (opt-in) | `pytest tests/test_v05_enterprise.py` | Green |
-| C14 | IMDA AI Verify causal-audit score 95/100 | Read `IMDA_AI_Verify_Causal_Audit_Report.pdf` | Report on file (single-round assessment — see §6) |
+| C14 | Provider self-assessment against the AI Verify framework: 95/100 | Read `IMDA_AI_Verify_Causal_Audit_Report.pdf` (provider-submitted document) | Report on file (single-round, provider-run evaluation — see §6) |
 
 ---
 
@@ -188,7 +188,7 @@ The pipeline runs in your environment. Corpora, frozen verdicts, and reports nev
 State these in your own verification report so that your tests only check what was promised:
 
 - **The shipped corpus is a pilot.** Annotations in `hallucination_testset_v1.json` are seeded synthetic stand-ins (§3.1 pilot); the engine arm is real, and all statistics run the production pipeline. Swap in your real double-annotation export before drawing domain conclusions.
-- **The IMDA result is a single-round assessment** of the causal-audit track (95/100), not an ongoing certification, and it does not transfer to your deployment.
+- **The AI Verify self-assessment is a single-round, provider-run evaluation** of the causal-audit track (95/100), not an ongoing certification and not an IMDA-issued certification, and it does not transfer to your deployment.
 - **Formal certification** (ISO/IEC 42001, EU AI Act conformity, etc.) requires an accredited third-party audit; vendor documentation alone is a control input, not proof.
 - **Hard boundaries (invariants, not backlog):** the engine never estimates missing interaction strengths, weights, probabilities, or responsible parties; no LLM output can flip an assumption state or rank; `BUDGET_EXHAUSTED` must never be reported as convergence; the cognitive scanner covers structural risk only and does not diagnose people.
 - **Not yet bundled** (do not test these as guarantees): shared/cloud rate-limit store, cloud-KMS envelope encryption, document-level per-tenant partitioning, multi-region HA, SLA tooling.
@@ -257,7 +257,7 @@ Commercial/government use requires a paid license — see [LICENSE](../LICENSE);
 | C11 | 已发布的 OpenAPI 产物为最新 | `python scripts/export_openapi.py && git diff --exit-code -- openapi-action.yaml` | 无 diff |
 | C12 | 评估统计管线 —— Wilson / 精确 McNemar / Cohen's κ / churn | `pytest tests/test_evaluation_measurement.py tests/test_evaluation_operations.py tests/test_evaluation_panel.py`；L2/L3 运行 | 全绿；L2 在 `metrics.json` 中产出这些统计 |
 | C13 | 企业控制平面 —— 租户隔离、事件存储、KMS 签名、限流、授权作用域、领域控制包（opt-in） | `pytest tests/test_v05_enterprise.py` | 全绿 |
-| C14 | IMDA AI Verify 因果审计 95/100 | 阅读 `IMDA_AI_Verify_Causal_Audit_Report.pdf` | 报告在库（单轮评估 —— 见 §6） |
+| C14 | 提供方依据 AI Verify 框架自评：95/100 | 阅读 `IMDA_AI_Verify_Causal_Audit_Report.pdf`（提供方提交的文档） | 报告在库（单轮、提供方自测评估 —— 见 §6） |
 
 ---
 
@@ -397,7 +397,7 @@ python examples/hallucination_3_1/collect_model_responses.py \
 把这些写进你自己的验证报告，让测试只检查被承诺的东西：
 
 - **随库语料是试点。** `hallucination_testset_v1.json` 中的标注是种子化的合成替身（§3.1 试点）；引擎臂为真跑，全部统计走生产管线。得出领域结论前，请换成你的真实双标导出。
-- **IMDA 结果是单轮评估**，针对因果审计赛道（95/100），不是持续认证，也不迁移到你的部署。
+- **AI Verify 自评是单轮、由提供方自行运行的评测**，针对因果审计赛道（95/100）；它不是持续认证、也非 IMDA 签发的认证，且不迁移到你的部署。
 - **正式认证**（ISO/IEC 42001、EU AI Act 符合性等）需要具备资质的第三方审计；厂商文档只是控制输入，不是证明。
 - **硬边界（不变量，不是待办）：** 引擎绝不估计缺失的交互强度、权重、概率或责任人；任何 LLM 输出都不能翻转假设状态或排名；`BUDGET_EXHAUSTED` 绝不能被报告为收敛；认知扫描器只覆盖结构性风险，不诊断人。
 - **尚未捆绑**（不要把这些当保证来测）：共享/云端限流存储、云 KMS 信封加密、文档级（而非事件级）租户分区、多区域高可用、SLA 工具。

@@ -94,11 +94,12 @@ python second-perspective-verify/verify.py --root     # print only the chain roo
 | Where it is recorded | Engine generation | Totals | Chain root |
 |---|---|---|---|
 | [`README.md`](../../README.md) §A | v1.0 snapshot baseline | 11 checks · `PASS 9 · FAIL 0 · WARN 2` | `f5713f49…` |
-| [`PAPERS/paper.md`](../../PAPERS/paper.md) | SPE 1.2.0 (run on 2026-10-10) | 19 checks · `PASS 18 · FAIL 0 · WARN 1` | — |
+| [`PAPERS/paper.md`](../../PAPERS/paper.md) | SPE 1.2.0 (run on 2026-10-10) — historical record, retained as published | 19 checks · `PASS 18 · FAIL 0 · WARN 1` | `aece60f5…` |
+| Reported for the current generation | SPE 1.2.2 | 19 checks · `PASS 19 · FAIL 0 · WARN 0` | `5b0ad8d1…` |
 
 Earlier revisions of this guide quoted a third set of totals as if it were current. It is deliberately **not** reproduced here: this repository cannot re-run the suite without the licensed engine, so an unverifiable number does not belong in it. If you need the figure for a specific generation, obtain it from an authorised deployment's own run.
 
-**One design trade-off is disclosed rather than hidden — V3b: the certificate does not bind the original input.** The report stores only derived conclusions (a privacy design: sensitive decision data is never persisted); the cost is that the certificate cannot independently prove "this is exactly the input that was audited." When describing it externally, state the certificate's coverage explicitly — do not let the other party assume it covers the input. (The v1.0 snapshot baseline additionally listed V9, a nonce-determinism limitation; see `README.md` §A for that snapshot's own disclosure.)
+**Historically one design trade-off was disclosed rather than hidden — V3b: the certificate did not bind the original input.** The report stored only derived conclusions (a privacy design: sensitive decision data is never persisted), so the certificate could not independently prove "this is exactly the input that was audited"; this is the WARN visible in the SPE 1.2.0 record above. In the current generation the certificate binds an input digest of the original input and the check passes (`PASS 19 · FAIL 0 · WARN 0`, see the table above); when describing earlier-generation certificates externally, state their coverage explicitly. (The v1.0 snapshot baseline additionally listed V9, a nonce-determinism limitation; see `README.md` §A for that snapshot's own disclosure.)
 
 ## 6. Step 3 · Design your own evaluation (methodology)
 
