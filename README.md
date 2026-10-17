@@ -2,7 +2,7 @@
 
 > Specifications, verifiers, and self-declared compliance records — in the open.
 > This repository is the **public trust layer** of the NOHN AI "Second-Perspective" trusted-computing stack: anyone may verify our deliverables without prior authorization — and cannot obtain the core engine implementation from it.
-> The engine it documents — **SPE (Second Perspective Engine) — is the decision control infrastructure for AI**, built for foundation-model vendors, governments and regulators, and enterprises that control an AI system. It is not a benchmarking or certification service.
+> The engine it documents — **SPE (Second Perspective Engine) — is the brake system for AI**, built for foundation-model vendors, governments and regulators, and enterprises that control an AI system. It is not a benchmarking or certification service.
 
 <p align="center">
   <a href="README-zh.md">简体中文</a> | English
@@ -25,7 +25,7 @@ second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ One folder per product: public spec in spec/ — no implementation internals
 │   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
 │   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
-│   ├── second-perspective/             # SPE (Second Perspective Engine) — decision control infrastructure for AI
+│   ├── second-perspective/             # SPE (Second Perspective Engine) — the brake system for AI
 │   └── second-reality/                 # Virtual-world substrate
 ├── STANDARD/                   # 📐 Decision-structure language standard (EBNF grammar + reference interpreter)
 │   ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
@@ -42,7 +42,8 @@ second-perspective-open/
 ├── nomos-verify/               # ❌ NOMOS third-party verification guide — a different product, see §B below
 │   └── VERIFICATION_GUIDE.md            # verifies NOMOS, NOT this engine
 ├── PAPERS/                     # Papers and white papers (reproducible citation)
-│   └── paper.pdf / paper.md
+│   ├── paper.pdf / paper.md
+│   └── why-ai-needs-brakes.md  # Position paper: why capable AI needs a brake layer
 └── CERTIFICATIONS/             # Compliance mappings · self-declared AIMS · provider-submitted AI Verify material
     ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify self-assessment: 95/100 (provider self-test, not an IMDA certification)
     ├── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance

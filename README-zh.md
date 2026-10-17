@@ -2,7 +2,7 @@
 
 > 规范、校验器与自声明合规材料的公开仓库。
 > 本仓库是 NOHN AI「第二视角」可信计算体系的 **公开信任层**：任何人无需授权即可核验我们的工作产物 —— 但无法据此获得核心引擎实现。
-> 它所记载的引擎 —— **SPE（第二视角引擎）—— 是 AI 的决策控制基础设施**，面向大模型厂商、政府与监管机构，以及对 AI 有控制权的企业。它不是测评或认证服务。
+> 它所记载的引擎 —— **SPE（第二视角引擎）—— 是 AI 的刹车系统**，面向大模型厂商、政府与监管机构，以及对 AI 有控制权的企业。它不是测评或认证服务。
 
 <p align="center">
   简体中文 | <a href="README.md">English</a>
@@ -25,7 +25,7 @@ second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ 一产品一目录：公开规范在 spec/，不含实现内部结构
 │   ├── Antares/                        # GFSIP v1.0 联邦互操作协议
 │   ├── ai-draw-cue-word-project/       # AI 绘画提示词控制台
-│   ├── second-perspective/             # 第二视角引擎（SPE）—— AI 决策控制基础设施（即本引擎）
+│   ├── second-perspective/             # 第二视角引擎（SPE）—— AI 的刹车系统（即本引擎）
 │   └── second-reality/                 # 虚拟世界基座
 ├── STANDARD/                   # 📐 决策结构语言规范（EBNF 文法 + 参照解释器）
 │   ├── grammar.md / grammar-zh.md    # 语法规范（中英）
@@ -42,7 +42,8 @@ second-perspective-open/
 ├── nomos-verify/               # ❌ NOMOS 第三方验证指南 —— 另一个产品，见下 §B
 │   └── VERIFICATION_GUIDE.md            # 验证 NOMOS，不验证本引擎
 ├── PAPERS/                     # 论文与白皮书（可复现引用）
-│   └── paper.pdf / paper.md
+│   ├── paper.pdf / paper.md
+│   └── why-ai-needs-brakes.md  # 立场文：AI 为什么需要刹车系统
 └── CERTIFICATIONS/             # 合规映射 · 自声明 AIMS · 提供方提交的 AI Verify 材料
     ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify 自评：95/100（提供方自测，非 IMDA 官方认证）
     └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / 上海合规

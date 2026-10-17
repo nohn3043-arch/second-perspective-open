@@ -30,7 +30,7 @@
 
 | System | Role | In scope from |
 |---|---|---|
-| Second Perspective Engine (SPE) | AI decision control infrastructure, independent of AI providers — acts at the decision-execution boundary, upstream of actuation | 2026-10 |
+| Second Perspective Engine (SPE) | The brake system for AI (category: decision control infrastructure), independent of AI providers — acts at the decision-execution boundary, upstream of actuation | 2026-10 |
 
 **Not in scope (decided 2026-10-15).** Explicitly excluded from this AIMS at this stage:
 
@@ -83,3 +83,4 @@ AI systems. It does **not** extend to:
 |---|---|
 | 2026-10-15 | Initial scope statement |
 | 2026-10-15 | Scope decided: AIMS anchored to the Singapore entity; NOMOS / Anthropomorphic Agent Engine / SPL-G1 explicitly out of scope; SPE repositioned as AI decision control infrastructure |
+| 2026-10-17 | Positioning refined: SPE presented as the brake system for AI; decision control infrastructure retained only as a category label |
