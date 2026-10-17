@@ -24,7 +24,6 @@
 second-perspective-open/
 ├── PRODUCTS/                   # 🏷️ 一引擎一目录：spec/ 放公开规范，verify/ 放验证资产
 │   ├── Anthropomorphic-Agent-Engine/   # AAE 拟人心理引擎
-│   ├── nomos/                          # NOMOS 智能决策中枢
 │   └── second-perspective/             # 第二视角引擎（SPE）—— AI 的刹车系统
 ├── STANDARD/                   # 📐 决策结构语言规范（EBNF 文法 + 参照解释器）
 │   ├── grammar.md / grammar-zh.md    # 语法规范（中英）
@@ -33,13 +32,6 @@ second-perspective-open/
 │   ├── dsl.py                        # 参考解释器（规范的可执行定义）
 │   ├── 2026.md                       # 标准年度版本说明（2026）
 │   └── examples/                     # 合法/非法示例（4 份 .spd 样例）
-├── PRODUCTS/second-perspective/verify/  # ✅ 第二视角引擎（SPE）校验器 —— 见下 §A
-│   ├── verify.py                        # 零依赖离线（python3，纯标准库）
-│   ├── verify_convergence_fix.py        # 收敛逻辑回归（S1–S6）
-│   ├── verify-output.log                # v1.0 快照完整验证输出（Zenodo）
-│   └── evidence/                        # ✅ 冻结审计链 + 免引擎重算 —— 无需引擎、无需许可
-├── PRODUCTS/nomos/verify/               # ❌ NOMOS 第三方验证指南 —— 另一个产品，见下 §B
-│   └── VERIFICATION_GUIDE.md            # 验证 NOMOS，不验证本引擎
 ├── PAPERS/                     # 论文与白皮书（可复现引用）
 │   ├── paper.pdf / paper.md
 │   └── why-ai-needs-brakes.md  # 立场文：AI 为什么需要刹车系统
@@ -50,13 +42,16 @@ second-perspective-open/
 
 ## 如何核验 / How to verify (third-party, offline)
 
-验证资产按产品分开放置，一个产品一个目录：`PRODUCTS/second-perspective/verify/` 与 `PRODUCTS/nomos/verify/`。动手前请先确认你在看哪一套。
+验证资产按引擎分开放置，一个引擎一个 `verify/` 目录。
+本仓库中可实际运行的免引擎验证见下方 §A。
 
-### A. 第二视角引擎（SPE）—— ✅ 本引擎的 verify，位于 `PRODUCTS/second-perspective/verify/`
+### A. 第二视角引擎（SPE）—— ✅ 本引擎的 verify，位于 `PRODUCTS/second-perspective/verify/`。
+
+> **为什么没有 NOMOS 的条目**：NOMOS 智能决策中枢是企业管理**应用层**产品，建立在第二视角引擎之上，不是引擎层构件，因此本公开层不为它设立规范条目。
 
 `PRODUCTS/second-perspective/verify/verify.py` **就是第二视角引擎（SPE）的独立验证套件**。它加载引擎内核（`Second Perspective Engine.py`，属授权交付物），如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。
 
-本引擎的**公开规范**在 [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md)；核验与评测方法学见 [TESTING 指导](./PRODUCTS/second-perspective/TESTING.md)。请注意这层分工：`verify.py` **无法**在克隆本仓库后直接运行 —— 它要装载引擎内核 —— 因此免许可、克隆即可跑的入口，是下面介绍的**免引擎证据包**。
+本引擎的**公开规范**在 [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md)；核验与评测方法学见 [TESTING 指导](./PRODUCTS/second-perspective/verify/TESTING.md)。请注意这层分工：`verify.py` **无法**在克隆本仓库后直接运行 —— 它要装载引擎内核 —— 因此免许可、克隆即可跑的入口，是下面介绍的**免引擎证据包**。
 
 | 文件 | 作用 |
 |------|------|
@@ -84,14 +79,6 @@ python PRODUCTS/second-perspective/verify/evidence/recompute.py --tamper
 ```
 
 这是本仓库中唯一一处，外部读者今天就能执行「不必信任供应商」这句话的地方。它跑六项检查，把公开的输入、公开的报告视图与冻结的链相互绑定、并绑定到公开的链根 —— 输入摘要 → 报告哈希 → 链根 —— 并演示三者任一被改动都会被检出。
-
-### B. NOMOS 智能决策中枢 —— ❌ 另一个产品，位于 `PRODUCTS/nomos/verify/`，不是本引擎的 verify
-
-`PRODUCTS/nomos/verify/VERIFICATION_GUIDE.md` 是 **NOMOS**（[nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS)，v0.5.0，2026-10-08）的第三方验证指南。NOMOS 是**另一个产品**，该指南**不验证本引擎**。
-
-- 方法：`pytest` 发布证据（基线 507 个测试、91% 覆盖率）+ 一次可重放的评估运行。
-- 其自身链根：`adacff1bd647b7691cf153b5800185b1afbb449de779bebc2847ac1988090a68`。
-- 仅在评估 NOMOS 时使用；要评估第二视角引擎，请用上面 §A。
 
 ## 许可证 / License
 

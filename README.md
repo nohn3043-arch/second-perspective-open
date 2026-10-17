@@ -22,11 +22,9 @@ This repository follows the mature path already taken by TPM / Intel SGX / ARM T
 
 ```
 second-perspective-open/
-├── PRODUCTS/                   # 🏷️ One folder per product: public spec in spec/ — no implementation internals
-│   ├── Antares/                        # GFSIP v1.0 federated interoperability protocol
-│   ├── ai-draw-cue-word-project/       # AI-drawing prompt console
-│   ├── second-perspective/             # SPE (Second Perspective Engine) — the brake system for AI
-│   └── second-reality/                 # Virtual-world substrate
+├── PRODUCTS/                   # 🏷️ One folder per engine: spec/ = public specification, verify/ = verification assets
+│   ├── Anthropomorphic-Agent-Engine/   # AAE — anthropomorphic psychology engine
+│   └── second-perspective/             # SPE (Second Perspective Engine) — the brake system for AI
 ├── STANDARD/                   # 📐 Decision-structure language standard (EBNF grammar + reference interpreter)
 │   ├── grammar.md / grammar-zh.md    # Grammar specification (EN / ZH)
 │   ├── decision.ebnf                 # Decision-structure grammar (EBNF)
@@ -34,13 +32,6 @@ second-perspective-open/
 │   ├── dsl.py                        # Reference interpreter (executable definition of the standard)
 │   ├── 2026.md                       # Dated standard snapshot (version 2026)
 │   └── examples/                     # Valid / invalid samples (4 .spd files)
-├── PRODUCTS/second-perspective/verify/  # ✅ Second Perspective Engine (SPE) verifiers — see §A below
-│   ├── verify.py                        # zero-dependency, offline (python3, stdlib only)
-│   ├── verify_convergence_fix.py        # convergence-logic regression (S1–S6)
-│   ├── verify-output.log                # full output of the v1.0 snapshot (Zenodo)
-│   └── evidence/                        # ✅ frozen audit chain + engine-free recomputation — no engine, no licence needed
-├── PRODUCTS/nomos/verify/               # ❌ NOMOS third-party verification guide — a different product, see §B below
-│   └── VERIFICATION_GUIDE.md            # verifies NOMOS, NOT this engine
 ├── PAPERS/                     # Papers and white papers (reproducible citation)
 │   ├── paper.pdf / paper.md
 │   └── why-ai-needs-brakes.md  # Position paper: why capable AI needs a brake layer
@@ -52,13 +43,18 @@ second-perspective-open/
 
 ## How to verify (third-party, offline)
 
-Verification assets are split by product, one folder each: `PRODUCTS/second-perspective/verify/` and `PRODUCTS/nomos/verify/`. Confirm which one you are working from before running anything.
+Verification assets live in one `verify/` folder per engine. The licence-free, clone-and-run entry
+point is the engine-free evidence package described in §A.
+
+> **Why there is no NOMOS entry:** NOMOS Intelligent Decision Hub is an enterprise-management
+> **application-layer** product built on top of the Second-Perspective Engine. It is not an engine-layer
+> artifact, so this public layer carries no specification entry for it.
 
 ### A. Second Perspective Engine (SPE) — ✅ the engine's own verifier, in `PRODUCTS/second-perspective/verify/`
 
 `PRODUCTS/second-perspective/verify/verify.py` **is the independent verification suite of the Second-Perspective Engine** (SPE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
 
-The engine's **public specification** is [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md); the verification-and-evaluation methodology is the [TESTING guide](./PRODUCTS/second-perspective/TESTING.md). Note the split: `verify.py` cannot run from a clone of *this* repository — it loads the engine core — so the licence-free, clone-and-run entry point is the engine-free **evidence package** described below.
+The engine's **public specification** is [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md); the verification-and-evaluation methodology is the [TESTING guide](./PRODUCTS/second-perspective/verify/TESTING.md). Note the split: `verify.py` cannot run from a clone of *this* repository — it loads the engine core — so the licence-free, clone-and-run entry point is the engine-free **evidence package** described below.
 
 | File | Role |
 |------|------|
@@ -87,17 +83,9 @@ python PRODUCTS/second-perspective/verify/evidence/recompute.py --tamper
 
 This is the one place in this repository where "verify without trusting the vendor" is executable by an outside reader today. It runs six checks that bind the published input, the published report view and the frozen chain to each other and to the published root — input digest → report hash → chain root — and demonstrates that an edit to any of the three is detected.
 
-### B. NOMOS Intelligent Decision Hub — ❌ a separate product, in `PRODUCTS/nomos/verify/`, NOT the engine's verifier
+### B. NOHN AI's own AI Management System — 🧭 in `CERTIFICATIONS/aims/`
 
-`PRODUCTS/nomos/verify/VERIFICATION_GUIDE.md` is the third-party verification guide for **NOMOS** ([nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS), v0.5.0, 2026-10-08). NOMOS is a **different product** from the Second-Perspective Engine, and this guide does **not** verify the engine.
-
-- Method: `pytest` release evidence (baseline: 507 tests, 91% coverage) plus one replayable evaluation run.
-- Its own chain root: `adacff1bd647b7691cf153b5800185b1afbb449de779bebc2847ac1988090a68`.
-- Use it only when you are evaluating NOMOS. To evaluate the Second-Perspective Engine, use §A.
-
-### C. NOHN AI's own AI Management System — 🧭 in `CERTIFICATIONS/aims/`
-
-Neither §A nor §B certifies anything. `CERTIFICATIONS/aims/` is different in kind: it is the
+Section §A certifies nothing. `CERTIFICATIONS/aims/` is different in kind: it is the
 **management system NOHN AI runs for itself**, aligned to ISO/IEC 42001:2023, with its evidence
 generated by the engine. It is **self-built, unaudited and carries no certificate** — published so
 that its records are independently recomputable and its gaps are visible rather than implied away.

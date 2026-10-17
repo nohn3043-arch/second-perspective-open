@@ -46,7 +46,7 @@ Explicitly **not** a target buyer: organisations whose business is producing aud
 | SPE | Second Perspective Engine |
 | Ten operators | ⊙GA→⊗NS→⊕IAP→⊿LCH→⊞LFT→BFC→⚙CCS→⇄GRF→META→⊚ACC — this order is normative and fixed |
 | BFC | Binary Fact Check, binary fact verification, **no third truth value** |
-| META | Meta-causal ledger: five meta-bases — Unparsed Antecedence (混沌) / Non-forking Convergence (无极) / Narrative Register (虚幻) / Neutrality Invariant (天道) / Effect-to-Cause Succession (轮回) |
+| META | Meta-causal ledger: five meta-bases — Unparsed Antecedence / Non-forking Convergence / Narrative Register / Neutrality Invariant / Effect-to-Cause Succession |
 | `.spd` | Decision-structure language (`decision.ebnf`, ISO/IEC 14977) |
 | `.tpg` | Topology language (`topology.ebnf`, grammar extension 2026.3) |
 | ΔD | Observable-metric change of a decision; causal semantics `¬A ⇒ ΔD` |

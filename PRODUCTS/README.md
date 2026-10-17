@@ -1,7 +1,7 @@
 # PRODUCTS — 引擎目录
 
 > 一引擎一个目录：`spec/` 放**公开规范**，`verify/` 放**验证资产**。
-> 两个子目录在三个引擎间保持对称，第三方可用同一套姿势核验任意一款。
+> 两个子目录在两个引擎间保持对称，第三方可用同一套姿势核验任意一款。
 >
 > **实现源码不在本仓库。** 各引擎内核属授权交付物。
 
@@ -10,7 +10,6 @@
 | 引擎 | 定位 | 公开规范 | 验证资产 |
 |---|---|---|---|
 | [Anthropomorphic-Agent-Engine](Anthropomorphic-Agent-Engine/) | AAE 拟人心理引擎 —— 为 AI 角色提供连续、确定、可回放的内心状态层 | [spec/](Anthropomorphic-Agent-Engine/spec/) | [verify/](Anthropomorphic-Agent-Engine/verify/) |
-| [nomos](nomos/) | NOMOS 智能决策中枢 | spec/ | [verify/](nomos/verify/) |
 | [second-perspective](second-perspective/) | 第二视角引擎（SPE）—— AI 的刹车系统（面向大模型厂商 / 政府 / 对 AI 有控制权的企业；AI Verify 自评 95/100） | [spec/](second-perspective/spec/) | [verify/](second-perspective/verify/) |
 
 另有一项不属任何引擎：决策结构语言规范在其专属目录 [`../STANDARD/`](../STANDARD/)，
@@ -25,6 +24,7 @@
 
 | 产品 | 原因 |
 |---|---|
+| NOMOS 智能决策中枢 | 属企业管理**应用层**，建立在第二视角引擎之上（套壳），非引擎层构件，故不设立规范条目 |
 | second-reality、Antares（GFSIP）、ai-draw 等 | 各有独立公开仓库，不在此公开层收录 |
 
 ## 许可
