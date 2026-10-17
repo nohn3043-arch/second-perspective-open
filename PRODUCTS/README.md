@@ -1,34 +1,34 @@
-# PRODUCTS — 产品目录
+# PRODUCTS — 引擎目录
 
-> 一产品一个目录。`spec/` 子目录放该产品的**公开规范**；根下只保留无需披露实现即可公开的介绍与术语表 —— **架构与实现说明仅在该实现本身已公开时才收录**。
+> 一引擎一个目录：`spec/` 放**公开规范**，`verify/` 放**验证资产**。
+> 两个子目录在三个引擎间保持对称，第三方可用同一套姿势核验任意一款。
 >
-> **实现源码不在本仓库。** 各产品的引擎内核属授权交付物。
+> **实现源码不在本仓库。** 各引擎内核属授权交付物。
 
 ## 目录索引
 
-| 产品 | 定位 | 根下文档 | 公开规范 |
+| 引擎 | 定位 | 公开规范 | 验证资产 |
 |---|---|---|---|
-| [Antares](Antares/) | GFSIP v1.0 — 带因果审计的联邦稳定互操作协议（开放标准） | README / README-zh / GLOSSARY / NOTICE / CHANGELOG | [spec/](Antares/spec/) |
-| [second-perspective](second-perspective/) | 第二视角引擎（SPE）—— AI 的刹车系统（面向大模型厂商 / 政府 / 对 AI 有控制权的企业；AI Verify 自评 95/100） | GLOSSARY / TESTING / TESTING-zh / LICENSE | [spec/](second-perspective/spec/) |
-| [second-reality](second-reality/) | 虚拟世界基础设施基座（宪法—法律—桥） | README / README-zh / GLOSSARY / LICENSE | [spec/](second-reality/spec/) |
-| [ai-draw-cue-word-project](ai-draw-cue-word-project/) | AI 绘画构图细节模板 v2.8（21 张 CSV 数据表） | README / README-zh / GLOSSARY / LICENSE | [spec/](ai-draw-cue-word-project/spec/) |
+| [Anthropomorphic-Agent-Engine](Anthropomorphic-Agent-Engine/) | AAE 拟人心理引擎 —— 为 AI 角色提供连续、确定、可回放的内心状态层 | [spec/](Anthropomorphic-Agent-Engine/spec/) | [verify/](Anthropomorphic-Agent-Engine/verify/) |
+| [nomos](nomos/) | NOMOS 智能决策中枢 | spec/ | [verify/](nomos/verify/) |
+| [second-perspective](second-perspective/) | 第二视角引擎（SPE）—— AI 的刹车系统（面向大模型厂商 / 政府 / 对 AI 有控制权的企业；AI Verify 自评 95/100） | [spec/](second-perspective/spec/) | [verify/](second-perspective/verify/) |
 
-另有一项不属任何产品：决策结构语言规范在其专属目录 [`../STANDARD/`](../STANDARD/)，
+另有一项不属任何引擎：决策结构语言规范在其专属目录 [`../STANDARD/`](../STANDARD/)，
 是唯一把参照解释器（`dsl.py`）一并公开的规范。
 
-## 说明
+## 规范面包含什么
 
-每份规范描述对应产品的**公开规范面**：定位与边界、接口 / 协议 / 格式、参数与配置、审计与合规、一致性声明、版本与变更。规范面向第三方离线核验，不涉及实现源码。
-
-> ⚠️ 部分文档存在表述差异（如 second-reality 的审计维度数、second-perspective 的验证检查项数量），规范文档已标注消歧说明，最终以规范正文 / 权威源为准。
+每份规范描述对应引擎的**公开接口契约面**：定位与边界、输入契约、状态契约、引擎入口、审计契约、确定性前提。
+规范面向第三方离线核验，不涉及实现源码、动力学系数或调参依据。
 
 ## 未收录的产品
 
 | 产品 | 原因 |
 |---|---|
-| Anthropomorphic-Agent-Engine | 核心设计与实现参数不予公开，故本仓库不提供其规范面；评估需求请按 LICENSE 联系授权。 |
-| DMU / HuM / nomos / PAGES / SPL-G1 / Story-engine | 本公开层未收录其目录（仓库内无对应文件夹）；评估需求请按 LICENSE 联系授权。 |
+| second-reality、Antares（GFSIP）、ai-draw 等 | 各有独立公开仓库，不在此公开层收录 |
 
 ## 许可
 
-各产品遵循双轨授权（个人非商业研究免费；政府 / 企业书面付费授权），**Antares（GFSIP）除外**——其规范文档为 CC BY 4.0、代码为 Apache-2.0，属开放标准。具体见各目录 LICENSE。
+各引擎遵循双轨授权（个人非商业研究免费；政府 / 企业须书面付费授权）。
+**规范文本可自由引用，须注明出处；本层不授予任何实现对的使用许可。**
+具体见各目录 LICENSE。

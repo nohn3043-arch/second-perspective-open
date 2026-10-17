@@ -14,9 +14,9 @@
 
 | | 内容 | 克隆本仓库后能跑吗 |
 |---|---|---|
-| 内置 · 你来跑 | 免引擎证据包 `second-perspective-verify/evidence/recompute.py` —— 六项检查，把公开的输入、报告视图、链与发布的链根相互绑定 | **能** —— 无需引擎、无需许可 |
+| 内置 · 你来跑 | 免引擎证据包 `./evidence/recompute.py` —— 六项检查，把公开的输入、报告视图、链与发布的链根相互绑定 | **能** —— 无需引擎、无需许可 |
 | 内置 · 你来跑 | 语言标准工具链 `STANDARD/dsl.py`，样本在 `STANDARD/examples/` | **能** —— 仅需标准库 |
-| 授权交付物 | 引擎验证套件 `second-perspective-verify/verify.py` —— 对引擎内核的 19 项检查 | **不能** —— 它要装载引擎内核，那是授权交付物，不在本仓库 |
+| 授权交付物 | 引擎验证套件 `./verify.py` —— 对引擎内核的 19 项检查 | **不能** —— 它要装载引擎内核，那是授权交付物，不在本仓库 |
 | 授权交付物 | 端到端引擎演示 `demo_audit.py` | **不能** —— 随授权交付，不在本仓库 |
 | 你来做 | 面向**你自己的被测对象**的评测设计：语料、标注、对比臂、统计 —— 方法学见 §6 | 由你自建 |
 | 不随包发放 | 预置题库。合成语料对真实对象没有判别力；正式对照必须使用你自己的真实对象与语料 | — |
@@ -40,9 +40,9 @@
 | 资产 | 路径 |
 |---|---|
 | 引擎的公开规范 | `PRODUCTS/second-perspective/spec/SPECIFICATION.md` |
-| 免引擎证据包 | `second-perspective-verify/evidence/` |
-| 引擎验证套件 | `second-perspective-verify/verify.py` |
-| 收敛逻辑回归 | `second-perspective-verify/verify_convergence_fix.py` |
+| 免引擎证据包 | `./evidence/` |
+| 引擎验证套件 | `./verify.py` |
+| 收敛逻辑回归 | `./verify_convergence_fix.py` |
 | 语言标准 + 参照解释器 | `STANDARD/` |
 
 ## 4. 第一步 · 免引擎核验（数秒）
@@ -52,9 +52,9 @@
 这是本仓库中唯一一处，外部读者今天就能执行「不必信任供应商」这句话的地方。它**不需要引擎、不需要许可**。
 
 ```bash
-python second-perspective-verify/evidence/recompute.py            # 跑全部六项检查
-python second-perspective-verify/evidence/recompute.py --tamper   # 另演示改动会被检出
-python second-perspective-verify/evidence/recompute.py --json     # 机器可读结果
+python ./evidence/recompute.py            # 跑全部六项检查
+python ./evidence/recompute.py --tamper   # 另演示改动会被检出
+python ./evidence/recompute.py --json     # 机器可读结果
 ```
 
 预期：六项检查全部通过，退出码 `0`。已发布取值（见 `evidence/expected.json`）：
@@ -79,14 +79,14 @@ python STANDARD/dsl.py gen --seed 2026 --count 5 --out samples/ --self-check
 
 ## 5. 第二步 · 引擎自带的验证套件（授权交付）
 
-`second-perspective-verify/verify.py` **就是第二视角引擎（SPE）的独立验证套件**。它如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。**共 19 项检查：** V1–V9 覆盖引擎内核，V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，V15 覆盖唯一插件缝，V16 覆盖 ∞ 极限收敛器，V17 覆盖元因果账本 + 自主进化层，另含 V3b、V7b。
+`./verify.py` **就是第二视角引擎（SPE）的独立验证套件**。它如实报告 **PASS / FAIL / WARN**，不为了好看而放宽断言 —— `FAIL` 即为产品当前缺陷，须在对外承诺前修复。**共 19 项检查：** V1–V9 覆盖引擎内核，V10–V13 覆盖拓扑层四项能力，V14 覆盖二元事实校验，V15 覆盖唯一插件缝，V16 覆盖 ∞ 极限收敛器，V17 覆盖元因果账本 + 自主进化层，另含 V3b、V7b。
 
 它会从自身所在目录装载 `Second Perspective Engine.py`。该文件属授权交付物、**不在本仓库**，因此克隆本仓库无法运行该套件：请在已获授权的部署环境中，把 `verify.py` 放到引擎文件旁边再运行。
 
 ```bash
-python second-perspective-verify/verify.py            # 人类可读报告
-python second-perspective-verify/verify.py --json     # 机器可读（可接 CI）
-python second-perspective-verify/verify.py --root     # 只打印链根（单行），供跨机比对
+python ./verify.py            # 人类可读报告
+python ./verify.py --json     # 机器可读（可接 CI）
+python ./verify.py --root     # 只打印链根（单行），供跨机比对
 ```
 
 **关于计数（引用数字前请先读这段）。** 脚本每次运行都会在结尾打印本次合计，**以该次运行的合计为准，任何冻结数字都不能替代它**。已发布的合计属于特定的引擎代际，引用时必须连同版本标签一起给出，彼此不可互换：

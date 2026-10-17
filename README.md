@@ -34,12 +34,12 @@ second-perspective-open/
 │   ├── dsl.py                        # Reference interpreter (executable definition of the standard)
 │   ├── 2026.md                       # Dated standard snapshot (version 2026)
 │   └── examples/                     # Valid / invalid samples (4 .spd files)
-├── second-perspective-verify/  # ✅ Second Perspective Engine (SPE) verifiers — see §A below
+├── PRODUCTS/second-perspective/verify/  # ✅ Second Perspective Engine (SPE) verifiers — see §A below
 │   ├── verify.py                        # zero-dependency, offline (python3, stdlib only)
 │   ├── verify_convergence_fix.py        # convergence-logic regression (S1–S6)
 │   ├── verify-output.log                # full output of the v1.0 snapshot (Zenodo)
 │   └── evidence/                        # ✅ frozen audit chain + engine-free recomputation — no engine, no licence needed
-├── nomos-verify/               # ❌ NOMOS third-party verification guide — a different product, see §B below
+├── PRODUCTS/nomos/verify/               # ❌ NOMOS third-party verification guide — a different product, see §B below
 │   └── VERIFICATION_GUIDE.md            # verifies NOMOS, NOT this engine
 ├── PAPERS/                     # Papers and white papers (reproducible citation)
 │   ├── paper.pdf / paper.md
@@ -52,44 +52,44 @@ second-perspective-open/
 
 ## How to verify (third-party, offline)
 
-Verification assets are split by product, one folder each: `second-perspective-verify/` and `nomos-verify/`. Confirm which one you are working from before running anything.
+Verification assets are split by product, one folder each: `PRODUCTS/second-perspective/verify/` and `PRODUCTS/nomos/verify/`. Confirm which one you are working from before running anything.
 
-### A. Second Perspective Engine (SPE) — ✅ the engine's own verifier, in `second-perspective-verify/`
+### A. Second Perspective Engine (SPE) — ✅ the engine's own verifier, in `PRODUCTS/second-perspective/verify/`
 
-`second-perspective-verify/verify.py` **is the independent verification suite of the Second-Perspective Engine** (SPE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
+`PRODUCTS/second-perspective/verify/verify.py` **is the independent verification suite of the Second-Perspective Engine** (SPE). It loads the engine core (`Second Perspective Engine.py`, a licensed-delivery artifact) and reports **PASS / FAIL / WARN** honestly — it never relaxes an assertion to look good. A `FAIL` is a current defect of the product and must be fixed before any external commitment.
 
 The engine's **public specification** is [`PRODUCTS/second-perspective/spec/SPECIFICATION.md`](./PRODUCTS/second-perspective/spec/SPECIFICATION.md); the verification-and-evaluation methodology is the [TESTING guide](./PRODUCTS/second-perspective/TESTING.md). Note the split: `verify.py` cannot run from a clone of *this* repository — it loads the engine core — so the licence-free, clone-and-run entry point is the engine-free **evidence package** described below.
 
 | File | Role |
 |------|------|
-| `second-perspective-verify/verify.py` | Zero-dependency, offline, pure-stdlib verifier. **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b |
-| `second-perspective-verify/verify_convergence_fix.py` | Convergence-logic regression (S1–S6) against the same engine |
-| `second-perspective-verify/verify-output.log` | Full output of the v1.0 snapshot, archived for the Zenodo deposit |
+| `PRODUCTS/second-perspective/verify/verify.py` | Zero-dependency, offline, pure-stdlib verifier. **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b |
+| `PRODUCTS/second-perspective/verify/verify_convergence_fix.py` | Convergence-logic regression (S1–S6) against the same engine |
+| `PRODUCTS/second-perspective/verify/verify-output.log` | Full output of the v1.0 snapshot, archived for the Zenodo deposit |
 
 ```bash
 # 0 dependencies, Python 3 standard library only (run inside an authorized engine deployment)
-python second-perspective-verify/verify.py --root    # print the chain root, compare with the fixed value below
-python second-perspective-verify/verify.py           # full suite: the script prints its own PASS / FAIL / WARN totals
+python PRODUCTS/second-perspective/verify/verify.py --root    # print the chain root, compare with the fixed value below
+python PRODUCTS/second-perspective/verify/verify.py           # full suite: the script prints its own PASS / FAIL / WARN totals
 ```
 
 **On the counts — read this before quoting a number.** The suite prints its own totals at the end of every run, and **those totals, not any frozen figure, are authoritative**. The **v1.0 snapshot baseline is `PASS 9 · FAIL 0 · WARN 2` over 11 checks**; the two WARNs are pre-registered disclosures (V3b, V9), not failures. The suite has since been extended to 19 checks, so any count taken from the baseline must be labelled a **v1.0 snapshot value**. The shipped `verify-output.log` records that snapshot and lets you cross-check the chain root and the PASS / FAIL counts independently.
 
-**Runtime note.** `second-perspective-verify/verify.py` is a **publicly auditable verifier**: its logic is fully visible, zero-dependency and offline-runnable. A complete run loads the engine core — a private implementation, included in the licensed delivery.
+**Runtime note.** `PRODUCTS/second-perspective/verify/verify.py` is a **publicly auditable verifier**: its logic is fully visible, zero-dependency and offline-runnable. A complete run loads the engine core — a private implementation, included in the licensed delivery.
 
 Fixed chain root (v1.0 snapshot):
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
 
-**Engine-free evidence package — start here.** `second-perspective-verify/evidence/` holds a frozen audit chain, its expected root, and a zero-dependency recomputation script. It runs **without the engine and without a licence**:
+**Engine-free evidence package — start here.** `PRODUCTS/second-perspective/verify/evidence/` holds a frozen audit chain, its expected root, and a zero-dependency recomputation script. It runs **without the engine and without a licence**:
 
 ```bash
-python second-perspective-verify/evidence/recompute.py --tamper
+python PRODUCTS/second-perspective/verify/evidence/recompute.py --tamper
 ```
 
 This is the one place in this repository where "verify without trusting the vendor" is executable by an outside reader today. It runs six checks that bind the published input, the published report view and the frozen chain to each other and to the published root — input digest → report hash → chain root — and demonstrates that an edit to any of the three is detected.
 
-### B. NOMOS Intelligent Decision Hub — ❌ a separate product, in `nomos-verify/`, NOT the engine's verifier
+### B. NOMOS Intelligent Decision Hub — ❌ a separate product, in `PRODUCTS/nomos/verify/`, NOT the engine's verifier
 
-`nomos-verify/VERIFICATION_GUIDE.md` is the third-party verification guide for **NOMOS** ([nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS), v0.5.0, 2026-10-08). NOMOS is a **different product** from the Second-Perspective Engine, and this guide does **not** verify the engine.
+`PRODUCTS/nomos/verify/VERIFICATION_GUIDE.md` is the third-party verification guide for **NOMOS** ([nohn3043-arch/NOMOS](https://github.com/nohn3043-arch/NOMOS), v0.5.0, 2026-10-08). NOMOS is a **different product** from the Second-Perspective Engine, and this guide does **not** verify the engine.
 
 - Method: `pytest` release evidence (baseline: 507 tests, 91% coverage) plus one replayable evaluation run.
 - Its own chain root: `adacff1bd647b7691cf153b5800185b1afbb449de779bebc2847ac1988090a68`.

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nohnlins.com/spec/aae/snapshot.schema.json",
+  "title": "AAE Agent State Snapshot",
+  "description": "Conformance-critical state contract for the Anthropomorphic Agent Engine. Two variants are defined: [main] (23 top-level keys) and [minor] (15 top-level keys). Key names and key counts are strong constraints: neither may change without a major version bump. Unknown extra keys are tolerated (ignored by the core) but MUST NOT be claimed to have any effect. Dynamic coefficients and tuning rationale are out of scope for this contract.",
+  "oneOf": [
+    { "$ref": "#/$defs/mainSnapshot" },
+    { "$ref": "#/$defs/minorSnapshot" }
+  ],
+  "$defs": {
+    "unit": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "fluid": {
+      "type": "object",
+      "description": "Eight-dimensional emotion fluid. MUST contain exactly these 8 keys, each in [0,1]. Initial values are given; the baseline steady state is implementation-layer tuning and is NOT fixed here.",
+      "properties": {
+        "喜悦": { "$ref": "#/$defs/unit" },
+        "愤怒": { "$ref": "#/$defs/unit" },
+        "恐惧": { "$ref": "#/$defs/unit" },
+        "信任": { "$ref": "#/$defs/unit" },
+        "疏离": { "$ref": "#/$defs/unit" },
+        "张力": { "$ref": "#/$defs/unit" },
+        "愧疚": { "$ref": "#/$defs/unit" },
+        "羞耻": { "$ref": "#/$defs/unit" }
+      },
+      "required": ["喜悦", "愤怒", "恐惧", "信任", "疏离", "张力", "愧疚", "羞耻"],
+      "additionalProperties": false
+    },
+    "mood": {
+      "type": "object",
+      "description": "Three-dimensional mood submodel. MUST contain exactly these 3 keys, each in [0,1].",
+      "properties": {
+        "愉悦": { "$ref": "#/$defs/unit" },
+        "紧张": { "$ref": "#/$defs/unit" },
+        "精力": { "$ref": "#/$defs/unit" }
+      },
+      "required": ["愉悦", "紧张", "精力"],
+      "additionalProperties": false
+    },
+    "trauma": {
+      "type": "object",
+      "description": "Trauma state keyed by trauma-type identifier, each value in [0,1]. An empty object denotes no active trauma. MUST NOT be present in the [minor] variant.",
+      "additionalProperties": { "$ref": "#/$defs/unit" }
+    },
+    "protective": {
+      "type": "object",
+      "description": "Compliance protection report unique to the [minor] variant.",
+      "properties": {
+        "risk_level": { "enum": ["LOW", "MEDIUM", "HIGH"] },
+        "crisis_flags": { "type": "array", "items": { "type": "string" } },
+        "rest_hint": { "type": "boolean" },
+        "session_seconds": { "type": "number", "minimum": 0 },
+        "emotion_ceil_neg": { "$ref": "#/$defs/unit" },
+        "attach_max": { "$ref": "#/$defs/unit" },
+        "minor_mode": { "type": "boolean" },
+        "age_group": { "type": "string" },
+        "guardian_consent": { "type": "boolean" },
+        "guardian_contact": { "type": ["string", "null"] },
+        "exit_requested": { "type": "boolean" },
+        "overuse_hint": { "type": "boolean" },
+        "ai_disclosure_required": { "type": "boolean" },
+        "reality_reminder_due": { "type": "boolean" }
+      },
+      "required": [
+        "risk_level",
+        "crisis_flags",
+        "rest_hint",
+        "session_seconds",
+        "emotion_ceil_neg",
+        "attach_max",
+        "minor_mode",
+        "age_group",
+        "guardian_consent",
+        "exit_requested",
+        "overuse_hint",
+        "ai_disclosure_required",
+        "reality_reminder_due"
+      ]
+    },
+    "lastPerceived": {
+      "type": "object",
+      "description": "The most recently perceived interoceptive vector (pure-output quantity).",
+      "additionalProperties": { "type": "number" }
+    },
+    "mainSnapshot": {
+      "type": "object",
+      "description": "[main] variant snapshot — 23 top-level keys.",
+      "properties": {
+        "fluid": { "$ref": "#/$defs/fluid" },
+        "mood": { "$ref": "#/$defs/mood" },
+        "self_esteem": { "type": "number", "minimum": 0.05, "maximum": 0.95 },
+        "energy": { "type": "number", "minimum": 0, "maximum": 100 },
+        "fatigue": { "$ref": "#/$defs/unit" },
+        "excitation": { "$ref": "#/$defs/unit" },
+        "max_trust": { "type": "number", "minimum": 0.1, "maximum": 1.0 },
+        "suppression_load": { "type": "number", "minimum": 0 },
+        "denial_load": { "type": "number", "minimum": 0 },
+        "rationalization_load": { "type": "number", "minimum": 0 },
+        "latent_pressure": { "type": "number", "minimum": 0 },
+        "cognitive_dissonance": { "$ref": "#/$defs/unit" },
+        "sleep_debt": { "$ref": "#/$defs/unit" },
+        "arousal_recent": { "$ref": "#/$defs/unit" },
+        "trauma": { "$ref": "#/$defs/trauma" },
+        "memory_count": { "type": "integer", "minimum": 0 },
+        "expected_count": { "type": "integer", "minimum": 0 },
+        "last_perceived": { "$ref": "#/$defs/lastPerceived" },
+        "llm_call_count": { "type": "integer", "minimum": 0 },
+        "llm_failed_count": { "type": "integer", "minimum": 0 },
+        "total_prompt_tokens": { "type": "integer", "minimum": 0 },
+        "total_completion_tokens": { "type": "integer", "minimum": 0 },
+        "total_tokens": { "type": "integer", "minimum": 0 }
+      },
+      "required": [
+        "fluid", "mood", "self_esteem", "energy", "fatigue", "excitation",
+        "max_trust", "suppression_load", "denial_load", "rationalization_load",
+        "latent_pressure", "cognitive_dissonance", "sleep_debt",
+        "arousal_recent", "trauma", "memory_count", "expected_count",
+        "last_perceived", "llm_call_count", "llm_failed_count",
+        "total_prompt_tokens", "total_completion_tokens", "total_tokens"
+      ],
+      "additionalProperties": false
+    },
+    "minorSnapshot": {
+      "type": "object",
+      "description": "[minor] variant snapshot — 15 top-level keys. MUST NOT contain trauma or defence-compartment keys.",
+      "properties": {
+        "fluid": { "$ref": "#/$defs/fluid" },
+        "mood": { "$ref": "#/$defs/mood" },
+        "self_esteem": { "type": "number", "minimum": 0.05, "maximum": 0.95 },
+        "energy": { "type": "number", "minimum": 0, "maximum": 100 },
+        "fatigue": { "$ref": "#/$defs/unit" },
+        "excitation": { "$ref": "#/$defs/unit" },
+        "max_trust": { "type": "number", "minimum": 0.1, "maximum": 1.0 },
+        "latent_pressure": { "type": "number", "minimum": 0 },
+        "cognitive_dissonance": { "$ref": "#/$defs/unit" },
+        "sleep_debt": { "$ref": "#/$defs/unit" },
+        "arousal_recent": { "$ref": "#/$defs/unit" },
+        "memory_count": { "type": "integer", "minimum": 0 },
+        "expected_count": { "type": "integer", "minimum": 0 },
+        "last_perceived": { "$ref": "#/$defs/lastPerceived" },
+        "protective": { "$ref": "#/$defs/protective" }
+      },
+      "required": [
+        "fluid", "mood", "self_esteem", "energy", "fatigue", "excitation",
+        "max_trust", "latent_pressure", "cognitive_dissonance", "sleep_debt",
+        "arousal_recent", "memory_count", "expected_count", "last_perceived",
+        "protective"
+      ],
+      "additionalProperties": false,
+      "not": {
+        "anyOf": [
+          { "required": ["trauma"] },
+          { "required": ["suppression_load"] },
+          { "required": ["denial_load"] },
+          { "required": ["rationalization_load"] }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nohnlins.com/spec/aae/audit-record.schema.json",
+  "title": "AAE Audit Record (one JSONL line)",
+  "description": "Audit contract. Each record is one line of JSON. Every record MUST carry input parameters, the resulting state summary, and the delta attribution defined by the normative algorithm. An `llm_call` record MUST additionally carry the fields in $defs.llmCallExtra.",
+  "type": "object",
+  "required": ["seq", "ts", "engine", "session", "event", "input", "snapshot", "delta"],
+  "properties": {
+    "seq": { "type": "integer", "minimum": 0, "description": "Monotonic sequence number within the session." },
+    "ts": { "type": "string", "description": "ISO 8601 timestamp with millisecond precision." },
+    "engine": { "type": "string", "description": "Engine version tag; the main engine reports \"SPL-V8.0\"." },
+    "session": { "type": "string", "description": "Session identifier." },
+    "event": { "$ref": "#/$defs/eventType" },
+    "input": { "type": "object", "description": "Sanitised input parameters." },
+    "snapshot": { "type": "object", "description": "State summary (key set defined by the specification)." },
+    "delta": { "$ref": "#/$defs/deltaMap" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "event": { "const": "llm_call" } }, "required": ["event"] },
+      "then": { "$ref": "#/$defs/llmCallExtra" }
+    }
+  ],
+  "$defs": {
+    "eventType": {
+      "enum": [
+        "process_vector",
+        "sleep",
+        "expect",
+        "induce_dissonance",
+        "llm_call",
+        "llm_usage_recorded"
+      ],
+      "description": "Canonical audit event types."
+    },
+    "deltaMap": {
+      "type": "object",
+      "description": "Per-key attribution of one state transition. Keys are scalar names or dotted nested paths (e.g. \"fluid.喜悦\"). Entries whose before and after are equal MUST be omitted.",
+      "additionalProperties": { "$ref": "#/$defs/deltaEntry" }
+    },
+    "deltaEntry": {
+      "type": "object",
+      "description": "A numeric entry carries {before, after, delta} with delta = round(after - before, 6). A non-numeric entry carries only {before, after} and MUST NOT carry a delta key. Booleans MUST NOT be treated as numeric and MUST NOT be given a fabricated difference.",
+      "required": ["before", "after"],
+      "properties": {
+        "before": {},
+        "after": {},
+        "delta": { "type": "number" }
+      }
+    },
+    "llmCallExtra": {
+      "description": "Additional fields required on an `llm_call` record.",
+      "type": "object",
+      "required": ["model", "prompt_preview", "success", "duration_ms"],
+      "properties": {
+        "model": { "type": "string", "description": "Model identifier." },
+        "prompt_preview": { "type": "string", "description": "First 200 characters of the prompt." },
+        "success": { "type": "boolean", "description": "Whether generation succeeded." },
+        "duration_ms": { "type": "number", "description": "Wall-clock duration of the call." },
+        "usage": { "$ref": "#/$defs/tokenUsage" },
+        "error": { "type": ["string", "null"], "description": "Error message; null on success." }
+      }
+    },
+    "tokenUsage": {
+      "description": "Token usage. null when unavailable; when non-null it MUST contain the three integer fields below.",
+      "type": ["object", "null"],
+      "required": ["prompt_tokens", "completion_tokens", "total_tokens"],
+      "properties": {
+        "prompt_tokens": { "type": "integer" },
+        "completion_tokens": { "type": "integer" },
+        "total_tokens": { "type": "integer" }
+      }
+    }
+  }
+}

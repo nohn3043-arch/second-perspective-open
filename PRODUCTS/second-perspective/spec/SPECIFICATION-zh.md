@@ -46,7 +46,7 @@
 | SPE | Second Perspective Engine，第二视角引擎 |
 | 十算子 | ⊙GA→⊗NS→⊕IAP→⊿LCH→⊞LFT→BFC→⚙CCS→⇄GRF→META→⊚ACC —— 此顺序为规范性固定顺序 |
 | BFC | Binary Fact Check，二元事实校验，**无第三真值** |
-| META | 元因果账本：混沌 / 无极 / 虚幻 / 天道 / 轮回 五条元基 |
+| META | 元因果账本：未解析前置因（混沌）/ 无分叉收敛（无极）/ 叙事层（虚幻）/ 中立不变式（天道）/ 果因链式承接（轮回）五条元基 |
 | `.spd` | 决策结构语言（`decision.ebnf`，ISO/IEC 14977） |
 | `.tpg` | 拓扑语言（`topology.ebnf`，语法扩展 2026.3） |
 | ΔD | 决策可观测指标变化；因果语义 `¬A ⇒ ΔD` |

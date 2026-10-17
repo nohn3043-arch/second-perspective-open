@@ -18,7 +18,7 @@
 
 | Interested party | Expectation | How it is met | Evidence |
 |---|---|---|---|
-| Enterprise / government customers | Auditable, reproducible decision evidence for their own AIMS | Engine output + evidence package | `second-perspective-verify/evidence/` |
+| Enterprise / government customers | Auditable, reproducible decision evidence for their own AIMS | Engine output + evidence package | `PRODUCTS/second-perspective/verify/evidence/` |
 | Accredited certification bodies | Verifiable, non-overstated claims | Published gap register | [`OPEN-GAPS.md`](./OPEN-GAPS.md) |
 | Regulators (IMDA Singapore; PRC CAC / TC260; EU market authorities) | Lawful data handling, human oversight, traceability | Core-offline design; human-in-the-loop invariants | `AI-POLICY.md`; `../compliance/COMPLIANCE_SHANGHAI.md` |
 | Investors / residency programme (Antler) | Governance maturity proportionate to stage | This AIMS | this folder |

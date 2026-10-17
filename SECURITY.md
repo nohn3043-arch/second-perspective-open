@@ -10,7 +10,7 @@ The attack surface here is therefore narrow. In scope:
 
 - A defect in a published specification that would lead a correct implementation to behave
   unsafely.
-- A flaw in the verification assets (`second-perspective-verify/`, `STANDARD/dsl.py`),
+- A flaw in the verification assets (`PRODUCTS/second-perspective/verify/`, `STANDARD/dsl.py`),
   **including any case where a tampered artifact is not detected**. The evidence package is
   designed to fail loudly; a silent pass is a security issue.
 - A broken integrity claim: any published hash, chain root, or evidence file that does not

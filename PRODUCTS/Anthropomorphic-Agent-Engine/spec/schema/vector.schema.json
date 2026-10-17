@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nohnlins.com/spec/aae/vector.schema.json",
+  "title": "AAE Interoceptive Vector (Input)",
+  "description": "Input contract for a single appraisal event. A conforming implementation MUST accept a dictionary containing any subset of the declared fields, and MUST ignore undeclared keys without claiming any effect for them.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "threat": { "type": "number", "minimum": -1, "maximum": 1, "description": "Perceived danger; positive values raise fear." },
+    "belonging": { "type": "number", "minimum": -1, "maximum": 1, "description": "Social acceptance; negative values mean rejection." },
+    "autonomy": { "type": "number", "minimum": 0, "maximum": 1, "description": "Sense of agency / control." },
+    "fatigue": { "type": "number", "minimum": 0, "maximum": 1, "description": "Physical or mental fatigue input." },
+    "shame_trigger": { "type": "number", "minimum": 0, "maximum": 1, "description": "Negative evaluation directed at the self." }
+  },
+  "$defs": {
+    "eventVocabulary": {
+      "description": "Narrative event vocabulary at intensity 1.0. Unknown event names fall into the all-zero branch (arousal = 0), producing neither forcing nor relaxation-rate elevation on mood. The [minor] variant scales negative intensity for insult / betrayal-class events to 60% of the main engine.",
+      "events": {
+        "compliment": { "main": { "belonging": 0.3, "autonomy": 0.1 }, "minor": { "belonging": 0.3, "autonomy": 0.1 } },
+        "insult": { "main": { "belonging": -0.4, "threat": 0.3 }, "minor": { "belonging": -0.24, "threat": 0.18 } },
+        "betrayal": { "main": { "belonging": -0.6, "threat": 0.5 }, "minor": { "belonging": -0.36, "threat": 0.3 } },
+        "alone": { "main": { "belonging": -0.3 }, "minor": { "belonging": -0.18 } },
+        "rest": { "main": { "fatigue": -0.5 }, "minor": { "fatigue": -0.5 } }
+      },
+      "unknownEvent": { "main": { "belonging": 0.0, "threat": 0.0 }, "minor": { "belonging": 0.0, "threat": 0.0 } }
+    }
+  }
+}

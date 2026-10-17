@@ -91,7 +91,7 @@ in prose below. This is a deliberate omission, tracked as `OPEN-GAPS.md` **G-10*
 | Data management | Upstream supply provenance gate (B1); no subgroup metrics |
 | Third-party & customer responsibility | Tiered licence; engine cannot alter a customer's verdict |
 | Transparency & information for interested parties | Bilingual reports; reproducible certificate |
-| Record retention & traceability | `input_digest` → `report_hash` → `chain_root`; recomputable off-engine via `second-perspective-verify/evidence/` |
+| Record retention & traceability | `input_digest` → `report_hash` → `chain_root`; recomputable off-engine via `PRODUCTS/second-perspective/verify/evidence/` |
 | Human oversight / controllability | `AWAITING_HUMAN` is the normal terminal state; `requires_human = True` |
 
 ## Areas the engine does **not** contribute to

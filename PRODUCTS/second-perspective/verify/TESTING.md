@@ -14,9 +14,9 @@
 
 | | Content | Runnable from a clone of this repository? |
 |---|---|---|
-| Built in · you run it | Engine-free evidence package `second-perspective-verify/evidence/recompute.py` — six checks binding the published input, report view, chain and root to one another | **Yes** — no engine, no licence |
+| Built in · you run it | Engine-free evidence package `./evidence/recompute.py` — six checks binding the published input, report view, chain and root to one another | **Yes** — no engine, no licence |
 | Built in · you run it | Language-standard toolchain `STANDARD/dsl.py` over `STANDARD/examples/` | **Yes** — standard library only |
-| Licensed delivery | Engine verification suite `second-perspective-verify/verify.py` — 19 checks against the engine kernel | **No** — it loads the engine core, a licensed-delivery artifact that is not in this repository |
+| Licensed delivery | Engine verification suite `./verify.py` — 19 checks against the engine kernel | **No** — it loads the engine core, a licensed-delivery artifact that is not in this repository |
 | Licensed delivery | End-to-end engine demo `demo_audit.py` | **No** — ships with the licensed delivery, not in this repository |
 | You build | Evaluation design for **your own subject under test**: corpus, annotation, comparison arms, statistics — methodology in §6 | You build it |
 | Not shipped | A ready-made question bank. Synthetic corpora have no discriminative power for real subjects; a formal comparison must use your own real subjects and corpus | — |
@@ -40,9 +40,9 @@ All commands below are relative to the repository root and use **this repository
 | Asset | Path |
 |---|---|
 | Public specification of the engine | `PRODUCTS/second-perspective/spec/SPECIFICATION.md` |
-| Engine-free evidence package | `second-perspective-verify/evidence/` |
-| Engine verification suite | `second-perspective-verify/verify.py` |
-| Convergence-logic regression | `second-perspective-verify/verify_convergence_fix.py` |
+| Engine-free evidence package | `./evidence/` |
+| Engine verification suite | `./verify.py` |
+| Convergence-logic regression | `./verify_convergence_fix.py` |
 | Language standard + reference interpreter | `STANDARD/` |
 
 ## 4. Step 1 · Engine-free verification (seconds)
@@ -52,9 +52,9 @@ All commands below are relative to the repository root and use **this repository
 This is the one place in this repository where "verify without trusting the vendor" is executable by an outside reader today. It needs **no engine and no licence**.
 
 ```bash
-python second-perspective-verify/evidence/recompute.py            # run all six checks
-python second-perspective-verify/evidence/recompute.py --tamper   # also show that edits are detected
-python second-perspective-verify/evidence/recompute.py --json     # machine-readable result
+python ./evidence/recompute.py            # run all six checks
+python ./evidence/recompute.py --tamper   # also show that edits are detected
+python ./evidence/recompute.py --json     # machine-readable result
 ```
 
 Expected: six checks pass, exit code `0`. Published values (`evidence/expected.json`):
@@ -79,14 +79,14 @@ Zero external dependencies, stdlib only, deterministic (seeded).
 
 ## 5. Step 2 · The engine's own verification suite (licensed delivery)
 
-`second-perspective-verify/verify.py` is the independent verification suite of the Second-Perspective Engine (published as SPE). It reports **PASS / FAIL / WARN** honestly and never relaxes an assertion to look good — a `FAIL` is a current defect of the product and must be fixed before any external commitment. It has **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b.
+`./verify.py` is the independent verification suite of the Second-Perspective Engine (published as SPE). It reports **PASS / FAIL / WARN** honestly and never relaxes an assertion to look good — a `FAIL` is a current defect of the product and must be fixed before any external commitment. It has **19 checks:** V1–V9 cover the engine kernel, V10–V13 the four topology-layer capabilities, V14 the binary fact check, V15 the single extension seam, V16 the ∞ limit reconstructor, V17 the meta-causal ledger plus the autonomous-evolution layer — and V3b and V7b.
 
 It loads `Second Perspective Engine.py` from its own directory. That file is a licensed-delivery artifact and is **not** part of this repository, so a fresh clone of this repository cannot run the suite: copy `verify.py` next to the engine file inside an authorised deployment.
 
 ```bash
-python second-perspective-verify/verify.py            # human-readable report
-python second-perspective-verify/verify.py --json     # machine-readable (CI-friendly)
-python second-perspective-verify/verify.py --root     # print only the chain root (single line), for cross-machine comparison
+python ./verify.py            # human-readable report
+python ./verify.py --json     # machine-readable (CI-friendly)
+python ./verify.py --root     # print only the chain root (single line), for cross-machine comparison
 ```
 
 **On the counts — read this before quoting a number.** The suite prints its own totals at the end of every run, and **those totals, not any frozen figure, are authoritative**. Published totals belong to specific engine generations and must always be quoted with their version tag; they are not interchangeable:

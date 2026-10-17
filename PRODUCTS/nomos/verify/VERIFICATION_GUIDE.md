@@ -12,7 +12,7 @@ Baseline of this guide: NOMOS (`nohn3043-arch/NOMOS`), v0.5.0, 2026-10-08.
 > tree (`tests/`, `pyproject.toml`, `examples/`, `scripts/`) is a licensed deliverable and is
 > **not** in `second-perspective-open`. It is published here for reference and citation only,
 > and its commands will fail from this repository. The engine-free, runnable verification here
-> is [`../second-perspective-verify/evidence/`](../second-perspective-verify/evidence/).
+> is [`../../second-perspective/verify/evidence/`](../../second-perspective/verify/evidence/).
 Numbers below are the expected baseline of that commit; on a later branch the counts may move — the **pass criteria**, not the counts, are authoritative.
 
 ---
@@ -221,7 +221,7 @@ Commercial/government use requires a paid license — see [LICENSE](../LICENSE);
 > **范围说明 —— 本指南能在这里跑吗？不能。** 本指南验证的是 **NOMOS**，其源码树（`tests/`、
 > `pyproject.toml`、`examples/`、`scripts/`）属授权交付物，**不在** `second-perspective-open` 中。
 > 此处仅作参考与引用，其命令在本仓库会失败。本仓库中可实际运行的免引擎验证见
-> [`../second-perspective-verify/evidence/`](../second-perspective-verify/evidence/)。
+> [`../../second-perspective/verify/evidence/`](../../second-perspective/verify/evidence/)。
 下文数值为该提交的预期基线；分支前进后计数可能变动 —— 以**通过标准**为准，而非计数。
 
 ---
