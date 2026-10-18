@@ -1,5 +1,7 @@
 # Second-Perspective Open — Public Trust Layer for Trusted Computing
 
+> **All suffering, all uncertainty, all pain — everything ultimately stems from our ignorance of the causal chain.**
+
 > Specifications, verifiers, and self-declared compliance records — in the open.
 > This repository is the **public trust layer** of the NOHN AI "Second-Perspective" trusted-computing stack: anyone may verify our deliverables without prior authorization — and cannot obtain the core engine implementation from it.
 > The engine it documents — **SPE (Second Perspective Engine) — is the brake system for AI**, built for foundation-model vendors, governments and regulators, and enterprises that control an AI system. It is not a benchmarking or certification service.
