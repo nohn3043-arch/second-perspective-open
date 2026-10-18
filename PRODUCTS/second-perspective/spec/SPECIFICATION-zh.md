@@ -44,7 +44,7 @@
 | 术语     | 定义                                                              |
 | ------ | --------------------------------------------------------------- |
 | SPE    | Second Perspective Engine，第二视角引擎                                |
-| 十算子    | ⊙GA→⊗NS→⊕IAP→⊿LCH→⊞LFT→BFC→⚙CCS→⇄GRF→META→⊚ACC —— 此顺序为规范性固定顺序   |
+| 十算子    | GA→NS→IAP→LCH→LFT→BFC→CCS→GRF→META→ACC —— 此顺序为规范性固定顺序   |
 | BFC    | Binary Fact Check，二元事实校验，**无第三真值**                              |
 | META   | 元因果账本：未解析前置因/ 无分叉收敛/ 叙事层/ 中立不变式/ 果因链式承接五条元基 |
 | `.spd` | 决策结构语言（`decision.ebnf`，ISO/IEC 14977）                           |
