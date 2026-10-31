@@ -89,6 +89,7 @@ Explicitly **not** a target buyer: organisations whose business is producing aud
 
 - I-1..I-6: non-guessing / origin-no-drift / superposition-no-overwrite / time-not-strippable / evolution-not-autonomous / metric-not-blocking.
 - L-1..L-3: LLM three-tier permission T1 (labelling) / T2 (proposal) / T3 (narrative), **never adjudicates**.
+- L-4 call-layer stop-loss: two consecutive failures on the same prompt halt the call — no third identical retry; a failed call produces no narrative, leaving only `llm_status='failed'` and the `llm_calls` record (with cumulative failure reasons) in the report. Neither enters the credential domain — the chain root is identical across the LLM-off / on / failed regimes.
 - `AWAITING_HUMAN` is the norm; META never blocks; external operators must not emit `BLOCKED`.
 
 ## 4. Boundaries and Prohibitions
@@ -112,7 +113,7 @@ An implementation conforming to this specification should satisfy:
 
 1. Ten operators execute in the order stated in §2, with semantics consistent with §3.1;
 2. `.spd` / `.tpg` parsing consistent with `dsl.py` validator output (20 diagnostic codes);
-3. All I-1..I-6 and L-1..L-3 invariants hold;
+3. All I-1..I-6 and L-1..L-4 invariants hold;
 4. Audit certificate recomputable across machines (same input → same chain root).
 
 ## 7. Version and Changes
