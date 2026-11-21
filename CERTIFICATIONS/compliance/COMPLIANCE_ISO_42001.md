@@ -15,8 +15,8 @@ NOMOS is a deterministic decision-support and algorithmic-verification engine. I
 |---------------|-----------------|
 | 4.1 Understanding the organisation | Compliance docs cover PRC, EU, Singapore jurisdictions |
 | 4.2 Needs of interested parties | `LICENSE` dual-entity; commercial users require paid authorisation |
-| 4.3 AIMS scope | NOMOS scope: decision evaluation, causal audit, governance — documented in `docs/INTELLIGENT_DECISION_HUB_V0_3.md` |
-| 4.4 AIMS processes | Deterministic engine + human approval gate + audit ledger |
+| 4.3 AIMS scope | NOMOS scope: decision evaluation, causal verification, governance — documented in `docs/INTELLIGENT_DECISION_HUB_V0_3.md` |
+| 4.4 AIMS processes | Deterministic engine + human approval gate + evidence ledger |
 
 ### Clause 5 — Leadership
 
@@ -31,7 +31,7 @@ NOMOS is a deterministic decision-support and algorithmic-verification engine. I
 | ISO/IEC 42001 | NOMOS Alignment |
 |---------------|-----------------|
 | 6.1 Risk & opportunity actions | `CognitiveRiskScanner` + `ReconstructionSessionEngine` (bounded, human-gated) |
-| 6.2 AI objectives | Deterministic, auditable, human-gated design invariants |
+| 6.2 AI objectives | Deterministic, verifiable, human-gated design invariants |
 | 6.3 Changes to AIMS | v0.4 roadmap documents planned control-plane upgrades |
 
 ### Clause 7 — Support
@@ -41,14 +41,14 @@ NOMOS is a deterministic decision-support and algorithmic-verification engine. I
 | 7.2 Competence | Compliance docs + `docs/INTELLIGENT_DECISION_HUB_V0_3.md` |
 | 7.3 Awareness | Deployment docs; production refuses keyless boot |
 | 7.4 Communication | `HubReport` transparent outputs; `InformationPriorityBuilder` |
-| 7.5 Documented information | Hash-chained audit ledger; `HubReport.report_hash` |
+| 7.5 Documented information | Hash-chained evidence ledger; `HubReport.report_hash` |
 
 ### Clause 8 — Operation
 
 | ISO/IEC 42001 | NOMOS Alignment |
 |---------------|-----------------|
 | 8.1 Operational planning | Deterministic execution; declared inputs only |
-| 8.2 AI risk treatment | `policy.py` guardrails; `StructuralAuditor` pre-evaluation audit |
+| 8.2 AI risk treatment | `policy.py` guardrails; `StructuralAuditor` pre-evaluation checks |
 | 8.3 AI system impact assessment | `liability_report.json` demonstrates impact-attribution (HUMAN_APPROVAL_REQUIRED) |
 | 8.4 AI system lifecycle | Production boundaries + v0.4 roadmap |
 | 8.5 Data management | `StructuralAuditor` completeness check; `InformationPriorityBuilder` gap ranking |
@@ -59,7 +59,7 @@ NOMOS is a deterministic decision-support and algorithmic-verification engine. I
 | ISO/IEC 42001 | NOMOS Alignment |
 |---------------|-----------------|
 | 9.1 Monitoring & measurement | `RobustnessAnalyzer` (Pareto, weight sensitivity); `algorithm_audit_verified` flag |
-| 9.2 Internal audit | Audit ledger provides tamper-evident evidence |
+| 9.2 Internal audit | Evidence ledger provides tamper-evident evidence |
 | 9.3 Management review | `HubReport` sealed snapshot for review |
 
 ### Clause 10 — Improvement
@@ -93,7 +93,7 @@ ISO/IEC 42001 Annex A lists AI-specific controls; Annex B maps ISO/IEC 27001 con
 | 1. AIMS scoping | Deploying org | Define AIMS scope and objectives |
 | 2. Gap assessment | Deploying org + auditor | Compare org AIMS to ISO/IEC 42001 |
 | 3. NOMOS integration | Deploying org | Deploy NOMOS as technical control layer |
-| 4. Internal audit | Deploying org | Use NOMOS audit ledger as evidence |
+| 4. Internal audit | Deploying org | Use NOMOS evidence ledger as evidence |
 | 5. Management review | Deploying org | Review `HubReport` snapshots |
 | 6. Certification audit | Accredited body | ISO/IEC 42001 certificate |
 

@@ -5,7 +5,7 @@
 
 ## Overview
 
-NOMOS is a deterministic, auditable decision hub. Its design principles — no guessing, deterministic execution, human-gated approval, hash-chained audit — are inherently aligned with AI RMF's core functions. The mapping below cross-references each AI RMF sub-function to a concrete NOMOS capability.
+NOMOS is a deterministic, intelligent decision hub. Its design principles — no guessing, deterministic execution, human-gated approval, hash-chained evidence — are inherently aligned with AI RMF's core functions. The mapping below cross-references each AI RMF sub-function to a concrete NOMOS capability.
 
 ---
 
@@ -45,10 +45,10 @@ NOMOS is a deterministic, auditable decision hub. Its design principles — no g
 | ME1.1 | Identify appropriate metrics | Deterministic scores, counterfactual leader stability, Pareto exposure, weight sensitivity |
 | ME1.2 | Establish measurement processes | `RobustnessAnalyzer` computes Pareto + weight perturbations; `counterfactual.py` re-selects candidates |
 | ME1.3 | Collect, compute, document metrics | Every stage emits `AlgorithmAuditEvent` with explicit operands and outputs |
-| ME2.1 | Categorise and measure AI trustworthiness | NOMOS design tenets: Valid & Reliable (deterministic), Safe (no autonomous decisions), Secure (hash-chained audit), Resilient (bounded reconstruction), Accountable (human gate), Transparent (full replay), Explainable (audit trail), Privacy-Enhanced (local, minimal), Fair (no bias proxy) |
-| ME2.2 | Evaluate metrics | `StructuralAuditor` runs pre-evaluation audit; issues recorded with severity |
+| ME2.1 | Categorise and measure AI trustworthiness | NOMOS design tenets: Valid & Reliable (deterministic), Safe (no autonomous decisions), Secure (hash-chained evidence), Resilient (bounded reconstruction), Accountable (human gate), Transparent (full replay), Explainable (evidence trail), Privacy-Enhanced (local, minimal), Fair (no bias proxy) |
+| ME2.2 | Evaluate metrics | `StructuralAuditor` runs pre-evaluation checks; issues recorded with severity |
 | ME3.1 | Measure and manage data risk | `audit/integrity.py` SHA-256 fingerprint; `StructuralAuditor` flags missing data; `InformationPriorityBuilder` ranks gaps |
-| ME4.1 | Monitor, measure, track performance | Production can enable PostgreSQL persistence (`SP_DATABASE_DSN`); audit ledger is append-only |
+| ME4.1 | Monitor, measure, track performance | Production can enable PostgreSQL persistence (`SP_DATABASE_DSN`); evidence ledger is append-only |
 
 ---
 
@@ -60,7 +60,7 @@ NOMOS is a deterministic, auditable decision hub. Its design principles — no g
 | M1.2 | Manage AI system throughout lifecycle | `DecisionRecord` parent-hash chain records every evaluation/approval; `HubReport.report_hash` provides integrity |
 | M1.3 | Manage third-party / supply chain | `LICENSE` dual-entity model; commercial authorisation required before deployment |
 | M1.4 | Document and monitor risks | `algorithm_audit_root_hash` provides tamper-evident verification; `report_hash` seals the analysis |
-| M2.1 | Respond to AI incidents | Audit ledger supports root-cause tracing; `causal.py` performs backward root-cause BFS |
+| M2.1 | Respond to AI incidents | Evidence ledger supports root-cause tracing; `causal.py` performs backward root-cause BFS |
 | M2.2 | Contribute to AI incident sharing | `liability_report.json` demonstrates incident-attribution capability |
 
 ---
@@ -71,7 +71,7 @@ NOMOS is a deterministic, auditable decision hub. Its design principles — no g
 |----------------|---------------|
 | Valid and Reliable | Deterministic: same input → same output; no RNG, no ML |
 | Safe | No autonomous final decision; human always approves |
-| Secure and Resilient | Hash-chained audit ledger; bounded iteration (`max_iterations`) |
+| Secure and Resilient | Hash-chained evidence ledger; bounded iteration (`max_iterations`) |
 | Accountable and Transparent | `decision_owner` + responsibility nodes; full execution replay |
 | Explainable | `AlgorithmAuditEvent` exposes every operand and output |
 | Privacy-Enhanced | Local default; data minimisation; no telemetry |
