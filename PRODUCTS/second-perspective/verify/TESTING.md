@@ -17,7 +17,7 @@
 | Built in · you run it | Engine-free evidence package `./evidence/recompute.py` — six checks binding the published input, report view, chain and root to one another | **Yes** — no engine, no licence |
 | Built in · you run it | Language-standard toolchain `STANDARD/dsl.py` over `STANDARD/examples/` | **Yes** — standard library only |
 | Licensed delivery | Engine verification suite `./verify.py` — 19 checks against the engine kernel | **No** — it loads the engine core, a licensed-delivery artifact that is not in this repository |
-| Licensed delivery | End-to-end engine demo `demo_audit.py` | **No** — ships with the licensed delivery, not in this repository |
+| Licensed delivery | End-to-end engine demo `demo_brake.py` | **No** — ships with the licensed delivery, not in this repository |
 | You build | Evaluation design for **your own subject under test**: corpus, annotation, comparison arms, statistics — methodology in §6 | You build it |
 | Not shipped | A ready-made question bank. Synthetic corpora have no discriminative power for real subjects; a formal comparison must use your own real subjects and corpus | — |
 
@@ -65,7 +65,7 @@ Expected: six checks pass, exit code `0`. Published values (`evidence/expected.j
 
 `--tamper` additionally demonstrates that an edit to the input file (detected by C3), the report view (C5) or the chain itself (C1) is caught.
 
-**What this does not prove.** It verifies the *record*, not the *reasoning* — the engine's operators are not re-executed here. It is not a certification, an audit opinion, or a warranty, and it makes no claim about LLM behaviour.
+**What this does not prove.** It verifies the *record*, not the *reasoning* — the engine's operators are not re-executed here. It is not a certification, an verification opinion, or a warranty, and it makes no claim about LLM behaviour.
 
 ### 4.2 Language-standard toolchain
 
@@ -116,7 +116,7 @@ Earlier revisions of this guide quoted a third set of totals as if it were curre
 
 - Each item is **independently annotated by 2 annotators** (blind to each other); disagreements are adjudicated item by item and kept on file;
 - Report annotation quality: **raw agreement + Cohen's κ** (≥0.70 reference line);
-- Route items by modality (prompt response / protocol measurement / audit artifact), recording expected / forbidden behavior per item.
+- Route items by modality (prompt response / protocol measurement / verification artifact), recording expected / forbidden behavior per item.
 
 ### 6.3 Comparison arms (what counts as the baseline)
 

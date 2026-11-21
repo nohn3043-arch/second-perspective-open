@@ -57,7 +57,7 @@ in prose below. This is a deliberate omission, tracked as `OPEN-GAPS.md` **G-10*
 |---|---|---|---|
 | 8.1 Operational planning & control | Engine-produced | ✅ | Deterministic, declared inputs only; `PIPELINE_ORDER` fixed |
 | 8.2 AI risk treatment | Engine-produced | ✅ | ⊞LFT four parallel checks (fatal / void severity classes); ⇄GRF fallback-path ΔD |
-| 8.3 AI system impact assessment | **Engine-produced** | ✅ | Full audit output = impact assessment record (aligned to ISO/IEC 42005:2025). **Boundary: no statistical fairness assessment — Gap G-04** |
+| 8.3 AI system impact assessment | **Engine-produced** | ✅ | Full verification output = impact assessment record (aligned to ISO/IEC 42005:2025). **Boundary: no statistical fairness assessment — Gap G-04** |
 | 8.4 AI system lifecycle | **Engine-produced** | ✅ | BFC binary fact check (no third truth value); ⊞LFT verification. **Gap G-02** (LLM provider path unverified) |
 | 8.5 Data management | Engine-produced + manual | 🔧 | `bias_metrics` B1 upstream supply gate (provenance & representativeness as a **declaration**). **B2 not implemented — Gap G-04** |
 | 8.6 Third-party relationships | Manual | ✅ | Tiered licence; **all deployments are on-premise** — no third-party data processing, therefore no DPA required |
@@ -86,7 +86,7 @@ in prose below. This is a deliberate omission, tracked as `OPEN-GAPS.md` **G-10*
 | AI policy & governance | Policy bound to enforced invariants |
 | Internal organisation | `ResponsibilityAccount` — accountability as a blocking precondition |
 | AI risk management | Structural risk register: assumptions, ΔD, counterfactual, black holes |
-| Impact assessment | Full audit output; no fairness statistics |
+| Impact assessment | Full verification output; no fairness statistics |
 | AI system lifecycle | BFC + LFT verification and validation evidence |
 | Data management | Upstream supply provenance gate (B1); no subgroup metrics |
 | Third-party & customer responsibility | Tiered licence; engine cannot alter a customer's verdict |

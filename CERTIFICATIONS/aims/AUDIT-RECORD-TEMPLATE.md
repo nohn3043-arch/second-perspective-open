@@ -74,7 +74,7 @@ review_date:          YYYY-MM-DD
 |---|---|
 | Hashes published in full | Redaction applies to *content*, never to *evidence* |
 | `terminal_state` copied verbatim | Paraphrasing a verdict is how "blocked" becomes "passed" |
-| `actions` must be non-empty when `terminal_state` is `BLOCKED` or `AWAITING_HUMAN` | An interruption with no listed remedy is not an audit result |
+| `actions` must be non-empty when `terminal_state` is `BLOCKED` or `AWAITING_HUMAN` | An interruption with no listed remedy is not an verification result |
 | `reviewed_by` must differ from the decision owner where possible | Segregation of duties |
 
 ## What must never appear in a published record

@@ -69,7 +69,7 @@ def run(report: Dict[str, Any],
 
     Arguments (from ``input.schema.json`` via ``algo_init.py``):
         require_anchor — when true, anything but an ANCHORED responsibility
-                         anchor forces BLOCK even on a passing audit.
+                         anchor forces BLOCK even on a passing verification.
     """
     args = dict(input_arguments or {})
     require_anchor = bool(args.get("require_anchor", False))
@@ -127,7 +127,7 @@ class SecondPerspectiveGateAlgo:
     def __init__(self) -> None:
         self.meta = {
             "name": "second_perspective_gate",
-            "description": "Deterministic gate over SPE audit verdicts "
+            "description": "Deterministic gate over SPE verification verdicts "
                            "(RELEASE / HOLD / BLOCK, fail-closed)",
             "version": "0.1.0",
         }
@@ -149,7 +149,7 @@ class SecondPerspectiveGateAlgo:
     def generate(self) -> None:
         """Core logic per the official template: fill ``self._results``.
 
-        The gate is model-agnostic: it audits an SPE credential-view report
+        The gate is model-agnostic: it verifies an SPE credential-view report
         (delivered via ``self._data_instance``), not model predictions.
         """
         data = self._data_instance

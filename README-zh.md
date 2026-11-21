@@ -38,7 +38,7 @@ second-perspective-open/
 │   ├── paper.pdf / paper.md
 │   └── why-ai-needs-brakes.md  # 立场文：AI 为什么需要刹车系统
 └── CERTIFICATIONS/             # 合规映射 · 自声明 AIMS · 提供方提交的 AI Verify 材料
-    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify 自评：95/100（提供方自测，非 IMDA 官方认证）
+    ├── IMDA_AI_Verify_Causal_Self-Assessment_Report.pdf   # AI Verify 自评：95/100（提供方自测，非 IMDA 官方认证）
     ├── make_self_assessment_pdf.py              # 确定性 PDF 源码——可重新生成上方报告
     └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / 上海合规
 ```
@@ -70,12 +70,12 @@ python PRODUCTS/second-perspective/verify/verify.py           # 完整校验：�
 
 **关于计数（引用数字前请先读这段）。** 脚本每次运行都会在结尾打印本次合计，**以该次运行的合计为准，任何冻结数字都不能替代它**。**v1.0 快照的基线是 11 项检查、`PASS 9 · FAIL 0 · WARN 2`**，其中两条 WARN 是预先登记的披露项（V3b、V9），不是失败。此后套件已扩至 19 项检查，因此**任何出自该基线的计数都必须标注为「v1.0 快照值」**。随库的 `verify-output.log` 记录了该快照，可独立核对链根与 PASS / FAIL 计数。
 
-**运行边界 / Runtime note**：`PRODUCTS/second-perspective/verify/verify.py` 是**公开可审计的校验器**，其校验逻辑完全可见、零依赖、可离线运行；完整运行需加载引擎内核（私有实现，纳入授权交付物）。
+**运行边界 / Runtime note**：`PRODUCTS/second-perspective/verify/verify.py` 是**公开可复核的校验器**，其校验逻辑完全可见、零依赖、可离线运行；完整运行需加载引擎内核（私有实现，纳入授权交付物）。
 
 固定链根（v1.0 快照）：
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
 
-**免引擎证据包 —— 建议从这里开始。** `PRODUCTS/second-perspective/verify/evidence/` 内含冻结的审计链、期望链根，以及一个零依赖的重算脚本。它**不需要引擎、不需要许可**即可运行：
+**免引擎证据包 —— 建议从这里开始。** `PRODUCTS/second-perspective/verify/evidence/` 内含冻结的证据链、期望链根，以及一个零依赖的重算脚本。它**不需要引擎、不需要许可**即可运行：
 
 ```bash
 python PRODUCTS/second-perspective/verify/evidence/recompute.py --tamper
@@ -94,7 +94,7 @@ python PRODUCTS/second-perspective/verify/evidence/recompute.py --tamper
 
 ## 产品介绍 / Product documentation
 
-每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）。该目录的 `spec/` 子目录放**公开规范**——定位与边界、接口 / 协议 / 格式、审计与合规、一致性声明。规范之外，产品目录只保留无需披露实现即可公开的内容：术语表，以及（当该引擎的校验器只能对授权引擎运行时）核验指南。**架构与源码级说明仅在该实现本身已公开时才发布**；实现属保密交付物的，本层不收录。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。
+每个产品在 `PRODUCTS/` 下占一个目录（索引见 [PRODUCTS/README.md](./PRODUCTS/README.md)）。该目录的 `spec/` 子目录放**公开规范**——定位与边界、接口 / 协议 / 格式、证据与合规、一致性声明。规范之外，产品目录只保留无需披露实现即可公开的内容：术语表，以及（当该引擎的校验器只能对授权引擎运行时）核验指南。**架构与源码级说明仅在该实现本身已公开时才发布**；实现属保密交付物的，本层不收录。唯一不属于产品文档的规范是决策结构语言（连同其参照解释器 `dsl.py`），收纳于 [`STANDARD/`](./STANDARD/)。
 
 ## 相关仓库 / Related
 

@@ -9,7 +9,7 @@
 
 ## What it does
 
-Maps the SPE audit level to an explicit gate decision, fail-closed:
+Maps the SPE verification level to an explicit gate decision, fail-closed:
 
 | SPE ACC verdict level | Gate decision |
 |---|---|

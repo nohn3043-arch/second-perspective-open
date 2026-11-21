@@ -45,7 +45,7 @@ for _stream in (sys.stdout, sys.stderr):
 HERE = os.path.dirname(os.path.abspath(__file__))
 ENGINE = os.path.join(HERE, "Second Perspective Engine.py")
 
-# 复现实验用固定值：clock 决定链事件时间戳，nonce 决定审计身份
+# 复现实验用固定值：clock 决定链事件时间戳，nonce 决定核验身份
 FIXED_CLOCK = 1700000000.0
 FIXED_NONCE = "deadbeef"
 

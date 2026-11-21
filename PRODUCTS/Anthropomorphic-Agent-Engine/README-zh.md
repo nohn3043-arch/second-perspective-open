@@ -63,7 +63,7 @@ Anthropomorphic-Agent-Engine/
 |---|---|---|
 | **L0 — 接口一致** | 满足输入契约与引擎入口 | "AAE interface compatible" |
 | **L1 — 状态一致** | L0 + 快照键集与区间 | "AAE state compatible" |
-| **L2 — 审计一致** | L1 + delta 算法，审计链可跨机复算 | "AAE conformant" |
+| **L2 — 审计一致** | L1 + delta 算法，证据链可跨机复算 | "AAE conformant" |
 
 > 一致性不包含正确性。一致性套件是变更检测器，不是心理学正确性的判据。
 

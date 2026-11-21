@@ -5,7 +5,7 @@
 
 ## 1. Scope and Applicability
 
-NOMOS is a deterministic decision-support and algorithmic-audit engine. It can serve as a **technical control component** within an organisation's AI Management System (AIMS). NOMOS itself does not constitute a complete AIMS; the deploying organisation must implement the management-system layer (policy, roles, objectives, internal audit, management review).
+NOMOS is a deterministic decision-support and algorithmic-verification engine. It can serve as a **technical control component** within an organisation's AI Management System (AIMS). NOMOS itself does not constitute a complete AIMS; the deploying organisation must implement the management-system layer (policy, roles, objectives, internal audit, management review).
 
 ## 2. Clause-by-Clause Mapping
 

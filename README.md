@@ -38,7 +38,7 @@ second-perspective-open/
 │   ├── paper.pdf / paper.md
 │   └── why-ai-needs-brakes.md  # Position paper: why capable AI needs a brake layer
 └── CERTIFICATIONS/             # Compliance mappings · self-declared AIMS · provider-submitted AI Verify material
-    ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify self-assessment: 95/100 (provider self-test, not an IMDA certification)
+    ├── IMDA_AI_Verify_Causal_Self-Assessment_Report.pdf   # AI Verify self-assessment: 95/100 (provider self-test, not an IMDA certification)
     ├── make_self_assessment_pdf.py              # deterministic PDF source — regenerate the report above
     ├── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance
     └── aims/                                # 🧭 NOHN AI's own AIMS (ISO/IEC 42001) — self-built, unaudited, evidence recomputable
@@ -73,7 +73,7 @@ python PRODUCTS/second-perspective/verify/verify.py           # full suite: the 
 
 **On the counts — read this before quoting a number.** The suite prints its own totals at the end of every run, and **those totals, not any frozen figure, are authoritative**. The **v1.0 snapshot baseline is `PASS 9 · FAIL 0 · WARN 2` over 11 checks**; the two WARNs are pre-registered disclosures (V3b, V9), not failures. The suite has since been extended to 19 checks, so any count taken from the baseline must be labelled a **v1.0 snapshot value**. The shipped `verify-output.log` records that snapshot and lets you cross-check the chain root and the PASS / FAIL counts independently.
 
-**Runtime note.** `PRODUCTS/second-perspective/verify/verify.py` is a **publicly auditable verifier**: its logic is fully visible, zero-dependency and offline-runnable. A complete run loads the engine core — a private implementation, included in the licensed delivery.
+**Runtime note.** `PRODUCTS/second-perspective/verify/verify.py` is a **publicly reviewable verifier**: its logic is fully visible, zero-dependency and offline-runnable. A complete run loads the engine core — a private implementation, included in the licensed delivery.
 
 Fixed chain root (v1.0 snapshot):
 `f5713f49481a80f82356ba1255c0292ddb0d17a235a35348bcff0eef49d6a801`
@@ -110,7 +110,7 @@ Commercial licensing — International: <ai@nohnlins.com> ｜ China: <lin@second
 
 ## Product documentation
 
-Each product has one folder under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)). Its **public specification** lives in a `spec/` subfolder — positioning and boundaries, interfaces / protocols / formats, audit and compliance, conformance statements. Beyond the specification, a product folder keeps only what can be published without disclosing implementation: its glossary, and — where the engine's own verifier can only run against a licensed engine — the verification guide. **Architecture and source-level notes are published only where the implementation itself is public**; where the implementation is a confidential deliverable, this layer carries none. The one standard that is not a product document, the decision-structure language (together with its reference interpreter `dsl.py`), lives under [`STANDARD/`](./STANDARD/).
+Each product has one folder under `PRODUCTS/` (index: [PRODUCTS/README.md](./PRODUCTS/README.md)). Its **public specification** lives in a `spec/` subfolder — positioning and boundaries, interfaces / protocols / formats, evidence and compliance, conformance statements. Beyond the specification, a product folder keeps only what can be published without disclosing implementation: its glossary, and — where the engine's own verifier can only run against a licensed engine — the verification guide. **Architecture and source-level notes are published only where the implementation itself is public**; where the implementation is a confidential deliverable, this layer carries none. The one standard that is not a product document, the decision-structure language (together with its reference interpreter `dsl.py`), lives under [`STANDARD/`](./STANDARD/).
 
 ## Related
 

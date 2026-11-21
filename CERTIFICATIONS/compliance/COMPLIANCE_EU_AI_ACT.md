@@ -64,7 +64,7 @@ NOMOS 的设计原则与 Art 10 高度对齐：
 
 NOMOS 已提供：
 - 系统架构文档（`docs/INTELLIGENT_DECISION_HUB_V0_3.md`）；
-- 算法审计事件链结构（`AlgorithmAuditEvent` schema）；
+- 算法核验事件链结构（`AlgorithmAuditEvent` schema）；
 - 确定性执行说明（无 RNG、无 ML 预测）；
 - OpenAPI 规范（`openapi-action.yaml`）。
 
@@ -84,7 +84,7 @@ NOMOS 已内置：
 
 NOMOS 已内置：
 - 确定性执行——可完整回放；
-- 审计事件链——可独立验证；
+- 核验事件链——可独立验证；
 - 认知风险扫描——结构化挑战结果可读；
 - 信息优先级——明确指出缺失变量与影响范围。
 
@@ -117,7 +117,7 @@ NOMOS 已内置：
 
 当 NOMOS 用于非 Annex III 场景时，仅需遵守透明性义务（Art 50）：
 - 部署方须告知受影响对象正在使用 AI 辅助决策；
-- NOMOS 的审计报告可作为透明性证据。
+- NOMOS 的核验报告可作为透明性证据。
 
 ## 四、时间线
 

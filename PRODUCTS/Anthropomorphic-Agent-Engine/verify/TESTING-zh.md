@@ -50,7 +50,7 @@
    - `fluid` 恰 8 键、`mood` 恰 3 键；
    - 各标量落在规范 §4.7 的区间内；
    - `信任 ≤ max_trust`。
-5. 对审计记录逐行用 [`schema/audit-record.schema.json`](../spec/schema/audit-record.schema.json) 校验，并按规范 §6.3 重算 `delta`。
+5. 对核验记录逐行用 [`schema/audit-record.schema.json`](../spec/schema/audit-record.schema.json) 校验，并按规范 §6.3 重算 `delta`。
 
 ### 2.1 断言写法（五条规矩）
 
@@ -112,7 +112,7 @@
 | 契约版本 | 规范文档头部版本号 |
 | 验收环境（python / platform） | 你的结果文件自动记录 |
 | 自定义向量 + 基线 | 你的向量文件副本（§2.2） |
-| 审计日志样本 | 冒烟脚本开启审计后的 JSONL |
+| 核验日志样本 | 冒烟脚本开启核验后的 JSONL |
 
 **复测触发条件**：引擎版本变更（语义化版本）、契约版本变更、部署形态变更。
 

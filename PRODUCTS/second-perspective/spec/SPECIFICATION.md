@@ -30,7 +30,7 @@ Three properties define the brake:
 | Governments / regulators | Enforceable control and attributable responsibility | Deterministic verdicts plus responsibility anchoring, verifiable offline |
 | Enterprises controlling an AI system | Duty of care over automated decisions | Pre-action interception and a sealed audit certificate |
 
-Explicitly **not** a target buyer: organisations whose business is producing audit reports or affixing certification marks. SPE sells control, not paperwork.
+Explicitly **not** a target buyer: organisations whose business is producing verification reports or affixing certification marks. SPE sells control, not paperwork.
 
 ### 1.3 Non-goals
 
@@ -100,7 +100,7 @@ Explicitly **not** a target buyer: organisations whose business is producing aud
 
 ## 5. Audit and Compliance
 
-- Self-assessed by the provider against the AI Verify framework: 95/100 (causal-audit track; provider-submitted document, not an IMDA-issued certification).
+- Self-assessed by the provider against the AI Verify framework: 95/100 (causal-verification track; provider-submitted document, not an IMDA-issued certification).
 - Reproducible certificate: same input + same nonce + same clock → same chain root, independent of any model vendor.
 - V3b WARN: the certificate does not bind the original input; the coverage scope must be actively declared.
 - Hash-chain event types, 10 kinds (AUDIT / DELTA_APPLIED, etc.); hash input includes the event index idx; changing event count / order invalidates it.

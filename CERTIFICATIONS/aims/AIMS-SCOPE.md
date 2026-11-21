@@ -11,7 +11,7 @@
 | Legal entities in scope | **NOHN AI TECHNOLOGY PTE. LTD.** (Singapore, UEN 202624632Z) · **Shanghai Linming Junhua Technology Co., Ltd.** (PRC) |
 | AIMS governing entity | **NOHN AI TECHNOLOGY PTE. LTD.** (Singapore) — the AIMS is legally anchored here. Shanghai Linming Junhua Technology Co., Ltd. participates as a controlled affiliate, not as the governing entity |
 | Headcount in scope | 3 (founding team) |
-| Nature of activity | Design, development and licensed delivery of causal-audit and deterministic decision software |
+| Nature of activity | Design, development and licensed delivery of causal-verification and deterministic decision software |
 | Operating jurisdictions | Singapore · PRC (Shanghai) · target: Japan (Year 2), EU, US |
 
 ## 4.2 Needs and expectations of interested parties

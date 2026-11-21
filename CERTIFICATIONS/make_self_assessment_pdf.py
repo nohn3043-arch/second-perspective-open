@@ -3,7 +3,7 @@
 """Regenerate the SPE AI Verify self-assessment PDF (deterministic).
 
 This script is the reproducible source of
-``IMDA_AI_Verify_Causal_Audit_Report.pdf``. The PDF states a **provider
+``IMDA_AI_Verify_Causal_Self-Assessment_Report.pdf``. The PDF states a **provider
 self-assessment** — it is NOT an IMDA-issued certification, endorsement, or
 submission receipt, and the entity is named in full.
 
@@ -27,13 +27,13 @@ from reportlab.pdfgen import canvas
 
 TITLE = "IMDA AI Verify — Self-Assessment Report"
 SUBTITLE_LINES = [
-    "Plugin: SPL Deterministic Causal Audit Engine (Second Perspective Engine 1.2.2)",
+    "Plugin: SPL Deterministic Causal Verification Engine (Second Perspective Engine 1.2.2)",
     "Standard: IMDA Model AI Governance Framework / AI Verify testing principles (self-mapping)",
 ]
 OVERALL = [
     ("Overall Self-Assessed Score:", "95/100"),
     ("Assessment Status:", "PROVIDER SELF-TEST — completed"),
-    ("Test Scope:", "GenAI Hallucination Detection & Logical Consistency Audit"),
+    ("Test Scope:", "GenAI Hallucination Detection & Logical Consistency Verification"),
 ]
 DISCLOSURE = (
     "Disclosure: this is a self-assessment by the provider. It is NOT an "
@@ -44,7 +44,7 @@ PRINCIPLES = [
     ("Interpretability", "98/100", "Full causal traceability for all generated content"),
     ("Robustness", "95/100", "Zero logical jump detection, hallucination identification"),
     ("Accountability", "96/100", "Per-node responsibility account, permanent audit trail"),
-    ("Inclusiveness", "92/100", "Compliance content audit, no discriminatory output"),
+    ("Inclusiveness", "92/100", "Compliance content review, no discriminatory output"),
     ("Remaining 7 General Principles", "90/100", "Mapped against the IMDA baseline requirements"),
 ]
 DEVELOPER = [

@@ -23,7 +23,7 @@
 |---|---|
 | 连续 | 角色在长程交互中不遗忘、不漂移、不断线 |
 | 确定 | 相同声明输入产生相同状态；核心无随机性、无 LLM 调用 |
-| 可回放 | 每次状态转移携带归因 `delta`，审计链可跨机复算 |
+| 可回放 | 每次状态转移携带归因 `delta`，证据链可跨机复算 |
 
 **部署形态**：AAE 不作为模型权重的一部分，而是作为**对话系统的状态层 sidecar** 运行：
 
@@ -59,7 +59,7 @@
 | mood | 三维心境子模型，受迫-阻尼系统（见 §4.3） |
 | 快照 | `snapshot()` 返回的完整状态字典 |
 | delta | 单次状态转移的逐字段归因（见 §6.3） |
-| 审计链 | 记录信封组成的 JSONL 序列，可逐条重算复核 |
+| 证据链 | 记录信封组成的 JSONL 序列，可逐条重算复核 |
 
 ---
 
@@ -232,7 +232,7 @@ memory_count, expected_count, last_perceived, protective
 
 ### 4.9 快照的审计要求 **[共用]**
 
-`snapshot()` 暴露的每个状态量 **MUST** 出现在 §6.3 的 delta 覆盖范围内，或明确声明为纯输出量。驱动动力学的量（如 `arousal_recent`）**MUST NOT** 是不可观测的隐藏变量——否则审计链断裂。
+`snapshot()` 暴露的每个状态量 **MUST** 出现在 §6.3 的 delta 覆盖范围内，或明确声明为纯输出量。驱动动力学的量（如 `arousal_recent`）**MUST NOT** 是不可观测的隐藏变量——否则证据链断裂。
 
 ---
 
@@ -242,7 +242,7 @@ memory_count, expected_count, last_perceived, protective
 
 | 方法 | 签名 | 行为 |
 |---|---|---|
-| `process_vector` | `(vector, raw_intensity=1.0, event_id="")` | 施加内感受向量；改变状态；追加审计记录 |
+| `process_vector` | `(vector, raw_intensity=1.0, event_id="")` | 施加内感受向量；改变状态；追加核验记录 |
 | `process_event` | `(event, intensity=1.0)` | 经人格层映射后转 `process_vector` |
 | `idle` | `(seconds)` | 推进 `seconds` 秒无外部刺激的时间 |
 | `sleep` | `(hours)` | 睡眠债清除、梦境情绪加工、恐惧消退、能量恢复、醒来重置 |
@@ -254,7 +254,7 @@ memory_count, expected_count, last_perceived, protective
 
 **时间边界**：单步时间 **MUST** 以 86400 秒（24 h）封顶。
 
-> **`idle` 与 `sleep` 在参考实现中不产生审计记录。** 调用方若需要完整轨迹 **MUST** 自行记录；实现 **SHOULD** 记录它们。
+> **`idle` 与 `sleep` 在参考实现中不产生核验记录。** 调用方若需要完整轨迹 **MUST** 自行记录；实现 **SHOULD** 记录它们。
 
 ---
 
@@ -262,7 +262,7 @@ memory_count, expected_count, last_perceived, protective
 
 ### 6.1 记录信封 **[共用]**
 
-每条审计记录是一行 JSON（JSONL）。信封 **MUST** 包含：
+每条核验记录是一行 JSON（JSONL）。信封 **MUST** 包含：
 
 | 字段 | 类型 | 语义 |
 |---|---|---|
@@ -298,7 +298,7 @@ memory_count, expected_count, last_perceived, protective
 4. **数值条目**（两侧均为 int/float，且均非 bool）：`{"before": b, "after": a, "delta": round(a - b, 6)}`。
 5. **非数值条目**：`{"before": b, "after": a}`，**MUST NOT** 附带 `delta` 键。
 
-**布尔** **MUST NOT** 被视为数值。"新增一个危机标记"本身就是审计事件，尽管它没有算术差——实现 **MUST NOT** 为它伪造一个差值。
+**布尔** **MUST NOT** 被视为数值。"新增一个危机标记"本身就是核验事件，尽管它没有算术差——实现 **MUST NOT** 为它伪造一个差值。
 
 **覆盖集**
 
@@ -311,7 +311,7 @@ memory_count, expected_count, last_perceived, protective
 
 ### 6.4 快照摘要 **[共用]**
 
-审计记录的 `snapshot` 字段是完整状态的**子集**，键集为：
+核验记录的 `snapshot` 字段是完整状态的**子集**，键集为：
 
 **[主]**（17 键）：`fluid, mood, self_esteem, energy, fatigue, excitation, max_trust, suppression_load, denial_load, rationalization_load, latent_pressure, cognitive_dissonance, sleep_debt, arousal_recent, trauma, memory_count, expected_count`
 
@@ -370,7 +370,7 @@ memory_count, expected_count, last_perceived, protective
 |---|---|---|
 | **L0 — 接口一致** | 实现 §3 输入契约与 §5 引擎入口 | "AAE interface compatible" |
 | **L1 — 状态一致** | L0 + 快照键集与区间满足 §4 | "AAE state compatible" |
-| **L2 — 审计一致** | L1 + delta 算法满足 §6.3，审计链可跨机复算 | "AAE conformant" |
+| **L2 — 审计一致** | L1 + delta 算法满足 §6.3，证据链可跨机复算 | "AAE conformant" |
 
 > 一致性**不**包含正确性。见 §9.2。
 
