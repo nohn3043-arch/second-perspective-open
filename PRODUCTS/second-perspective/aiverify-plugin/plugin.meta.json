@@ -1,0 +1,10 @@
+{
+  "author": "NOHN AI TECHNOLOGY PTE. LTD.",
+  "plugin_name": "Second Perspective Gate",
+  "project_slug": "second_perspective_gate",
+  "plugin_version": "0.1.0",
+  "plugin_description": "Deterministic gate over Second Perspective Engine audit verdicts: RELEASE / HOLD / BLOCK, fail-closed. Post-hoc mode ships engine-free (stdlib only); inline mode runs the licensed SPE engine pre-release.",
+  "license": "Apache Software License 2.0",
+  "algo_model_support": "Both",
+  "require_ground_truth": "False"
+}

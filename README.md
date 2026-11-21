@@ -39,6 +39,7 @@ second-perspective-open/
 │   └── why-ai-needs-brakes.md  # Position paper: why capable AI needs a brake layer
 └── CERTIFICATIONS/             # Compliance mappings · self-declared AIMS · provider-submitted AI Verify material
     ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify self-assessment: 95/100 (provider self-test, not an IMDA certification)
+    ├── make_self_assessment_pdf.py              # deterministic PDF source — regenerate the report above
     ├── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / Shanghai compliance
     └── aims/                                # 🧭 NOHN AI's own AIMS (ISO/IEC 42001) — self-built, unaudited, evidence recomputable
 ```

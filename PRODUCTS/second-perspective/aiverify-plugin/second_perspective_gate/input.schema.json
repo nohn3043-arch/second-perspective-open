@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "second-perspective-gate/input.schema.json",
+  "title": "Algorithm Plugin Input Arguments",
+  "description": "Custom arguments for the Second Perspective Gate algorithm (official v2 contract: this schema describes input_arguments passed via algo_init.py, not the data payload).",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "require_anchor": {
+      "type": "boolean",
+      "title": "Require Anchored Responsibility",
+      "description": "When true, any responsibility anchor other than ANCHORED forces BLOCK even on a passing audit. Default false.",
+      "default": false
+    }
+  }
+}

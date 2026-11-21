@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "second-perspective-gate"
+version = "0.1.0"
+description = "AI Verify test-plugin (draft): deterministic gate over SPE audit verdicts (RELEASE / HOLD / BLOCK, fail-closed)"
+license = { text = "Apache-2.0" }
+authors = [{ name = "NOHN AI TECHNOLOGY PTE. LTD." }]
+requires-python = ">=3.10"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/NOHN-AI/second-perspective-open"
+
+[tool.setuptools]
+packages = ["second_perspective_gate"]

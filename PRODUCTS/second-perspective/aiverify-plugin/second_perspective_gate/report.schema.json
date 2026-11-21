@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "second-perspective-gate/report.schema.json",
+  "title": "SPE credential-view report (data schema)",
+  "description": "The data payload consumed by the gate: a credential-view report produced by the Second Perspective Engine (SPE). Full field definitions are in PRODUCTS/second-perspective/spec/SPECIFICATION.md. The gate reads analysis.ACC and lineage; everything else is passed through untouched.",
+  "type": "object",
+  "required": ["analysis", "lineage"],
+  "properties": {
+    "analysis": {
+      "type": "object",
+      "required": ["ACC"],
+      "properties": {
+        "ACC": {
+          "type": "object",
+          "required": ["verdict"],
+          "properties": {
+            "verdict": {
+              "type": "object",
+              "required": ["level"],
+              "properties": {
+                "level": {
+                  "type": "string",
+                  "enum": ["AUDIT_PASS", "AUDIT_WARN", "AUDIT_HALT"]
+                },
+                "halt_count": { "type": "integer", "minimum": 0 },
+                "warn_items": { "type": "array", "items": { "type": "string" } },
+                "summary": { "type": "string" }
+              }
+            },
+            "certificate": {
+              "type": "object",
+              "properties": {
+                "input_digest": { "type": "string" },
+                "signature": { "type": "string" }
+              }
+            },
+            "responsibility": {
+              "type": "object",
+              "properties": {
+                "anchor_status": {
+                  "type": "string",
+                  "enum": ["ANCHORED", "UNANCHORED", "VAGUE"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "properties": {
+        "spe_version": { "type": "string" },
+        "grammar_version": { "type": "string" }
+      }
+    }
+  }
+}

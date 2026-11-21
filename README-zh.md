@@ -39,6 +39,7 @@ second-perspective-open/
 │   └── why-ai-needs-brakes.md  # 立场文：AI 为什么需要刹车系统
 └── CERTIFICATIONS/             # 合规映射 · 自声明 AIMS · 提供方提交的 AI Verify 材料
     ├── IMDA_AI_Verify_Causal_Audit_Report.pdf   # AI Verify 自评：95/100（提供方自测，非 IMDA 官方认证）
+    ├── make_self_assessment_pdf.py              # 确定性 PDF 源码——可重新生成上方报告
     └── compliance/                          # EU AI Act / ISO 42001 / NIST AI RMF / 上海合规
 ```
 

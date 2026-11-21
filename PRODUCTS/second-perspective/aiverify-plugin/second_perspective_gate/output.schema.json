@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "second-perspective-gate/output.schema.json",
+  "title": "Gate verdict record (plugin output)",
+  "description": "Deterministic gate decision over an SPE credential-view report. Identical input always yields byte-identical output (gate_digest is reproducible).",
+  "type": "object",
+  "required": ["gate", "reason", "gate_digest", "certificate_present"],
+  "properties": {
+    "gate": {
+      "type": "string",
+      "enum": ["RELEASE", "HOLD", "BLOCK"],
+      "description": "RELEASE = audit passed; HOLD = audit passed with warnings; BLOCK = audit halted, fatal issues, or fail-closed on malformed input."
+    },
+    "reason": { "type": "string" },
+    "level": {
+      "oneOf": [
+        { "type": "string", "enum": ["AUDIT_PASS", "AUDIT_WARN", "AUDIT_HALT"] },
+        { "type": "null" }
+      ]
+    },
+    "halt_count": { "type": ["integer", "null"], "minimum": 0 },
+    "warn_items": { "type": "array", "items": { "type": "string" } },
+    "summary": { "type": ["string", "null"] },
+    "spe_version": { "type": ["string", "null"] },
+    "grammar_version": { "type": ["string", "null"] },
+    "anchor_status": { "type": ["string", "null"] },
+    "input_digest": { "type": ["string", "null"] },
+    "certificate_present": { "type": "boolean" },
+    "gate_digest": {
+      "type": "string",
+      "description": "SHA-256 over the canonical form of the verdict record itself (excluding this field)."
+    }
+  }
+}
